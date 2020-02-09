@@ -58,7 +58,7 @@
     .right-term {
         position: absolute;
         width: calc(50% - 55px);
-        height: calc(100% - 2.5rem);
+        height: calc(50% - 2rem);
         right: 0;
         margin-left: 1rem;
         margin-top: 1rem;
@@ -68,6 +68,42 @@
         padding-bottom: .25rem;
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    .right-bottom-left-term {
+        position: absolute;
+        width: calc(25% - 55px);
+        height: calc(50% - 2rem);
+        right: 25%;
+        bottom: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        background-color: rgb(255, 255, 255);
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .right-bottom-right-term {
+        position: absolute;
+        width: calc(25% - 25px);
+        height: calc(50% - 1.5rem);
+        right: 0;
+        bottom: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .right-bottom-right-term img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 </style>
 <body>
@@ -119,7 +155,7 @@
         </h5>
     
         <h5 class="text">
-                [fai@f4r4w4y profile]$ <span style="font-weight: normal">cat skills.txt</span>
+            [fai@f4r4w4y profile]$ <span style="font-weight: normal">cat skills.txt</span>
             <ul style="list-style-type: none;">
                 <li>
                     Android development
@@ -175,6 +211,18 @@
                 </li>
             </ul>
         </h5>
+    </div>
+
+    <div class="right-bottom-left-term">
+        <h5 class="text">
+            [fai@f4r4w4y ~]$ <span style="font-weight: normal">sudo su</span> <br>
+            [sudo] password for fai: <span style="font-weight: normal; color: white;">flag{ayy_wait_its_not_ctf_competition}</span> <br>
+            [root@f4r4w4y fai]# <span style="font-weight: normal">feh photo.jpg</span>
+        </h5>
+    </div>
+
+    <div class="right-bottom-right-term">
+        <img src="pictures/fai.jpeg" alt="photo">
     </div>
 </body>
 </html>
