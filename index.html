@@ -4,10 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P&display=swap" rel="stylesheet">
+    
     <title>f4r4w4y</title>
 </head>
 <style>
+    :root {
+        --link-color: #FF0000;
+    }
+
+    .underline {
+        border: 2px solid transparent;
+    }
+
+    .underline::after {
+        width: 0%;
+        height: 2px;
+        display: block;
+        background-color:var(--link-color);
+        content: " ";
+        position: absolute;
+        top: 17px;
+        left: 50%;
+        -webkit-transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .underline:hover::after {
+        width: 100%;
+        height: 2px;
+        display: block;
+        background-color:var(--link-color);
+        content: " ";
+        position: absolute;
+        top: 17px;
+        left: 0;
+    }
+
+    .link {
+        vertical-align: top;
+        text-decoration: none;
+        color:var(--link-color);
+        text-align: center;
+        position: relative;
+    }
+
     body {
         margin: 0rem;
     }
@@ -105,6 +147,20 @@
         height: 100%;
         object-fit: cover;
     }
+
+    .pad-normal {
+        padding: 10px;
+    }
+
+    .container {
+        position: relative;
+        overflow-y: auto;
+        right: -1rem;
+        top: -.25rem;
+        bottom: -.25rem;
+        height: 100%;
+        width: 100%;
+    }
 </style>
 <body>
 
@@ -113,87 +169,92 @@
     </div>
     
     <div class="left-term">
-        <h3 class="fullname">Muhammad Fakhri Putra <br> Supriyadi</h3>
+        <div class="container">
+            <h3 class="fullname">Muhammad Fakhri Putra <br> Supriyadi</h3>
 
-        <h5 class="text">    
-            [fai@f4r4w4y ~]$ <span style="font-weight: normal">cd profile/ | cat handles.txt</span>
-            <ul style="list-style-type: none;">
-                <li>
-                    > Fai
-                </li>
-                <li>
-                    > Fakhri
-                </li>
-                <li>
-                    > f4r4w4y <br>
-                    | far <span style="font-weight: normal">from the crowd</span><br>
-                    | <span style="font-weight: normal"> but </span> !away <span style="font-weight: normal">from the code</span><br>
-                </li>
-            </ul> 
-        </h5>
-    
-        <h5 class="text">
-            [fai@f4r4w4y profile]$ <span style="font-weight: normal">cat social_medias.txt</span>
-            <ul style="list-style-type: none;">
-                <li>
-                    <span style="font-weight: normal">only used for chatting and infosec news</span>
-                </li>
-                <li>
-                    Line : faraway_trime
-                </li>
-                <li>
-                    Twitter : <a href="https://twitter.com/0xfa1">0xf41</a>
-                </li>
-                <li>
-                    <br>
-                    <span style="font-weight: normal">Dont spam here pls</span>
-                </li>
-                <li>
-                    Email : fakhriputra123s@gmail.com
-                </li>
-            </ul>
-        </h5>
-    
-        <h5 class="text">
-            [fai@f4r4w4y profile]$ <span style="font-weight: normal">cat skills.txt</span>
-            <ul style="list-style-type: none;">
-                <li>
-                    Android development
-                </li>
-                <li>
-                    Web development
-                </li>
-                <li>
-                    Fullstack development
-                </li>
-                <!-- TODO Uncomment this one when the time comes-->
-                <!-- <li>
-                    Pwning Apps and Machine
-                </li> -->
-                <li>
-                    Amateur designer
-                </li>
-            </ul>
-        </h5>
-    
-        <h5 class="text">
-            [fai@f4r4w4y profile]$ <span style="font-weight: normal">cat professions.txt</span>
-            <ul style="list-style-type: none;">
-                <!-- TODO Uncomment this one when the time comes-->
-                <!-- <li>
-                    CTO of Ngeles
-                </li> -->
-                <li>
-                   <a href="https://mendung-10-6.github.io">(mendung)10^6</a> player
-                </li>
-                <li>
-                   <a href="https://daskomlab.com">DaskomLab</a> Software Dev
-                </li>
-                <li>
-                    Electronic Hobbyist
-                </li>
-            </ul>
-        </h5>
+            <h5 class="text">    
+                [fai@f4r4w4y ~]$ <span style="font-weight: normal">cd profile/ | cat handles.txt</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        > Fai
+                    </li>
+                    <li>
+                        > Fakhri
+                    </li>
+                    <li>
+                        > f4r4w4y <br>
+                        | far <span style="font-weight: normal">from the crowd</span><br>
+                        | <span style="font-weight: normal"> but </span> !away <span style="font-weight: normal">from the code</span><br>
+                    </li>
+                </ul> 
+            </h5>
+        
+            <h5 class="text">
+                [fai@f4r4w4y profile]$ <span style="font-weight: normal">cat social_medias.txt</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <span style="font-weight: normal">only used for chatting and infosec news</span>
+                    </li>
+                    <li>
+                        Line : faraway_trime
+                    </li>
+                    <li>
+                        Twitter : <a class="link underline" href="https://twitter.com/0xfa1">0xf41</a>
+                    </li>
+                    <li>
+                        Discord : f4r4w4y#6907
+                    </li>
+                    <li>
+                        <br>
+                        <span style="font-weight: normal">Dont spam here pls</span>
+                    </li>
+                    <li>
+                        Email : fakhriputra123s@gmail.com
+                    </li>
+                </ul>
+            </h5>
+        
+            <h5 class="text">
+                [fai@f4r4w4y profile]$ <span style="font-weight: normal">cat skills.txt</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Android development
+                    </li>
+                    <li>
+                        Web development
+                    </li>
+                    <li>
+                        Fullstack development
+                    </li>
+                    <!-- TODO Uncomment this one when the time comes-->
+                    <!-- <li>
+                        Pwning Apps and Machine
+                    </li> -->
+                    <li>
+                        Amateur designer
+                    </li>
+                </ul>
+            </h5>
+         
+            <h5 class="text">
+                [fai@f4r4w4y profile]$ <span style="font-weight: normal">cat professions.txt</span>
+                <ul style="list-style-type: none;">
+                    <!-- TODO Uncomment this one when the time comes-->
+                    <!-- <li>
+                        CTO of Ngeles
+                    </li> -->
+                    <li>
+                       <a class="link underline" href="https://mendung-10-6.github.io">(mendung)10^6</a> player
+                    </li>
+                    <li>
+                       <a class="link underline" href="https://daskomlab.com">DaskomLab</a> Software Dev
+                    </li>
+                    <li>
+                        Electronic Hobbyist
+                    </li>
+                </ul>
+            </h5>
+        </div>
     </div>
 
     <div class="right-term">
@@ -201,13 +262,13 @@
             [fai@f4r4w4y ~]$ <span style="font-weight: normal">ls</span>
             <ul style="list-style-type: none;">
                 <li>
-                    blogs
+                   <a class="link underline" href="./blogs.html">=> blogs</a>
                 </li>
                 <li>
-                   <a href="https://github.com/fakhrip/LearningJourney_v1">learning_journeyV1</a>
+                   <a class="link underline" href="https://github.com/fakhrip/LearningJourney_v1" target="_blank" rel="noopener noreferrer">=> learning_journeyV1</a>
                 </li>
                 <li>
-                    <a href="https://github.com/fakhrip/WeeklyReport">weekly_report</a>
+                    <a class="link underline" href="https://github.com/fakhrip/WeeklyReport" target="_blank" rel="noopener noreferrer">=> weekly_report</a>
                 </li>
             </ul>
         </h5>
