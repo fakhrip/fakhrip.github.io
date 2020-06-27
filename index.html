@@ -11,7 +11,9 @@
 </head>
 <style>
     :root {
-        --link-color: #FF0000;
+        --link-color: rgb(255, 30, 30);
+        --body-color: white;
+        --page-color: rgb(27, 27, 27);
     }
 
     .underline {
@@ -25,7 +27,7 @@
         background-color:var(--link-color);
         content: " ";
         position: absolute;
-        top: 17px;
+        top: 21px;
         left: 50%;
         -webkit-transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
         transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -38,7 +40,7 @@
         background-color:var(--link-color);
         content: " ";
         position: absolute;
-        top: 17px;
+        top: 21px;
         left: 0;
     }
 
@@ -55,12 +57,17 @@
     }
 
     .fullname {
+        font-size: 1.5rem;
         font-family: 'Press Start 2P', cursive;
+        color: var(--body-color);
     }
 
     .text {
-        font-size: .85rem;
+        font-size: 1.1rem;
         font-family: 'Fira Code', monospace;
+        word-wrap: break-word;
+        margin-right: 10px;
+        color: var(--body-color);
     }
 
     .fullscreen-bg {
@@ -69,7 +76,7 @@
         left: -50%; 
         width: 200%; 
         height: 200%;
-      }
+    }
 
     .fullscreen-bg img {
         position: absolute; 
@@ -90,11 +97,11 @@
         margin-left: 1rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
-        background-color: rgb(255, 255, 255);
         padding-top: .25rem;
         padding-bottom: .25rem;
         padding-left: 1rem;
         padding-right: 1rem;
+        background-color: var(--page-color);
     }
 
     .right-term {
@@ -105,11 +112,11 @@
         margin-left: 1rem;
         margin-top: 1rem;
         margin-right: 1rem;
-        background-color: rgb(255, 255, 255);
         padding-top: .25rem;
         padding-bottom: .25rem;
         padding-left: 1rem;
         padding-right: 1rem;
+        background-color: var(--page-color);
     }
 
     .right-bottom-left-term {
@@ -122,11 +129,11 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
         margin-right: 1rem;
-        background-color: rgb(255, 255, 255);
         padding-top: .25rem;
         padding-bottom: .25rem;
         padding-left: 1rem;
         padding-right: 1rem;
+        background-color: var(--page-color);
     }
 
     .right-bottom-right-term {
@@ -139,7 +146,6 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
         margin-right: 1rem;
-        background-color: rgb(255, 255, 255);
     }
 
     .right-bottom-right-term img {
@@ -244,10 +250,10 @@
                         CTO of Ngeles
                     </li> -->
                     <li>
-                       <a class="link underline" href="https://mendung-10-6.github.io">(mendung)10^6</a> player
+                       <a class="link underline" href="https://github.com/mendung-10-6">(mendung)10^6</a> player
                     </li>
                     <li>
-                       <a class="link underline" href="https://daskomlab.com">DaskomLab</a> Software Dev
+                       <a class="link underline" href="https://github.com/Daskom-Lab">DaskomLab</a> Software Dev
                     </li>
                     <li>
                         Electronic Hobbyist
@@ -258,28 +264,32 @@
     </div>
 
     <div class="right-term">
-        <h5 class="text">
-            [fai@f4r4w4y ~]$ <span style="font-weight: normal">ls</span>
-            <ul style="list-style-type: none;">
-                <li>
-                   <a class="link underline" href="./blogs.html">=> blogs</a>
-                </li>
-                <li>
-                   <a class="link underline" href="https://github.com/fakhrip/LearningJourney_v1" target="_blank" rel="noopener noreferrer">=> learning_journeyV1</a>
-                </li>
-                <li>
-                    <a class="link underline" href="https://github.com/fakhrip/WeeklyReport" target="_blank" rel="noopener noreferrer">=> weekly_report</a>
-                </li>
-            </ul>
-        </h5>
+        <div class="container">
+            <h5 class="text">
+                [fai@f4r4w4y ~]$ <span style="font-weight: normal">ls</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                       <a class="link underline" href="./blogs.html">=> blogs</a>
+                    </li>
+                    <li>
+                       <a class="link underline" href="https://github.com/fakhrip/LearningJourney_v1" target="_blank" rel="noopener noreferrer">=> learning_journeyV1</a>
+                    </li>
+                    <li>
+                        <a class="link underline" href="https://github.com/fakhrip/WeeklyReport" target="_blank" rel="noopener noreferrer">=> weekly_report</a>
+                    </li>
+                </ul>
+            </h5>
+        </div>
     </div>
 
     <div class="right-bottom-left-term">
-        <h5 class="text">
-            [fai@f4r4w4y ~]$ <span style="font-weight: normal">sudo su</span> <br>
-            [sudo] password for fai: <span style="font-weight: normal; color: white;">flag{ayy_wait_its_not_ctf_competition}</span> <br>
-            [root@f4r4w4y fai]# <span style="font-weight: normal">feh photo.jpg</span>
-        </h5>
+        <div class="container">
+            <h5 class="text">
+                [fai@f4r4w4y ~]$ <span style="font-weight: normal">sudo su</span> <br>
+                [sudo] password for fai: <span style="font-weight: normal; color: var(--page-color);">flag{ayy_wait_its_not_ctf_competition}</span> <br>
+                [root@f4r4w4y fai]# <span style="font-weight: normal">feh photo.jpg</span>
+            </h5>
+        </div>
     </div>
 
     <div class="right-bottom-right-term">
