@@ -121,6 +121,15 @@
                     </li>
                 </ul>
             </h5>
+
+            <h5 class="text">
+                [fai@f4r4w4y ~]$ <span style="font-weight: normal">randomquote</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <span id="quote-text" style="font-weight: bold;"></span>
+                    </li>
+                </ul>
+            </h5>
         </div>
     </div>
 
@@ -138,4 +147,16 @@
         <img src="pictures/fai.jpeg" alt="photo">
     </div>
 </body>
+<script>
+    var quoteArr = [
+        'The moment you talk down everyone else is the exact moment you start losing',
+        'Nyesel saat muda masih sempet, nyesel saat tua mending mati aja',
+        'Belum kepepet belum terangsang, giliran udah kepepet langsung tegang',
+        'Its not about do you want it, its about how much you want it',
+        'DUIT = (D)oa (U)saha (I)khtiar (T)awakal',
+        'Its 0.1% hard work 99.9% God\'s plan'
+    ]
+    const quote = quoteArr[Math.floor(Math.random() * quoteArr.length)];
+    document.getElementById('quote-text').innerHTML = '"' + quote + '"';
+</script>
 </html>

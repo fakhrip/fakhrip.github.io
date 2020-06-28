@@ -97,6 +97,22 @@ body {
     color: var(--body-color);
 }
  
+.full-term {
+    position: absolute;
+    width: calc(100% - 65px);
+    height: calc(100% - 2.5rem);
+    left: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--page-color);
+}
+ 
 .left-term {
     position: absolute;
     width: calc(50% - 55px);
