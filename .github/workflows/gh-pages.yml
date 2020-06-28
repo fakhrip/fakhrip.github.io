@@ -37,6 +37,8 @@ jobs:
     needs: build
     runs-on: [ubuntu-latest]
     steps:
+      - uses: actions/checkout@v2
+      
       - name: Deploy site
         uses: peaceiris/actions-gh-pages@v3
         with:
