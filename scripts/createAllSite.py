@@ -76,7 +76,7 @@ def main():
     print("[+] Injecting all sites to blogs.html")
     allBlogs = [f for f in os.listdir("./blogs") if isfile(join("./blogs", f))]
     
-    with open("./blogs.html", "r") as blogsHTMLFile :
+    with open("./templates/blogsTemplate.html", "r") as blogsHTMLFile :
         blogsHTMLTemplate = blogsHTMLFile.read()
     
         renderedResult = Template(blogsHTMLTemplate).render(sites = allBlogs)
@@ -89,7 +89,7 @@ def main():
     cur_date = date.today().strftime("%B %d, %Y")
     cur_time = datetime.now().strftime("%H:%M:%S")
     
-    with open("./index.html", "r") as indexHTMLFile :
+    with open("./templates/indexTemplate.html", "r") as indexHTMLFile :
         indexHTMLTemplate = indexHTMLFile.read()
 
         renderedResult = Template(indexHTMLTemplate).render(
