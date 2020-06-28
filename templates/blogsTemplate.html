@@ -4,18 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/base.css">
-    
+
     <title>f4r4w4y</title>
 </head>
+<style>
+    .right-term {
+        position: absolute;
+        width: calc(50% - 55px);
+        height: calc(100% - 2.5rem);
+        right: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: var(--page-color);
+    }
+</style>
 <body>
 
     <div class="fullscreen-bg">
         <img src="/pictures/bg1.jpg" alt="full-bg">
     </div>
-    
+
     <div class="left-term">
         <div class="container">
             <h3 class="fullname">Muhammad Fakhri Putra <br> Supriyadi</h3>
@@ -107,65 +124,31 @@
 
     <div class="right-term">
         <div class="container">
-            <h5 class="text">
-                [fai@f4r4w4y ~]$ <span style="font-weight: normal">ls</span>
-                <ul style="list-style-type: none;">
-                    <li>
-                        => <a class="link underline" href="./blogs.html">blogs</a>
-                    </li>
-                    <li>
-                        => <a class="link underline" href="https://github.com/fakhrip/LearningJourney_v1" target="_blank" rel="noopener noreferrer">learning_journeyV1</a>
-                    </li>
-                    <li>
-                        => <a class="link underline" href="https://github.com/fakhrip/WeeklyReport" target="_blank" rel="noopener noreferrer">weekly_report</a>
-                    </li>
-                </ul>
+            <h3 class="text big-title">
+                BLOG(S)
+            </h3>
+
+            <h5 class="text">    
+                [fai@f4r4w4y ~]$ <span style="font-weight: normal">cd blogs</span>
             </h5>
 
-            <h5 class="text">
-                [fai@f4r4w4y ~]$ <span style="font-weight: normal">randomquote</span>
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">ls -a</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        <span id="quote-text" style="font-weight: bold;"></span>
+                        =>  <a class="link underline" href="#">.</a>
                     </li>
-                </ul>
-            </h5>
-
-            <h5 class="text">
-                [fai@f4r4w4y ~]$ <span style="font-weight: normal">lastupdated</span>
-                <ul style="list-style-type: none;">
                     <li>
-                        Last updated on June 28, 2020 at 19:19:42
+                        =>  <a class="link underline" href="/index.html">..</a>
                     </li>
-                </ul>
+                    {% for site in sites %}
+                    <li>
+                        =>  <a class="link underline" href="/blogs/{{ site }}">{{ site|replace('.html','')|replace('-', ' ')|title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul> 
             </h5>
         </div>
-    </div>
-
-    <div class="right-bottom-left-term">
-        <div class="container">
-            <h5 class="text">
-                [fai@f4r4w4y ~]$ <span style="font-weight: normal">sudo su</span> <br>
-                [sudo] password for fai: <span style="font-weight: normal; color: var(--page-color);">flag{ayy_wait_its_not_ctf_competition}</span> <br>
-                [root@f4r4w4y fai]# <span style="font-weight: normal">feh photo.jpg</span>
-            </h5>
-        </div>
-    </div>
-
-    <div class="right-bottom-right-term">
-        <img src="/pictures/fai.jpeg" alt="photo">
     </div>
 </body>
-<script>
-    var quoteArr = [
-        'The moment you talk down everyone else is the exact moment you start losing',
-        'Nyesel saat muda masih sempet, nyesel saat tua mending mati aja',
-        'Belum kepepet belum terangsang, giliran udah kepepet langsung tegang',
-        'Its not about do you want it, its about how much you want it',
-        'DUIT = (D)oa (U)saha (I)khtiar (T)awakal',
-        'Its 0.1% hard work 99.9% God\'s plan'
-    ]
-    const quote = quoteArr[Math.floor(Math.random() * quoteArr.length)];
-    document.getElementById('quote-text').innerHTML = '"' + quote + '"';
-</script>
 </html>
