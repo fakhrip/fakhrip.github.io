@@ -49,9 +49,9 @@ def main():
     print("[+] Making sure /blogs exist")
     if not os.path.exists("./blogs"):
         os.mkdir("./blogs")
-        print("Directory " , "/blogs" ,  " Created ")
+        print("[|] Directory " , "/blogs" ,  " Created ")
     else:    
-        print("Directory " , "/blogs" ,  " already exists")
+        print("[|] Directory " , "/blogs" ,  " already exists")
     
     print("[+] Converting /sites to /blogs")
     for site in allSites :
