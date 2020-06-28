@@ -141,18 +141,16 @@ Dan disinilah kontennya
 <span class="c1"># Disini kita baca isi dari file markdown nya (blognya)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;blog.md&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span> <span class="p">:</span>
 
-<pre><code>&lt;span class="c1"&gt;# Lalu kita konversi markdown menjadi html dengan 1 baris berikut&lt;/span&gt;
-&lt;span class="n"&gt;markdown_yang_telah_dikonversi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;markdown2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+        <span class="c1"># Lalu kita konversi markdown menjadi html dengan 1 baris berikut</span>
+        <span class="n">markdown_yang_telah_dikonversi</span> <span class="o">=</span> <span class="n">markdown2</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
-&lt;span class="c1"&gt;# Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat&lt;/span&gt;
-&lt;span class="n"&gt;html_akhir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HTMLTEMPLATE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;markdown_yang_telah_dikonversi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        <span class="c1"># Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat</span>
+        <span class="n">html_akhir</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">HTMLTEMPLATE</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">contents</span> <span class="o">=</span> <span class="n">markdown_yang_telah_dikonversi</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita&lt;/span&gt;
-&lt;span class="n"&gt;indexFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;indexFile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;html_akhir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-</code></pre>
-
-    <span class="n">indexFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c1"># Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita</span>
+        <span class="n">indexFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">indexFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html_akhir</span><span class="p">)</span>
+        <span class="n">indexFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
 <p>Mari berinama file python tersebut <code>magic.py</code></p></li>
