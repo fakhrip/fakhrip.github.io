@@ -111,16 +111,16 @@ Let's execute the plan :
     # Disini kita baca isi dari file markdown nya (blognya)
     with open('blog.md', 'r') as f :
 
-        # Lalu kita konversi markdown menjadi html dengan 1 baris berikut
-        markdown_yang_telah_dikonversi = markdown2.markdown(f.read())
-        
-        # Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat
-        html_akhir = Template(HTMLTEMPLATE).render(contents = markdown_yang_telah_dikonversi)
+            # Lalu kita konversi markdown menjadi html dengan 1 baris berikut
+            markdown_yang_telah_dikonversi = markdown2.markdown(f.read())
+            
+            # Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat
+            html_akhir = Template(HTMLTEMPLATE).render(contents = markdown_yang_telah_dikonversi)
 
-        # Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita
-        indexFile = open('index.html', 'w')
-        indexFile.write(html_akhir)
-        indexFile.close()
+            # Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita
+            indexFile = open('index.html', 'w')
+            indexFile.write(html_akhir)
+            indexFile.close()
     ```
 
     Mari berinama file python tersebut `magic.py`

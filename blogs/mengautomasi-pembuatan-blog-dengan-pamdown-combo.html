@@ -110,58 +110,50 @@ MDown =&gt; Markdown
 
 <p>Sebagai contoh saja kita bisa buat file markdown (blog.md) seperti berikut</p>
 
-<p>```markdown</p>
+<pre><code># Ini judul sangat besar
 
-<h1>Ini judul sangat besar</h1>
+### lalu ini sub judul
 
-<h3>lalu ini sub judul</h3>
+Dan disinilah kontennya
+</code></pre></li>
+<li><p>The magic script of python :v</p>
 
-<p>Dan disinilah kontennya</p></li>
-</ol>
+<p>Disini kita buat sebuah script python yang akan menggunakan kedua file diatas yang sudah kita buat</p>
 
-<pre><code>
-3. The magic script of python :v
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="kn">import</span> <span class="nn">markdown2</span>
 
-    Disini kita buat sebuah script python yang akan menggunakan kedua file diatas yang sudah kita buat
+<span class="n">HTMLTEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="s2">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="s2">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">    &lt;div&gt;</span>
+<span class="s2">        {{ contents }}</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
-```python
-from jinja2 import Template
-import markdown2
+<span class="c1"># Disini kita baca isi dari file markdown nya (blognya)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;blog.md&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span> <span class="p">:</span>
 
-HTMLTEMPLATE = """&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div&gt;
-        {{ contents }}
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-"""
+        <span class="c1"># Lalu kita konversi markdown menjadi html dengan 1 baris berikut</span>
+        <span class="n">markdown_yang_telah_dikonversi</span> <span class="o">=</span> <span class="n">markdown2</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
-# Disini kita baca isi dari file markdown nya (blognya)
-with open('blog.md', 'r') as f :
+        <span class="c1"># Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat</span>
+        <span class="n">html_akhir</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">HTMLTEMPLATE</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">contents</span> <span class="o">=</span> <span class="n">markdown_yang_telah_dikonversi</span><span class="p">)</span>
 
-    # Lalu kita konversi markdown menjadi html dengan 1 baris berikut
-    markdown_yang_telah_dikonversi = markdown2.markdown(f.read())
+        <span class="c1"># Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita</span>
+        <span class="n">indexFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">indexFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html_akhir</span><span class="p">)</span>
+        <span class="n">indexFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
 
-    # Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat
-    html_akhir = Template(HTMLTEMPLATE).render(contents = markdown_yang_telah_dikonversi)
-
-    # Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita
-    indexFile = open('index.html', 'w')
-    indexFile.write(html_akhir)
-    indexFile.close()
-</code></pre>
-
-<pre><code>Mari berinama file python tersebut `magic.py`
-</code></pre>
-
-<ol>
+<p>Mari berinama file python tersebut <code>magic.py</code></p></li>
 <li><p>Github Pages Actions</p>
 
 <p>Setelah semua file sudah siap, sekarang mari kita buat automasi pada tahap build dan deployment nya (CI/CD)</p>
