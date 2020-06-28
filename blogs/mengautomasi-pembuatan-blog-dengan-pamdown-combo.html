@@ -85,8 +85,7 @@ MDown =&gt; Markdown
 </blockquote>
 
 <ol>
-<li>HTML Templating menggunakan Jinja</li>
-</ol>
+<li><p>HTML Templating menggunakan Jinja</p>
 
 <p>Kita bisa menggunakan dengan cara paling simple yaitu menggunakan variable yang nanti akan kita berikan melalui python seperti berikut</p>
 
@@ -106,11 +105,8 @@ MDown =&gt; Markdown
 <span class="s2">&quot;&quot;&quot;</span>
 </code></pre></div>
 
-<p>Pada HTML Template tersebut terdapat <code>{{ contents }}</code> yang berarti dia akan meminta contents yang nantinya bisa diberikan oleh python pada kodingan selanjutnya</p>
-
-<ol>
-<li>Blog pada Markdown File</li>
-</ol>
+<p>Pada HTML Template tersebut terdapat <code>{{ contents }}</code> yang berarti dia akan meminta contents yang nantinya bisa diberikan oleh python pada kodingan selanjutnya</p></li>
+<li><p>Blog pada Markdown File</p>
 
 <p>Sebagai contoh saja kita bisa buat file markdown (blog.md) seperti berikut</p>
 
@@ -119,11 +115,8 @@ MDown =&gt; Markdown
 ### lalu ini sub judul
 
 Dan disinilah kontennya
-</code></pre>
-
-<ol>
-<li>The magic script of python :v</li>
-</ol>
+</code></pre></li>
+<li><p>The magic script of python :v</p>
 
 <p>Disini kita buat sebuah script python yang akan menggunakan kedua file diatas yang sudah kita buat</p>
 
@@ -148,23 +141,22 @@ Dan disinilah kontennya
 <span class="c1"># Disini kita baca isi dari file markdown nya (blognya)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;blog.md&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span> <span class="p">:</span>
 
-    <span class="c1"># Lalu kita konversi markdown menjadi html dengan 1 baris berikut</span>
-    <span class="n">markdown_yang_telah_dikonversi</span> <span class="o">=</span> <span class="n">markdown2</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<pre><code>&lt;span class="c1"&gt;# Lalu kita konversi markdown menjadi html dengan 1 baris berikut&lt;/span&gt;
+&lt;span class="n"&gt;markdown_yang_telah_dikonversi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;markdown2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 
-    <span class="c1"># Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat</span>
-    <span class="n">html_akhir</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">HTMLTEMPLATE</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">contents</span> <span class="o">=</span> <span class="n">markdown_yang_telah_dikonversi</span><span class="p">)</span>
+&lt;span class="c1"&gt;# Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat&lt;/span&gt;
+&lt;span class="n"&gt;html_akhir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HTMLTEMPLATE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;markdown_yang_telah_dikonversi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    <span class="c1"># Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita</span>
-    <span class="n">indexFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-    <span class="n">indexFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html_akhir</span><span class="p">)</span>
+&lt;span class="c1"&gt;# Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita&lt;/span&gt;
+&lt;span class="n"&gt;indexFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;indexFile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;html_akhir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+</code></pre>
+
     <span class="n">indexFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
-<p>Mari berinama file python tersebut <code>magic.py</code></p>
-
-<ol>
-<li>Github Pages Actions</li>
-</ol>
+<p>Mari berinama file python tersebut <code>magic.py</code></p></li>
+<li><p>Github Pages Actions</p>
 
 <p>Setelah semua file sudah siap, sekarang mari kita buat automasi pada tahap build dan deployment nya (CI/CD)</p>
 
@@ -193,33 +185,33 @@ git push origin development
 <pre><code>name: Automasi build dan deploy
 
 on:
-  push:
+push:
     branches:
-      - development  # default branch
+    - development  # default branch
 
 jobs:
-  build_and_deploy:
+build_and_deploy:
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Setup Python
+    - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+        python-version: '3.x'
 
-      - name: Install dependencies
+    - name: Install dependencies
         run: pip install jinja markdown2
 
-      - name: Run magic script
+    - name: Run magic script
         run: python magic.py
 
-      - name: Deploy site
+    - name: Deploy site
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./
-          publish_branch: master  # deploying branch
+        github_token: ${{ secrets.PERSONAL_TOKEN }}
+        publish_dir: ./
+        publish_branch: master  # deploying branch
 </code></pre>
 
 <p>Jika semua sudah komplit sekarang <em>last but not least</em></p>
@@ -237,17 +229,15 @@ git commit -m <span class="s1">&#39;second commit&#39;</span>
 git push origin development
 </code></pre></div>
 
-<p>Lalu secara otomatis web kamu akan tersedia di link <code>https://username_github_mu.github.io</code></p>
-
-<ol>
-<li>CONGRATS, you have master the PAMDown combo</li>
-</ol>
+<p>Lalu secara otomatis web kamu akan tersedia di link <code>https://username_github_mu.github.io</code></p></li>
+<li><p>CONGRATS, you have master the PAMDown combo</p>
 
 <h3>Last word</h3>
 
 <p>Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja</p>
 
-<p>Terimakasih, mohon maaf bila ada kesalahan 🙏</p>
+<p>Terimakasih, mohon maaf bila ada kesalahan 🙏</p></li>
+</ol>
 
             </div>
         </div>
