@@ -1,0 +1,248 @@
+:root {
+    --link-color: rgb(255, 30, 30);
+    --body-color: white;
+    --page-color: rgb(27, 27, 27);
+}
+
+.underline {
+    border: 2px solid transparent;
+}
+
+.underline::after {
+    width: 0%;
+    height: 2px;
+    display: block;
+    background-color:var(--link-color);
+    content: " ";
+    position: absolute;
+    top: 21px;
+    left: 50%;
+    -webkit-transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.underline:hover::after {
+    width: 100%;
+    height: 2px;
+    display: block;
+    background-color:var(--link-color);
+    content: " ";
+    position: absolute;
+    top: 21px;
+    left: 0;
+}
+
+.link {
+    vertical-align: top;
+    text-decoration: none;
+    color:var(--link-color);
+    text-align: center;
+    position: relative;
+}
+
+body {
+    margin: 0rem;
+}
+
+.text {
+    font-size: 1.1rem;
+    font-family: 'Fira Code', monospace;
+    word-wrap: break-word;
+    margin-right: 10px;
+    color: var(--body-color);
+}
+
+.fullscreen-bg {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+
+.fullscreen-bg img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+}
+
+.pad-normal {
+    padding: 10px;
+}
+
+.container {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    right: -1rem;
+    top: -.25rem;
+    bottom: -.25rem;
+    height: 100%;
+    width: 100%;
+}
+
+.big-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.fullname {
+    font-size: 1.5rem;
+    font-family: 'Press Start 2P', cursive;
+    color: var(--body-color);
+}
+ 
+.full-term {
+    position: absolute;
+    width: calc(100% - 65px);
+    height: calc(100% - 2.5rem);
+    left: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--page-color);
+}
+ 
+.left-term {
+    position: absolute;
+    width: calc(50% - 55px);
+    height: calc(100% - 2.5rem);
+    left: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--page-color);
+}
+
+.right-term {
+    position: absolute;
+    width: calc(50% - 55px);
+    height: calc(50% - 2rem);
+    right: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--page-color);
+}
+
+.right-bottom-left-term {
+    position: absolute;
+    width: calc(25% - 55px);
+    height: calc(50% - 2rem);
+    right: 25%;
+    bottom: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--page-color);
+}
+
+.right-bottom-right-term {
+    position: absolute;
+    width: calc(25% - 25px);
+    height: calc(50% - 1.5rem);
+    right: 0;
+    bottom: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.right-bottom-right-term img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 800px) {
+
+    /* For mobile phones: */
+    .left-term {
+        position: relative;
+        width: calc(100% - 4rem);
+        height: auto;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: var(--page-color);
+    }
+
+    .right-term {
+        position: relative;
+        width: calc(100% - 4rem);
+        height: auto;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: var(--page-color);
+    }
+
+    .right-bottom-left-term {
+        position: relative;
+        width: calc(100% - 4rem);
+        height: auto;
+        right: 0;
+        bottom: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: var(--page-color);
+    }
+
+    .right-bottom-right-term {
+        position: relative;
+        width: calc(100% - 2rem);
+        height: 500px;
+        right: 0;
+        bottom: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+    }
+
+    .right-bottom-right-term img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

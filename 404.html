@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
+
+    <title>f4r4w4y</title>
+</head>
+<body>
+
+    <div class="fullscreen-bg">
+        <img src="/pictures/bg1.jpg" alt="full-bg">
+    </div>
+
+    <div class="full-term">
+        <div class="container">
+            <h5 class="text">
+                [fai@f4r4w4y ~]$ <span id="location" style="font-weight: normal"></span> 
+                <ul style="list-style-type: none;">
+                    <li>  
+                        -bash: cd: <span id="location-text"></span>: No such file or directory
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("location").innerHTML = 'cd ~' + window.location.pathname;
+    document.getElementById("location-text").innerHTML = window.location.pathname;
+</script>
+</html>
