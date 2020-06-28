@@ -83,7 +83,7 @@ Let's execute the plan :
     ### lalu ini sub judul
 
     Dan disinilah kontennya
-```
+    ```
 
 3. The magic script of python :v
 
@@ -205,8 +205,8 @@ Let's execute the plan :
 
 5. CONGRATS, you have master the PAMDown combo
 
-    ### Last word
+### Last word
 
-    Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja
+Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja
 
-    Terimakasih, mohon maaf bila ada kesalahan 🙏
+Terimakasih, mohon maaf bila ada kesalahan 🙏
