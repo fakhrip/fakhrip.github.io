@@ -3,7 +3,7 @@ name: Personal Web Deployment
 on:
   push:
     branches:
-      - master  # default branch
+      - development  # default branch
 
 jobs:
   build:
