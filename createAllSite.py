@@ -1,8 +1,7 @@
 from datetime import date, datetime
 from os.path import isfile, join
 from jinja2 import Template
-from os import listdir
-import markdown2
+import markdown2, os
 
 BLOGTEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -45,7 +44,14 @@ document.getElementById("location").innerHTML = '~' + window.location.pathname;
 
 def main():
     print("[+] Running all sites creation sequence")
-    allSites = [f for f in listdir("./sites") if isfile(join("./sites", f))]
+    allSites = [f for f in os.listdir("./sites") if isfile(join("./sites", f))]
+
+    print("[+] Making sure /blogs exist")
+    if not os.path.exists("./blogs"):
+        os.mkdir("./blogs")
+        print("Directory " , "/blogs" ,  " Created ")
+    else:    
+        print("Directory " , "/blogs" ,  " already exists")
     
     print("[+] Converting /sites to /blogs")
     for site in allSites :
@@ -68,7 +74,7 @@ def main():
         blogFile.close()
 
     print("[+] Injecting all sites to blogs.html")
-    allBlogs = [f for f in listdir("./blogs") if isfile(join("./blogs", f))]
+    allBlogs = [f for f in os.listdir("./blogs") if isfile(join("./blogs", f))]
     
     with open("./blogs.html", "r") as blogsHTMLFile :
         blogsHTMLTemplate = blogsHTMLFile.read()
