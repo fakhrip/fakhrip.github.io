@@ -32,7 +32,9 @@ BLOGTEMPLATE = """<!DOCTYPE html>
                 [fai@f4r4w4y ~]$ cat <span id="location" style="font-weight: normal"></span> 
             </h5>
 
-            {{ contents }}
+            <div class="blog-content">
+                {{ contents }}
+            </div>
         </div>
     </div>
 </body>
