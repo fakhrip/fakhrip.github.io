@@ -1,5 +1,7 @@
-> **TL;DR** Sok we atuh cek aja [source code](https://github.com/fakhrip/fakhrip.github.io/tree/development) nya sung, jangan lupa di star dan share repo nya kalau bermanfaat :D
-
+Tags: Programming|Python|Automation|Blogging
+Times: 30 mins read + 30 more mins if you want to do it too
+TLDR: Sok we atuh cek aja [source code](https://github.com/fakhrip/fakhrip.github.io/tree/development) nya sung, jangan lupa di star dan share repo nya kalau bermanfaat :D
+--+--+--+--
 # Mengautomasi pembuatan blog dengan menggunakan *PAMDown* combo
 
 Di minggu yang tenang dan sunyi merupakan saat yang tepat untuk selalu meng*explore* suatu hal yang baru, terlebih lagi akan sangat bagus jika dipakai untuk *blogging* karena hal ini bukan hanya meningkatkan seni menulis menjadi lebih baik juga bisa membuat CV lebih menarik 😎
