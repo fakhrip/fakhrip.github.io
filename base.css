@@ -4,11 +4,11 @@
     --page-color: rgb(27, 27, 27);
 }
 
-.underline, .blog-content a {
+a {
     border: 2px solid transparent;
 }
 
-.underline::after, .blog-content a::after {
+a::after {
     width: 0%;
     height: 2px;
     display: block;
@@ -21,7 +21,7 @@
     transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.underline:hover::after, .blog-content a:hover::after {
+a:hover::after {
     width: 100%;
     height: 2px;
     display: block;
@@ -32,7 +32,7 @@
     left: 0;
 }
 
-.link, .blog-content a {
+a {
     vertical-align: top;
     text-decoration: none;
     color:var(--link-color);
@@ -96,12 +96,127 @@ body {
     font-family: 'Press Start 2P', cursive;
     color: var(--body-color);
 }
+
+/* ****************** */
+/* BLOG related style */
+/* ****************** */
+
+.blog-content {
+    margin-left: 7.5rem;
+    margin-right: 7.5rem;
+}
+
+.container > hr {
+    margin-right: 2rem;
+}
+
+.blog-content blockquote {
+    background: #fff8d3;
+    border-left: 10px solid rgb(104, 255, 84);
+    margin: 1.5em 0px;
+    padding: 1em 30px;
+}
+
+.blog-content blockquote p {
+    display: inline;
+    color: black;
+}
+
+.blog-content h1 {
+    font-family: 'Bitter', serif;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.blog-content p, .blog-content h3 {
+    font-family: 'Raleway', sans-serif;
+    max-width: 900px;
+    word-wrap: break-word;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.blog-content h3 {
+    margin-top: 85px;
+}
+
+.blog-content .codehilite {
+    padding: 10px 30px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.blog-content ol li {
+    margin-top: 50px;
+}
+
+.blog-content p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-content img {
+    border-radius: 10px;
+    max-width: calc(100%);
+}
+
+.blog-content p code {
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 2.5px;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 1250px) {
+
+    /* For mobile phones: */
+    .blog-content {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+}
+
+/* ****************** */
+/* PAGE related style */
+/* ****************** */
+ 
+.small-left-top-term {
+    position: absolute;
+    width: calc(25% - 55px);
+    height: calc(50% - 2.5rem);
+    left: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--page-color);
+}
+ 
+.small-left-bottom-term {
+    position: absolute;
+    width: calc(25% - 55px);
+    height: calc(50% - 2.5rem);
+    left: 0;
+    bottom: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--page-color);
+}
  
 .full-term {
     position: absolute;
-    width: calc(100% - 65px);
+    width: calc(75% - 65px);
     height: calc(100% - 2.5rem);
-    left: 0;
+    right: 0;
     margin-left: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -181,6 +296,53 @@ body {
 @media only screen and (max-width: 800px) {
 
     /* For mobile phones: */
+    .small-left-top-term {
+        position: relative;
+        width: calc(100% - 55px);
+        height: auto;
+        left: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: var(--page-color);
+    }
+     
+    .small-left-bottom-term {
+        position: relative;
+        width: calc(100% - 55px);
+        height: auto;
+        left: 0;
+        bottom: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: var(--page-color);
+    }
+     
+    .full-term {
+        position: relative;
+        width: calc(100% - 65px);
+        height: auto;
+        right: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: var(--page-color);
+    }
+
     .left-term {
         position: relative;
         width: calc(100% - 4rem);
