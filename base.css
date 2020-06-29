@@ -168,12 +168,53 @@ body {
     font-size: 15px;
 }
 
+.tags-container {    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: 15px;
+    padding: 3px;
+    margin: 2.5px;
+    border-radius: 3px;
+}
+
+#python {
+    color: black;
+    background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+}
+
+#programming {
+    color: black;
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+}
+
+#automation {
+    color: white;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}
+
+#blogging {
+    color: black;
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
 @media only screen and (max-width: 1250px) {
 
     /* For mobile phones: */
     .blog-content {
         margin-left: 5rem;
         margin-right: 5rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    /* For mobile phones: */
+    .blog-content {
+        margin-left: 1rem;
+        margin-right: 2rem;
     }
 }
 

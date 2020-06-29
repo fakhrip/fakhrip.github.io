@@ -43,7 +43,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tags ./{{ site }}</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        <div>
+                        <div class="tags-container">
                             {% for tag in tags %}
                             <span class="tag" id="{{ tag|lower }}">
                                 {{ tag|upper }}
