@@ -299,6 +299,22 @@ body {
     background-color: var(--page-color);
 }
 
+.right-full-term {
+    position: absolute;
+    width: calc(50% - 55px);
+    height: calc(100% - 2.5rem);
+    right: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--page-color);
+}
+
 .right-bottom-left-term {
     position: absolute;
     width: calc(25% - 55px);
@@ -403,6 +419,22 @@ body {
         position: relative;
         width: calc(100% - 4rem);
         height: auto;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: var(--page-color);
+    }
+
+    .right-full-term {
+        position: relative;
+        width: calc(100% - 4rem);
+        height: auto;
+        right: 0;
         margin-left: 1rem;
         margin-top: 1rem;
         margin-right: 1rem;
