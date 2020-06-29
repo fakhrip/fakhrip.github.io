@@ -1,5 +1,3 @@
--------------------------
-
 > **TL;DR** Sok we atuh cek aja [source code](https://github.com/fakhrip/fakhrip.github.io/tree/development) nya sung, jangan lupa di star dan share repo nya kalau bermanfaat :D
 
 # Mengautomasi pembuatan blog dengan menggunakan *PAMDown* combo
@@ -58,14 +56,14 @@ Let's execute the plan :
     HTMLTEMPLATE = """<!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
     </head>
     <body>
-        <div>
-            {{ contents }}
-        </div>
+      <div>
+        {{ contents }}
+      </div>
     </body>
     </html>
     """
@@ -77,7 +75,7 @@ Let's execute the plan :
 
     Sebagai contoh saja kita bisa buat file markdown (blog.md) seperti berikut
 
-    ```markdown
+    ```md
     # Ini judul sangat besar
 
     ### lalu ini sub judul
@@ -96,14 +94,14 @@ Let's execute the plan :
     HTMLTEMPLATE = """<!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
     </head>
     <body>
-        <div>
-            {{ contents }}
-        </div>
+      <div>
+        {{ contents }}
+      </div>
     </body>
     </html>
     """
@@ -111,16 +109,16 @@ Let's execute the plan :
     # Disini kita baca isi dari file markdown nya (blognya)
     with open('blog.md', 'r') as f :
 
-            # Lalu kita konversi markdown menjadi html dengan 1 baris berikut
-            markdown_yang_telah_dikonversi = markdown2.markdown(f.read())
-            
-            # Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat
-            html_akhir = Template(HTMLTEMPLATE).render(contents = markdown_yang_telah_dikonversi)
+      # Lalu kita konversi markdown menjadi html dengan 1 baris berikut
+      markdown_yang_telah_dikonversi = markdown2.markdown(f.read())
+      
+      # Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat
+      html_akhir = Template(HTMLTEMPLATE).render(contents = markdown_yang_telah_dikonversi)
 
-            # Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita
-            indexFile = open('index.html', 'w')
-            indexFile.write(html_akhir)
-            indexFile.close()
+      # Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita
+      indexFile = open('index.html', 'w')
+      indexFile.write(html_akhir)
+      indexFile.close()
     ```
 
     Mari berinama file python tersebut `magic.py`
@@ -152,37 +150,37 @@ Let's execute the plan :
 
     Setelah itu kita bisa membuat file `gh-pages.yml` pada folder `.github/workflows/` di direktori projek nya seperti berikut
 
-    ```yml
+    ```yaml
     name: Automasi build dan deploy
 
     on:
     push:
-        branches:
-        - development  # default branch
+      branches:
+      - development  # default branch
 
     jobs:
     build_and_deploy:
-        runs-on: [ubuntu-latest]
-        steps:
-        - uses: actions/checkout@v2
+      runs-on: [ubuntu-latest]
+      steps:
+      - uses: actions/checkout@v2
         
-        - name: Setup Python
-            uses: actions/setup-python@v2
-            with:
-            python-version: '3.x'
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  
 
-        - name: Install dependencies
-            run: pip install jinja markdown2
+      - name: Install dependencies
+        run: pip install jinja markdown2
 
-        - name: Run magic script
-            run: python magic.py
+      - name: Run magic script
+        run: python magic.py
 
-        - name: Deploy site
-            uses: peaceiris/actions-gh-pages@v3
-            with:
-            github_token: ${{ secrets.PERSONAL_TOKEN }}
-            publish_dir: ./
-            publish_branch: master  # deploying branch
+      - name: Deploy site
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./
+          publish_branch: master  # deploying branch
     ```
 
     Jika semua sudah komplit sekarang *last but not least*
