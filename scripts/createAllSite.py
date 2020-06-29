@@ -1,6 +1,7 @@
-from datetime import date, datetime
+from datetime import datetime
 from os.path import isfile, join
 from jinja2 import Template
+from pytz import timezone
 import markdown2, os
 
 BLOGTEMPLATE = """<!DOCTYPE html>
@@ -180,8 +181,8 @@ def main():
         blogsFile.close()
 
     print("[+] Updating date and time in index.html")
-    cur_date = date.today().strftime("%B %d, %Y")
-    cur_time = datetime.now().strftime("%H:%M:%S")
+    cur_date = datetime.now(timezone('Asia/Jakarta')).strftime("%B %d, %Y")
+    cur_time = datetime.now(timezone('Asia/Jakarta')).strftime("%H:%M:%S")
     
     with open("./templates/indexTemplate.html", "r") as indexHTMLFile :
         indexHTMLTemplate = indexHTMLFile.read()
