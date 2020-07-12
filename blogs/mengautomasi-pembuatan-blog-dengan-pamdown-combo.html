@@ -76,7 +76,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./mengautomasi-pembuatan-blog-dengan-pamdown-combo.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Last updated on July 12, 2020 at 20:51:25
+                        Last updated on July 12, 2020 at 21:24:00
                     </li>
                 </ul>
             </h5>
@@ -158,14 +158,14 @@ MDown =&gt; Markdown
 <div class="codehilite"><pre><span></span><code><span class="n">HTMLTEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
 <span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
 <span class="s2">&lt;head&gt;</span>
-<span class="s2">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
-<span class="s2">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
-<span class="s2">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span>
+<span class="s2">&lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="s2">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="s2">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span>
 <span class="s2">&lt;/head&gt;</span>
 <span class="s2">&lt;body&gt;</span>
-<span class="s2">  &lt;div&gt;</span>
-<span class="s2">    {{ contents }}</span>
-<span class="s2">  &lt;/div&gt;</span>
+<span class="s2">&lt;div&gt;</span>
+<span class="s2">  {{ contents }}</span>
+<span class="s2">&lt;/div&gt;</span>
 <span class="s2">&lt;/body&gt;</span>
 <span class="s2">&lt;/html&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -192,14 +192,14 @@ Dan disinilah kontennya
 <span class="n">HTMLTEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
 <span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
 <span class="s2">&lt;head&gt;</span>
-<span class="s2">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
-<span class="s2">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
-<span class="s2">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span>
+<span class="s2">&lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="s2">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="s2">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span>
 <span class="s2">&lt;/head&gt;</span>
 <span class="s2">&lt;body&gt;</span>
-<span class="s2">  &lt;div&gt;</span>
-<span class="s2">    {{ contents }}</span>
-<span class="s2">  &lt;/div&gt;</span>
+<span class="s2">&lt;div&gt;</span>
+<span class="s2">  {{ contents }}</span>
+<span class="s2">&lt;/div&gt;</span>
 <span class="s2">&lt;/body&gt;</span>
 <span class="s2">&lt;/html&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -207,16 +207,16 @@ Dan disinilah kontennya
 <span class="c1"># Disini kita baca isi dari file markdown nya (blognya)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;blog.md&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span> <span class="p">:</span>
 
-  <span class="c1"># Lalu kita konversi markdown menjadi html dengan 1 baris berikut</span>
-  <span class="n">markdown_yang_telah_dikonversi</span> <span class="o">=</span> <span class="n">markdown2</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="c1"># Lalu kita konversi markdown menjadi html dengan 1 baris berikut</span>
+<span class="n">markdown_yang_telah_dikonversi</span> <span class="o">=</span> <span class="n">markdown2</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
-  <span class="c1"># Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat</span>
-  <span class="n">html_akhir</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">HTMLTEMPLATE</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">contents</span> <span class="o">=</span> <span class="n">markdown_yang_telah_dikonversi</span><span class="p">)</span>
+<span class="c1"># Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat</span>
+<span class="n">html_akhir</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">HTMLTEMPLATE</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">contents</span> <span class="o">=</span> <span class="n">markdown_yang_telah_dikonversi</span><span class="p">)</span>
 
-  <span class="c1"># Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita</span>
-  <span class="n">indexFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-  <span class="n">indexFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html_akhir</span><span class="p">)</span>
-  <span class="n">indexFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1"># Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita</span>
+<span class="n">indexFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">indexFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html_akhir</span><span class="p">)</span>
+<span class="n">indexFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
 <p>Mari berinama file python tersebut <code>magic.py</code></p></li>
@@ -250,32 +250,32 @@ git push origin development
 
 <span class="nt">on</span><span class="p">:</span>
 <span class="nt">push</span><span class="p">:</span>
-  <span class="nt">branches</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">development</span>  <span class="c1"># default branch</span>
+<span class="nt">branches</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">development</span>  <span class="c1"># default branch</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="nt">build_and_deploy</span><span class="p">:</span>
-  <span class="nt">runs-on</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ubuntu-latest</span><span class="p p-Indicator">]</span>
-  <span class="nt">steps</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="nt">runs-on</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ubuntu-latest</span><span class="p p-Indicator">]</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
 
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
-    <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
-    <span class="nt">with</span><span class="p">:</span>
-      <span class="nt">python-version</span><span class="p">:</span> <span class="s">&#39;3.x&#39;</span>  
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+  <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
+  <span class="nt">with</span><span class="p">:</span>
+    <span class="nt">python-version</span><span class="p">:</span> <span class="s">&#39;3.x&#39;</span>  
 
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
-    <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install jinja markdown2</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+  <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install jinja markdown2</span>
 
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run magic script</span>
-    <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python magic.py</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run magic script</span>
+  <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python magic.py</span>
 
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy site</span>
-    <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
-    <span class="nt">with</span><span class="p">:</span>
-      <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PERSONAL_TOKEN }}</span>
-      <span class="nt">publish_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./</span>
-      <span class="nt">publish_branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>  <span class="c1"># deploying branch</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy site</span>
+  <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
+  <span class="nt">with</span><span class="p">:</span>
+    <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PERSONAL_TOKEN }}</span>
+    <span class="nt">publish_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./</span>
+    <span class="nt">publish_branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>  <span class="c1"># deploying branch</span>
 </code></pre></div>
 
 <p>Jika semua sudah komplit sekarang <em>last but not least</em></p>
