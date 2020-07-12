@@ -78,13 +78,17 @@ BLOGTEMPLATE = """<!DOCTYPE html>
     <div class="full-term">
         <div class="container text">
             <h5 class="text">
-                [fai@f4r4w4y ~]$ <span style="font-weight: normal">cd <a class="link underline" href="/index.html">..</a></span>
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">cd <a class="link underline" href="/index.html">..</a></span>
             </h5>
 
             <h5 class="text">
-                [fai@f4r4w4y ~]$ <span style="font-weight: normal">fancyblogcat <span id="location" style="font-weight: normal"></span></span>
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">fancyblogcat <span id="location" style="font-weight: normal"></span></span>
             </h5>
 
+            <hr/>
+            <center>
+                <span style="font-weight: normal">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>
+            </center>
             <hr/>
             
             <div class="blog-content">
@@ -94,7 +98,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
     </div>
 </body>
 <script>
-    document.getElementById("location").innerHTML = '~' + window.location.pathname;
+    document.getElementById("location").innerHTML = '~/' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
 </script>
 </html>
 """
