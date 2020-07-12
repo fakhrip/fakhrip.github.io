@@ -52,156 +52,156 @@ Let's execute the plan :
 
 1. HTML Templating menggunakan Jinja
 
-    Kita bisa menggunakan dengan cara paling simple yaitu menggunakan variable yang nanti akan kita berikan melalui python seperti berikut
+  Kita bisa menggunakan dengan cara paling simple yaitu menggunakan variable yang nanti akan kita berikan melalui python seperti berikut
 
-    ```python
-    HTMLTEMPLATE = """<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    </head>
-    <body>
-      <div>
-        {{ contents }}
-      </div>
-    </body>
-    </html>
-    """
-    ```
+  ```python
+  HTMLTEMPLATE = """<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  </head>
+  <body>
+    <div>
+      {{ contents }}
+    </div>
+  </body>
+  </html>
+  """
+  ```
 
-    Pada HTML Template tersebut terdapat `{{ contents }}` yang berarti dia akan meminta contents yang nantinya bisa diberikan oleh python pada kodingan selanjutnya
+  Pada HTML Template tersebut terdapat `{{ contents }}` yang berarti dia akan meminta contents yang nantinya bisa diberikan oleh python pada kodingan selanjutnya
 
 2. Blog pada Markdown File
 
-    Sebagai contoh saja kita bisa buat file markdown (blog.md) seperti berikut
+  Sebagai contoh saja kita bisa buat file markdown (blog.md) seperti berikut
 
-    ```md
-    # Ini judul sangat besar
+  ```md
+  # Ini judul sangat besar
 
-    ### lalu ini sub judul
+  ### lalu ini sub judul
 
-    Dan disinilah kontennya
-    ```
+  Dan disinilah kontennya
+  ```
 
 3. The magic script of python :v
 
-    Disini kita buat sebuah script python yang akan menggunakan kedua file diatas yang sudah kita buat
+  Disini kita buat sebuah script python yang akan menggunakan kedua file diatas yang sudah kita buat
 
-    ```python
-    from jinja2 import Template
-    import markdown2
+  ```python
+  from jinja2 import Template
+  import markdown2
 
-    HTMLTEMPLATE = """<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    </head>
-    <body>
-      <div>
-        {{ contents }}
-      </div>
-    </body>
-    </html>
-    """
+  HTMLTEMPLATE = """<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  </head>
+  <body>
+    <div>
+      {{ contents }}
+    </div>
+  </body>
+  </html>
+  """
 
-    # Disini kita baca isi dari file markdown nya (blognya)
-    with open('blog.md', 'r') as f :
+  # Disini kita baca isi dari file markdown nya (blognya)
+  with open('blog.md', 'r') as f :
 
-      # Lalu kita konversi markdown menjadi html dengan 1 baris berikut
-      markdown_yang_telah_dikonversi = markdown2.markdown(f.read())
-      
-      # Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat
-      html_akhir = Template(HTMLTEMPLATE).render(contents = markdown_yang_telah_dikonversi)
+    # Lalu kita konversi markdown menjadi html dengan 1 baris berikut
+    markdown_yang_telah_dikonversi = markdown2.markdown(f.read())
+    
+    # Setelah itu kita masukan markdown yang telah dikonversi menjadi variable `contents` yang akan dimasukkan kedalam HTMLTEMPLATE yang sudah kita buat
+    html_akhir = Template(HTMLTEMPLATE).render(contents = markdown_yang_telah_dikonversi)
 
-      # Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita
-      indexFile = open('index.html', 'w')
-      indexFile.write(html_akhir)
-      indexFile.close()
-    ```
+    # Terakhir kita tulis isi html_akhir kedalam sebuah file yang kita beri nama index.html sebagai html utama dari website kita
+    indexFile = open('index.html', 'w')
+    indexFile.write(html_akhir)
+    indexFile.close()
+  ```
 
-    Mari berinama file python tersebut `magic.py`
+  Mari berinama file python tersebut `magic.py`
 
 4. Github Pages Actions
 
-    Setelah semua file sudah siap, sekarang mari kita buat automasi pada tahap build dan deployment nya (CI/CD)
+  Setelah semua file sudah siap, sekarang mari kita buat automasi pada tahap build dan deployment nya (CI/CD)
 
-    Kita buat dengan cara membuat repository baru dengan nama `username_github_mu.github.io`
+  Kita buat dengan cara membuat repository baru dengan nama `username_github_mu.github.io`
 
-    ![github-setup-create-repo](../pictures/site1/github1.png)
+  ![github-setup-create-repo](../pictures/site1/github1.png)
 
-    Gambar diatas terdapat *merah-merah* error karena saya sudah memiliki repository yang sama
+  Gambar diatas terdapat *merah-merah* error karena saya sudah memiliki repository yang sama
 
-    Lalu kita inisialisasi direktori lokal, stage & commit semua file serta push ke server remote github nya dengan cara (dan jangan lupa kita harus push ke branch yang baru disini saya buat `development`, alasannya akan saya kasih tau lebih lanjut dibawah)
+  Lalu kita inisialisasi direktori lokal, stage & commit semua file serta push ke server remote github nya dengan cara (dan jangan lupa kita harus push ke branch yang baru disini saya buat `development`, alasannya akan saya kasih tau lebih lanjut dibawah)
 
-    ```bash
-    cd [folder projek nya]
-    git init
-    git add -A
-    git commit -m 'first commit'
-    git checkout -b development
-    git push origin development
-    ```
+  ```bash
+  cd [folder projek nya]
+  git init
+  git add -A
+  git commit -m 'first commit'
+  git checkout -b development
+  git push origin development
+  ```
 
-    Lalu kita harus setup default branch nya ke branch baru yang tadi kita sudah buat seperti berikut
+  Lalu kita harus setup default branch nya ke branch baru yang tadi kita sudah buat seperti berikut
 
-    ![github-setup-change-default-branch](../pictures/site1/github2.png)
+  ![github-setup-change-default-branch](../pictures/site1/github2.png)
 
-    Setelah itu kita bisa membuat file `gh-pages.yml` pada folder `.github/workflows/` di direktori projek nya seperti berikut
+  Setelah itu kita bisa membuat file `gh-pages.yml` pada folder `.github/workflows/` di direktori projek nya seperti berikut
 
-    ```yaml
-    name: Automasi build dan deploy
+  ```yaml
+  name: Automasi build dan deploy
 
-    on:
-    push:
-      branches:
-      - development  # default branch
+  on:
+  push:
+    branches:
+    - development  # default branch
 
-    jobs:
-    build_and_deploy:
-      runs-on: [ubuntu-latest]
-      steps:
-      - uses: actions/checkout@v2
-        
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'  
+  jobs:
+  build_and_deploy:
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  
 
-      - name: Install dependencies
-        run: pip install jinja markdown2
+    - name: Install dependencies
+      run: pip install jinja markdown2
 
-      - name: Run magic script
-        run: python magic.py
+    - name: Run magic script
+      run: python magic.py
 
-      - name: Deploy site
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./
-          publish_branch: master  # deploying branch
-    ```
+    - name: Deploy site
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.PERSONAL_TOKEN }}
+        publish_dir: ./
+        publish_branch: master  # deploying branch
+  ```
 
-    Jika semua sudah komplit sekarang *last but not least*
+  Jika semua sudah komplit sekarang *last but not least*
 
-    Kita buat personal token yang akan kita jadikan sebuah secret yang nantinya akan digunakan oleh file automasi .yml nya seperti berikut
+  Kita buat personal token yang akan kita jadikan sebuah secret yang nantinya akan digunakan oleh file automasi .yml nya seperti berikut
 
-    ![github-setup-create-personal-token](../pictures/site1/github3.png)
+  ![github-setup-create-personal-token](../pictures/site1/github3.png)
 
-    ![github-setup-create-secret-token](../pictures/site1/github4.png)
+  ![github-setup-create-secret-token](../pictures/site1/github4.png)
 
-    Setelah semuanya selesai lalu masuklah tahap akhir yaitu kita commit perubahan terakhir nya dan kita push dengan cara
+  Setelah semuanya selesai lalu masuklah tahap akhir yaitu kita commit perubahan terakhir nya dan kita push dengan cara
 
-    ```bash
-    git add -A
-    git commit -m 'second commit'
-    git push origin development
-    ```
+  ```bash
+  git add -A
+  git commit -m 'second commit'
+  git push origin development
+  ```
 
-    Lalu secara otomatis web kamu akan tersedia di link `https://username_github_mu.github.io`
+  Lalu secara otomatis web kamu akan tersedia di link `https://username_github_mu.github.io`
 
 5. CONGRATS, you have master the PAMDown combo
 
