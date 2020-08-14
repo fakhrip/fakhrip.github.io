@@ -1,5 +1,5 @@
 Tags: Programming|Hacking|Basics
-Times: 20 mins read
+Times: 10 mins read
 TLDR: Saya bingung rangkumannya apa jadi baca aja ya :D
 --+--+--+--
 # Developer, Hacker, User ? Apaan tuh
