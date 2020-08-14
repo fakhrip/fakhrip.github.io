@@ -34,7 +34,7 @@ Memang sudah keharusan bagi para developer untuk membetulkan bug nya, akan tetap
 
 Sama halnya dengan taman bermain, pada saat pembangunan taman bermain tidak terlaksanakan dengan sempurna maka akan ada saat dimana permainan nya gampang roboh dan sebagainya, nah pada sebagian besar waktu dimana permainannya roboh, maka permainan tersebut harus dibetulkan kembali, contohnya seperti ayunan, perosotan, dsb.
 
-Akan tetapi ada saat dimana mainan yang roboh ini justru bisa juga digunakan untuk keperluan lainnya, tanpa perlu dibetulkan, contohnya pada mainan mangkok putar dibawah ini, bisa mainan ini roboh maka tetap saja kita masih bisa menggunakannya untuk dipakai duduk duduk seperti biasa :D.
+Akan tetapi ada saat dimana mainan yang roboh ini justru bisa juga digunakan untuk keperluan lainnya, tanpa perlu dibetulkan, contohnya pada mainan mangkok putar dibawah ini, jika mainan ini roboh maka tetap saja kita masih bisa menggunakannya untuk dipakai duduk duduk seperti biasa :D.
 
 ![mangkok-putar](../pictures/site2/mangkokputar.png)
 sumber: [idntimes](https://www.idntimes.com/hype/throwback/jcnd/permainan-seru-di-tk-c1c2)
