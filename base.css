@@ -190,6 +190,16 @@ body {
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
 }
 
+#hacking {
+    color: black;
+    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+}
+
+#basics {
+    color: black;
+    background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
+}
+
 #automation {
     color: white;
     background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
