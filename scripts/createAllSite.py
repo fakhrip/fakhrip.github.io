@@ -78,7 +78,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
     <div class="full-term">
         <div class="container text">
             <h5 class="text">
-                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">cd <a class="link underline" href="/index.html">..</a></span>
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">cd <a class="link underline" href="/blogs.html">..</a></span>
             </h5>
 
             <h5 class="text">
