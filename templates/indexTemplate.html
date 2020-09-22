@@ -113,12 +113,11 @@
                     <li>
                         => <a href="./blogs.html">blogs</a>
                     </li>
+                    {% for github_url in github_urls %}
                     <li>
-                        => <a href="https://github.com/fakhrip/LearningJourney_v1" target="_blank" rel="noopener noreferrer">learning_journeyV1</a>
+                        =>  <a href="{{ github_url }}">{{ github_url|replace('https://github.com/fakhrip/','') }}</a>
                     </li>
-                    <li>
-                        => <a href="https://github.com/fakhrip/WeeklyReport" target="_blank" rel="noopener noreferrer">weekly_report</a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </h5>
 
