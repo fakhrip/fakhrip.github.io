@@ -1,8 +1,9 @@
 from datetime import datetime
+from subprocess import check_output
 from os.path import isfile, join
 from jinja2 import Template
 from pytz import timezone
-import markdown2, os
+import markdown2, os, json
 
 BLOGTEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -187,11 +188,15 @@ def main():
     print("[+] Updating date and time in index.html")
     cur_date = datetime.now(timezone('Asia/Jakarta')).strftime("%B %d, %Y")
     cur_time = datetime.now(timezone('Asia/Jakarta')).strftime("%H:%M:%S")
+
+    github_urls = check_output('curl "https://api.github.com/users/fakhrip/repos?per_page=100" | jq "[ .[] | select(.archived == \"false\") | .html_url ]"', shell=True)
+    github_urls = [url for url in json.loads(github_urls)]
     
     with open("./templates/indexTemplate.html", "r") as indexHTMLFile :
         indexHTMLTemplate = indexHTMLFile.read()
 
         renderedResult = Template(indexHTMLTemplate).render(
+            github_urls = github_urls,
             updatedDate = cur_date, 
             updatedTime = cur_time
         )
