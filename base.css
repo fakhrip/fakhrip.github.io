@@ -180,6 +180,16 @@ body {
     border-radius: 3px;
 }
 
+#general {
+    color: black;
+    background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
+}
+
+#linux {
+    color: black;
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+}
+
 #python {
     color: black;
     background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
