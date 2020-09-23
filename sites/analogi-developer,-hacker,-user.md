@@ -55,7 +55,7 @@ Kata `hacker` itu sendiri mengartikan peretas dalam bahasa indonesia, maka dari 
 
 Jika kita analogikan kedalam taman bermain, maka hacker ini adalah seorang anak-anak yang juga merupakan sebuah `user`, akan tetapi disaat anak-anak pada umumnya menggunakan permainan pada taman bermain dengan cara yang biasa, anak-anak lain (hacker) menggunakannya dengan cara yang tidak lazim, contohnya disaat ayunan pada umumnya dipakai oleh anak-anak dengan cara duduk lalu mengayunkannya, anak-anak lainnya (hacker) menggunakannya dengan cara mengayunkan ayunannya hingga berputar 360° bahkan lebih.
 
-![ayunan-aneh](../pictures/site2/ayunan-aneh.jpg)
+![ayunan-aneh](../pictures/site2/ayunan-aneh.jpg)  
 sumber: [geekologie](https://geekologie.com/2017/08/ummm-did-he-die-360-degree-playground-sw.php)
 
 Dan dengan mengetahui cara kerja ayunannya tersebut lah seorang `hacker` mampu untuk mengeksploitasi sistemnya misal dalam hal ini merobohkan ayunannya, tapi gamungkin juga anak anak merobohkan ayunan :v.

@@ -191,6 +191,7 @@ def main():
 
     github_urls = check_output('curl "https://api.github.com/users/fakhrip/repos?per_page=100" | jq "[ .[] | select(.archived == \"false\") | .html_url ]"', shell=True)
     github_urls = [url for url in json.loads(github_urls)]
+    github_urls = sorted(github_urls)
     
     with open("./templates/indexTemplate.html", "r") as indexHTMLFile :
         indexHTMLTemplate = indexHTMLFile.read()
