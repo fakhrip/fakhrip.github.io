@@ -99,7 +99,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
     </div>
 </body>
 <script>
-    document.getElementById("location").innerHTML = '~/' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+    document.getElementById("location").innerHTML = './' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
 </script>
 </html>
 """
