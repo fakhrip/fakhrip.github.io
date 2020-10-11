@@ -49,6 +49,7 @@ body {
     font-family: 'Fira Code', monospace;
     word-wrap: break-word;
     margin-right: 10px;
+    line-height: 1.5em;
     color: var(--body-color);
 }
 
@@ -126,6 +127,7 @@ body {
     font-family: 'Bitter', serif;
     margin-top: 30px;
     margin-bottom: 50px;
+    line-height: 1.25em;
 }
 
 .blog-content p, .blog-content h3 {
