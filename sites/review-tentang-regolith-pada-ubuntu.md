@@ -27,6 +27,6 @@ Tetapi ini balik lagi kepada urgency dan kebutuhan dari penggunanya, dan jika sa
 
 ### Last word
 
-Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja
+Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja.
 
-Terimakasih, mohon maaf bila ada kesalahan 🙏
+Terimakasih, mohon maaf bila ada kesalahan 🙏.

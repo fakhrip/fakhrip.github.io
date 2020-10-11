@@ -28,11 +28,11 @@ A => Github Pages Actions
 MDown => Markdown
 ```
 
-[Jinja](https://jinja.palletsprojects.com/en/2.11.x/) pada python nya sendiri saya pakai sebagai HTML Templating agar bisa memasukkan variable pada python kedalam HTML Template yang sudah saya buat
+[Jinja](https://jinja.palletsprojects.com/en/2.11.x/) pada python nya sendiri saya pakai sebagai HTML Templating agar bisa memasukkan variable pada python kedalam HTML Template yang sudah saya buat.
 
-[Markdown2](https://github.com/trentm/python-markdown2) nya berguna untuk mengubah blog yang saya tulis menggunakan markdown agar menjadi HTML (dalam bentuk variable pada python) yang nantinya bisa dimasukkan kedalam HTML Template menggunakan jinja
+[Markdown2](https://github.com/trentm/python-markdown2) nya berguna untuk mengubah blog yang saya tulis menggunakan markdown agar menjadi HTML (dalam bentuk variable pada python) yang nantinya bisa dimasukkan kedalam HTML Template menggunakan jinja.
 
-Untuk terakhir [Github Pages Actions](https://github.com/marketplace/actions/github-pages-action) sudah jelas saya gunakan agar python script yang dibuat bisa dijalankan pada server github secara otomatis pada saat deployment, yaa bisa dibilang CI/CD kecil kecilan lah
+Untuk terakhir [Github Pages Actions](https://github.com/marketplace/actions/github-pages-action) sudah jelas saya gunakan agar python script yang dibuat bisa dijalankan pada server github secara otomatis pada saat deployment, yaa bisa dibilang CI/CD kecil kecilan lah.
 
 ### Talk is cheap, show me the code
 
@@ -71,7 +71,7 @@ Let's execute the plan :
   """
   ```
 
-  Pada HTML Template tersebut terdapat `{{ contents }}` yang berarti dia akan meminta contents yang nantinya bisa diberikan oleh python pada kodingan selanjutnya
+  Pada HTML Template tersebut terdapat `{{ contents }}` yang berarti dia akan meminta contents yang nantinya bisa diberikan oleh python pada kodingan selanjutnya.
 
 2. Blog pada Markdown File
 
@@ -87,7 +87,7 @@ Let's execute the plan :
 
 3. The magic script of python :v
 
-  Disini kita buat sebuah script python yang akan menggunakan kedua file diatas yang sudah kita buat
+  Disini kita buat sebuah script python yang akan menggunakan kedua file diatas yang sudah kita buat.
 
   ```python
   from jinja2 import Template
@@ -123,19 +123,19 @@ Let's execute the plan :
     indexFile.close()
   ```
 
-  Mari berinama file python tersebut `magic.py`
+  Mari berinama file python tersebut `magic.py`.
 
 4. Github Pages Actions
 
-  Setelah semua file sudah siap, sekarang mari kita buat automasi pada tahap build dan deployment nya (CI/CD)
+  Setelah semua file sudah siap, sekarang mari kita buat automasi pada tahap build dan deployment nya (CI/CD).
 
-  Kita buat dengan cara membuat repository baru dengan nama `username_github_mu.github.io`
+  Kita buat dengan cara membuat repository baru dengan nama `username_github_mu.github.io`.
 
   ![github-setup-create-repo](../pictures/site1/github1.png)
 
-  Gambar diatas terdapat *merah-merah* error karena saya sudah memiliki repository yang sama
+  Gambar diatas terdapat *merah-merah* error karena saya sudah memiliki repository yang sama.
 
-  Lalu kita inisialisasi direktori lokal, stage & commit semua file serta push ke server remote github nya dengan cara (dan jangan lupa kita harus push ke branch yang baru disini saya buat `development`, alasannya akan saya kasih tau lebih lanjut dibawah)
+  Lalu kita inisialisasi direktori lokal, stage & commit semua file serta push ke server remote github nya dengan cara (dan jangan lupa kita harus push ke branch yang baru disini saya buat `development`, alasannya akan saya kasih tau lebih lanjut dibawah).
 
   ```bash
   cd [folder projek nya]
@@ -146,11 +146,11 @@ Let's execute the plan :
   git push origin development
   ```
 
-  Lalu kita harus setup default branch nya ke branch baru yang tadi kita sudah buat seperti berikut
+  Lalu kita harus setup default branch nya ke branch baru yang tadi kita sudah buat seperti berikut.
 
   ![github-setup-change-default-branch](../pictures/site1/github2.png)
 
-  Setelah itu kita bisa membuat file `gh-pages.yml` pada folder `.github/workflows/` di direktori projek nya seperti berikut
+  Setelah itu kita bisa membuat file `gh-pages.yml` pada folder `.github/workflows/` di direktori projek nya seperti berikut.
 
   ```yaml
   name: Automasi build dan deploy
@@ -185,15 +185,15 @@ Let's execute the plan :
         publish_branch: master  # deploying branch
   ```
 
-  Jika semua sudah komplit sekarang *last but not least*
+  Jika semua sudah komplit sekarang *last but not least*.
 
-  Kita buat personal token yang akan kita jadikan sebuah secret yang nantinya akan digunakan oleh file automasi .yml nya seperti berikut
+  Kita buat personal token yang akan kita jadikan sebuah secret yang nantinya akan digunakan oleh file automasi .yml nya seperti berikut.
 
   ![github-setup-create-personal-token](../pictures/site1/github3.png)
 
   ![github-setup-create-secret-token](../pictures/site1/github4.png)
 
-  Setelah semuanya selesai lalu masuklah tahap akhir yaitu kita commit perubahan terakhir nya dan kita push dengan cara
+  Setelah semuanya selesai lalu masuklah tahap akhir yaitu kita commit perubahan terakhir nya dan kita push dengan cara.
 
   ```bash
   git add -A
@@ -201,12 +201,12 @@ Let's execute the plan :
   git push origin development
   ```
 
-  Lalu secara otomatis web kamu akan tersedia di link `https://username_github_mu.github.io`
+  Lalu secara otomatis web kamu akan tersedia di link `https://username_github_mu.github.io`.
 
 5. CONGRATS, you have master the PAMDown combo
 
 ### Last word
 
-Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja
+Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja.
 
-Terimakasih, mohon maaf bila ada kesalahan 🙏
+Terimakasih, mohon maaf bila ada kesalahan 🙏.
