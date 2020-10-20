@@ -137,10 +137,26 @@
 <p>Remember, always talk something in the right time in the right place, and <strong>be polite no matter what</strong>.</p>
 
             </div>
+
+            <br/>
+            <hr/>
+            <center>
+                <span style="font-weight: normal">Comment(s)</span>
+            </center>
+            <hr/>
+
+            <script src="https://utteranc.es/client.js"
+                repo="fakhrip/fakhrip.github.io"
+                issue-term="pathname"
+                label="blog-post-comment"
+                theme="photon-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
         </div>
     </div>
 </body>
 <script>
-    document.getElementById("location").innerHTML = '~/' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+    document.getElementById("location").innerHTML = './' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
 </script>
 </html>

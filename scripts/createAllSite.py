@@ -96,6 +96,13 @@ BLOGTEMPLATE = """<!DOCTYPE html>
                 {{ contents }}
             </div>
 
+            <br/>
+            <hr/>
+            <center>
+                <span style="font-weight: normal">Comment(s)</span>
+            </center>
+            <hr/>
+
             <script src="https://utteranc.es/client.js"
                 repo="fakhrip/fakhrip.github.io"
                 issue-term="pathname"
