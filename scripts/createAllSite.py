@@ -95,6 +95,15 @@ BLOGTEMPLATE = """<!DOCTYPE html>
             <div class="blog-content">
                 {{ contents }}
             </div>
+
+            <script src="https://utteranc.es/client.js"
+                repo="fakhrip/fakhrip.github.io"
+                issue-term="pathname"
+                label="blog-post-comment"
+                theme="photon-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
         </div>
     </div>
 </body>
