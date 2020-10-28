@@ -12,7 +12,7 @@ Maka dari itu saya membuat FPGA Series dalam blog saya ini untuk membagikan ilmu
 
 Without futher ado, let's get started...
 
-### The series
+### The series 
 
 Series nya ini saya bentuk secara berurut menggunakan penomoran dalam bentuk hexadecimal (bagi yang belum tau) maka dari itu pada series pertama ini atau `series 0x1` saya mulai dengan pembahasan paling sederhana dan mudah-mudahan paling mudah dipahami.
 
@@ -25,6 +25,7 @@ Series nya ini saya bentuk secara berurut menggunakan penomoran dalam bentuk hex
 | [Why Verilog ?](#why-verilog) |  
 | [What's next ?](#whats-next) |  
 
+<div id="jadi-apa-itu-fpga"></div>
 ### Jadi, apa itu FPGA ?
 
 FPGA merupakan singkatan dari Field-Programmable Gate Array (so mouthful isnt it).
@@ -36,6 +37,7 @@ Yah, saya pun berekpresi sama saat pertama kali mendengar hal ini wkwk.
 
 Jadi, intinya FPGA adalah blok berisi gerbang logika yang bisa kita konfigurasi sesuai kemauan kita sendiri.
 
+<div id="tapi-apa-hubungannya-dengan-verilog"></div>
 ### Tapi, apa hubungannya dengan Verilog ?
 
 TLDR; mereka punya hubungan yang kuat :v
@@ -46,6 +48,7 @@ HDL Merupakan sebuah bahasa yang digunakan untuk mendeskripsikan suatu rangkaian
 
 Nah, Verilog merupakan salah satu HDL yang bisa kita gunakan untuk mem-program FPGA nya ini, dalam artian lain anggaplah FPGA ini sebagai sebuah arduino, maka bahasa C merupakan Verilog nya.
 
+<div id="why-verilog"></div>
 ### Why Verilog ?
 
 Sebenarnya ada beberapa bahasa yang bisa digunakan diantaranya adalah :  
@@ -61,6 +64,7 @@ Tapi, kenapa verilog ?
 
 Sebenarnya alasannya cukup sederhana, karena ini diawali dengan tugas jadi ya saya terpaksa menggunakan bahasa yang disuruh oleh dosennya XD, walaupun bisa saja saya menggunakan python seperti yang saya sebutkan diatas lalu saya convert ke verilog menggunakan transpiler nya (More on this later).
 
+<div id="whats-next"></div>
 ### What's next ?
 
 Selanjutnya saya akan membahas **setup** dari beberapa tech-stack yang saya gunakan (yang pastinya open-source) untuk bisa **hands-on langsung** dengan yang namanya Verilog ini.
