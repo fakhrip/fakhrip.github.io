@@ -40,13 +40,12 @@
 
 #embedded-system {
     color: black;
-    background: #57D5C1;
     background: linear-gradient(to bottom right, #57D5C1, #4547B7);
 }
 
 #series {
     color: white;
-    border: 10px solid;
-    border-image-source: linear-gradient(45deg, rgb(0,143,104), rgb(250,224,66));
+    border: 3px solid;
+    border-image-source: linear-gradient(45deg, #D8537E, #A6E327);
     border-image-slice: 1;
 }
