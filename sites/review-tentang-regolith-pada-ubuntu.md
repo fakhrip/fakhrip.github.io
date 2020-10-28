@@ -29,4 +29,4 @@ Tetapi ini balik lagi kepada urgency dan kebutuhan dari penggunanya, dan jika sa
 
 Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja.
 
-Terimakasih, mohon maaf bila ada kesalahan 🙏.
+Terimakasih kepada Allah SWT dan juga para pembaca disini, semua yang buruk datangnya dari saya dan yang baik hanya datang dari-Nya, mohon maaf bila ada kesalahan 🙏.
