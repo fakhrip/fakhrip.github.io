@@ -16,6 +16,7 @@ Series nya ini saya bentuk secara berurut menggunakan penomoran dalam bentuk hex
 | --- |
 | [Icarus Verilog](#icarus-verilog) |  
 | [GTK Wave](#gtkwave) |  
+| [What's next ?](#whats-next) |  
 
 <div id="icarus-verilog"></div>
 ### Icarus Verilog
@@ -87,6 +88,7 @@ Untuk yang satu ini, instalasi nya sudah dijelaskan dengan sangat jelas di [webs
   jika tidak bisa maka download dari link berikut https://sourceforge.net/projects/gtkwave/files/ download file yang ada akhiran `osx-app` nya lalu install seperti biasa.  
 - Untuk sama dengan MacOS tetapi download file yang akhirannya `bin-win32` ataupun `bin-win64` menyesuaikan dengan arsitektur komputer anda masing-masing.
 
+<div id="whats-next"></div>
 ### What's next ?
 
 Selanjutnya saya akan membahas contoh dari workflow penggunaan tool-chain yang sudah saya sebutkan diatas.
