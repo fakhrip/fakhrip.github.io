@@ -136,33 +136,11 @@ table td:last-child {
 }
 
 table td:before {
-    content: attr(data-th) ": ";
-    font-weight: bold;
-    width: 6.5em;
-    display: inline-block;
-}
-
-@media (min-width: 480px) {
-    table td:before {
-        display: none;
-    }
+    display: none;
 }
 
 table th, table td {
     text-align: left;
-}
-
-@media (min-width: 480px) {
-    table th, table td {
-        display: table-cell;
-        padding: .25em .5em;
-    }
-    table th:first-child, table td:first-child {
-        padding-left: 0;
-    }
-    table th:last-child, table td:last-child {
-        padding-right: 0;
-    }
 }
 
 table tr {
@@ -170,13 +148,10 @@ table tr {
 }
 
 table th, table td {
+    display: table-cell;
     margin: .5em 1em;
-}
-
-@media (min-width: 480px) {
-    table th, table td {
-        padding: 1em !important;
-    }
+    padding: .25em .5em;
+    padding: 1em !important;
 }
 
 table th, table td:before {
