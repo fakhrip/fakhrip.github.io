@@ -85,8 +85,10 @@ Tools ini berguna untuk menampilkan hasil sinyal yang telah didapatkan berdasark
 Untuk yang satu ini, instalasi nya sudah dijelaskan dengan sangat jelas di [website nya](http://gtkwave.sourceforge.net/).
 
 - Untuk linux bisa juga dengan `sudo apt install gtkwave` atau menyesuaikan dengan package manager masing-masing karena kemungkinan besar pasti ada di semua package manager.   
+
 - Mungkin MacOS juga bisa dengan `brew install gtkwave`.  
   jika tidak bisa maka download dari link berikut https://sourceforge.net/projects/gtkwave/files/ download file yang ada akhiran `osx-app` nya lalu install seperti biasa.  
+
 - Untuk sama dengan MacOS tetapi download file yang akhirannya `bin-win32` ataupun `bin-win64` menyesuaikan dengan arsitektur komputer anda masing-masing.
 
 <div id="bonus"></div>
