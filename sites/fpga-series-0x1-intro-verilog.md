@@ -48,12 +48,12 @@ Nah, Verilog merupakan salah satu HDL yang bisa kita gunakan untuk mem-program F
 
 ### Why Verilog ?
 
-Sebenarnya ada beberapa bahasa yang bisa digunakan diantaranya adalah :
-- VHDL (Dibuat tahun 1983)
-- Verilog (Dibuat tahun 1984)
-- SystemC (Dibuat tahun 1999)
-- SystemVerilog (Dibuat tahun 2002)
-- [Dan masih banyak lagi](https://en.wikipedia.org/wiki/List_of_HDL_simulators)
+Sebenarnya ada beberapa bahasa yang bisa digunakan diantaranya adalah :  
+- VHDL (Dibuat tahun 1983)  
+- Verilog (Dibuat tahun 1984)  
+- SystemC (Dibuat tahun 1999)  
+- SystemVerilog (Dibuat tahun 2002)  
+- [Dan masih banyak lagi](https://en.wikipedia.org/wiki/List_of_HDL_simulators)  
 
 Bahkan sekarang sudah banyak yang buat [transpiler](https://devopedia.org/transpiler) dalam bentuk python, rust, java, dan bahasa bahasa lainnya.
 
