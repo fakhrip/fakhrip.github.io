@@ -130,6 +130,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
 def main():
     print("[+] Running all sites creation sequence")
     allSites = [f for f in os.listdir("./sites") if isfile(join("./sites", f))]
+    allSites = sorted(allSites)
 
     print("[+] Making sure /blogs exist")
     if not os.path.exists("./blogs"):
