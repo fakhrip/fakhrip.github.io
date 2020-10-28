@@ -6,7 +6,7 @@ TLDR: Verilog merupakan salah satu HDL yang dipakai untuk FPGA Programming
 
 Dimulai dari sekedar tugas kuliah yang tiba tiba datang dikala pandemi, tiba tiba saja saya terasa tertarik dan tertantang dengan yang namanya `embedded-system`, ketertarikan saya ini lebih terasa lagi disaat adanya mata kuliah yang berhubungan dengan FPGA yaitu **Sistem Chipset Tunggal**.
 
-Setelah saya *crawling the internet* dalam beberapa hari, akhirnya saya menemukan kombinasi [tech-stack](https://mixpanel.com/topics/what-is-a-technology-stack/) yang menurut saya sangat pas apalagi mereka semua [open-source](https://id.wikipedia.org/wiki/Sumber_terbuka).
+Setelah saya *crawling the internet* dalam beberapa hari, akhirnya saya menemukan kombinasi [tool-chain](https://en.wikipedia.org/wiki/Toolchain) yang menurut saya sangat pas apalagi mereka semua [open-source](https://id.wikipedia.org/wiki/Sumber_terbuka).
 
 Maka dari itu saya membuat FPGA Series dalam blog saya ini untuk membagikan ilmu yang sudah saya dapatkan, sekaligus tempat untuk mengingat kembali hal-hal yang sudah saya pelajari sebelumnya (karena saya pelupa XD).
 
@@ -67,7 +67,7 @@ Sebenarnya alasannya cukup sederhana, karena ini diawali dengan tugas jadi ya sa
 <div id="whats-next"></div>
 ### What's next ?
 
-Selanjutnya saya akan membahas **setup** dari beberapa tech-stack yang saya gunakan (yang pastinya open-source) untuk bisa **hands-on langsung** dengan yang namanya Verilog ini.
+Selanjutnya saya akan membahas **setup** dari beberapa tool-chain yang saya gunakan (yang pastinya open-source) untuk bisa **hands-on langsung** dengan yang namanya Verilog ini.
 
 ### Last word
 
