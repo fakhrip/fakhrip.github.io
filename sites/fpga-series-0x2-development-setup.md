@@ -49,7 +49,7 @@ Cara instalasi nya akan saya bagi menyesuaikan os nya :
 
   Untuk men-check bila program telah terinstall dengan baik atau belum, cukup buka cmd(command prompt) / powershell, tergantung terminal yang anda sukai, lalu ketikkan `iverilog -h`.
 
-  ```
+  ```bash
   ╭─f4r4w4y@blackrock ~/Downloads 
   ╰─$ iverilog -h
   Usage: iverilog [-EiSuvV] [-B base] [-c cmdfile|-f cmdfile]
