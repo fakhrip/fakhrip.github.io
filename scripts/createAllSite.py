@@ -13,6 +13,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/tag.css">
     <link rel="stylesheet" href="/base.css">
     <link rel="stylesheet" href="/native.css">
     <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
