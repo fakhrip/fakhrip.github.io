@@ -199,6 +199,7 @@ def main():
     print("[+] ===")
     print("[+] Injecting all sites to blogs.html")
     allBlogs = [f for f in os.listdir("./blogs") if isfile(join("./blogs", f))]
+    allBlogs = sorted(allBlogs)
     
     with open("./templates/blogsTemplate.html", "r") as blogsHTMLFile :
         blogsHTMLTemplate = blogsHTMLFile.read()
