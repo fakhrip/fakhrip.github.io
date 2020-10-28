@@ -16,6 +16,7 @@ Series nya ini saya bentuk secara berurut menggunakan penomoran dalam bentuk hex
 | --- |
 | [Icarus Verilog](#icarus-verilog) |  
 | [GTK Wave](#gtkwave) |  
+| [Bonus Resource](#bonus) |  
 | [What's next ?](#whats-next) |  
 
 <div id="icarus-verilog"></div>
@@ -87,6 +88,13 @@ Untuk yang satu ini, instalasi nya sudah dijelaskan dengan sangat jelas di [webs
 - Mungkin MacOS juga bisa dengan `brew install gtkwave`.  
   jika tidak bisa maka download dari link berikut https://sourceforge.net/projects/gtkwave/files/ download file yang ada akhiran `osx-app` nya lalu install seperti biasa.  
 - Untuk sama dengan MacOS tetapi download file yang akhirannya `bin-win32` ataupun `bin-win64` menyesuaikan dengan arsitektur komputer anda masing-masing.
+
+<div id="bonus"></div>
+### Bonus Resource
+
+Buat para manusia yang sangat-sangat tertarik dan ingin tau lebih banyak mengenai tools nya apa saja yang bisa dipakai, saya sarankan untuk menonton video berikut ini.
+
+[Open-Source Tools for FPGA Development](https://www.youtube.com/watch?v=MI18Wk4gxA4) (Talk by Marek Vašut, DENX Software Engineering)
 
 <div id="whats-next"></div>
 ### What's next ?
