@@ -6,7 +6,7 @@ TLDR: I **really love** this kind of `practical` mid-term exam, kudos to all the
 
 UTS atau Ujian Tengah Semester untuk tahun ini cukup menarik dikarenakan adanya pandemi sehingga (mungkin) mengharuskan seluruh dosen untuk membuat ujian yang sifatnya tugas, dengan tujuan memperlihatkan bahwa mahasiswanya sudah menguasai materi yang diberikan tanpa adanya kekhawatiran mengenai contek-menyontek.  
 
-Yang membuat saya senang adalah jenis ujian ini menurut saya **jauh lebih bagus dibanding jenis ujian sebelumnya (saat offline)** dimana mahasiswa hanya diharuskan mengerjakan soal yang *biasanya* tidak relevan dengan dunia industri aslinya, akan tetapi dengan pembuatan UTS yang menyerupai tugas ini sangat menarik karena bisa memperlihatkan potensi masing masing mahasiswa sekaligus dengan tidak adanya peraturan aneh seperti tidak boleh buka internet (karena pada dasarnya saat pengerjaan projek real, pasti harus buka internet untuk mencari hal yang tidak diketahui) dan juga tidak perlu **mengingat** rumus, karena ini juga termasuk hal yang aneh lainnya, `rumus` bagi saya bukan untuk diingat sama hal nya dengan `syntax` pada programming mereka itu untuk dipahami.  
+Yang membuat saya senang adalah jenis ujian ini menurut saya **jauh lebih bagus dibanding jenis ujian sebelumnya (saat offline)** dimana mahasiswa hanya diharuskan mengerjakan soal yang *biasanya* tidak relevan dengan dunia industri aslinya, akan tetapi dengan pembuatan UTS yang menyerupai tugas ini sangat menarik karena bisa memperlihatkan potensi masing masing mahasiswa sekaligus dengan tidak adanya peraturan aneh seperti tidak boleh buka internet (karena pada dasarnya saat pengerjaan projek real, pasti harus buka internet untuk mencari hal yang tidak diketahui) dan juga tidak perlu **mengingat** rumus, karena ini juga termasuk hal yang aneh lainnya, `rumus` bagi saya bukan untuk diingat sama hal nya dengan `syntax` pada programming, mereka itu untuk dipahami.  
 
 Dan yang lebih menarik perhatian saya adalah UTS pada mata kuliah `Sensor dan Aktuator`, menurut saya para dosennya sudah sangat baik dalam membuat UTS berbentuk seperti ini (really appreciate that 👏), berikut penjelasan singkat mengenai UTS pada matkul ini.  
 
@@ -149,6 +149,17 @@ result = ((val1*4) +(val2*2)+ val3)
 ```
 
 Dan dengan begini, jadilah sudah keseluruhan dari projek ini, sekali lagi terimakasih kepada tim dosen yang sudah membuatkan soal yang menarik seperti ini 👍.
+
+### Referensi
+
+Berikut beberapa referensi yang saya pakai disaat pembuatan blog ini maupun saat pengerjaan projeknya :
+
+- https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc  
+- https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html  
+- https://www.youtube.com/watch?v=NASkjo7s8f4&ab_channel=ALLABOUTELECTRONICS  
+- https://www.youtube.com/watch?v=71XWsoDl5SA&ab_channel=ColumbiaGorgeCommunityCollege  
+- https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/  
+- https://www.youtube.com/watch?v=QkoVvf7_f0I  
 
 ### Last word
 
