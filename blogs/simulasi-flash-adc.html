@@ -71,7 +71,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./simulasi-flash-adc.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Last updated on October 31, 2020 at 18:52:55
+                        Last updated on October 31, 2020 at 19:19:36
                     </li>
                 </ul>
             </h5>
@@ -99,7 +99,7 @@
 
 <p>UTS atau Ujian Tengah Semester untuk tahun ini cukup menarik dikarenakan adanya pandemi sehingga (mungkin) mengharuskan seluruh dosen untuk membuat ujian yang sifatnya tugas, dengan tujuan memperlihatkan bahwa mahasiswanya sudah menguasai materi yang diberikan tanpa adanya kekhawatiran mengenai contek-menyontek.  </p>
 
-<p>Yang membuat saya senang adalah jenis ujian ini menurut saya <strong>jauh lebih bagus dibanding jenis ujian sebelumnya (saat offline)</strong> dimana mahasiswa hanya diharuskan mengerjakan soal yang <em>biasanya</em> tidak relevan dengan dunia industri aslinya, akan tetapi dengan pembuatan UTS yang menyerupai tugas ini sangat menarik karena bisa memperlihatkan potensi masing masing mahasiswa sekaligus dengan tidak adanya peraturan aneh seperti tidak boleh buka internet (karena pada dasarnya saat pengerjaan projek real, pasti harus buka internet untuk mencari hal yang tidak diketahui) dan juga tidak perlu <strong>mengingat</strong> rumus, karena ini juga termasuk hal yang aneh lainnya, <code>rumus</code> bagi saya bukan untuk diingat sama hal nya dengan <code>syntax</code> pada programming mereka itu untuk dipahami.  </p>
+<p>Yang membuat saya senang adalah jenis ujian ini menurut saya <strong>jauh lebih bagus dibanding jenis ujian sebelumnya (saat offline)</strong> dimana mahasiswa hanya diharuskan mengerjakan soal yang <em>biasanya</em> tidak relevan dengan dunia industri aslinya, akan tetapi dengan pembuatan UTS yang menyerupai tugas ini sangat menarik karena bisa memperlihatkan potensi masing masing mahasiswa sekaligus dengan tidak adanya peraturan aneh seperti tidak boleh buka internet (karena pada dasarnya saat pengerjaan projek real, pasti harus buka internet untuk mencari hal yang tidak diketahui) dan juga tidak perlu <strong>mengingat</strong> rumus, karena ini juga termasuk hal yang aneh lainnya, <code>rumus</code> bagi saya bukan untuk diingat sama hal nya dengan <code>syntax</code> pada programming, mereka itu untuk dipahami.  </p>
 
 <p>Dan yang lebih menarik perhatian saya adalah UTS pada mata kuliah <code>Sensor dan Aktuator</code>, menurut saya para dosennya sudah sangat baik dalam membuat UTS berbentuk seperti ini (really appreciate that 👏), berikut penjelasan singkat mengenai UTS pada matkul ini.  </p>
 
@@ -134,9 +134,8 @@
 5. LCD (menampilkan output sesuai arduino)    
 </code></pre>
 
-<p>Berikut lampiran hasil projek yang saya buat di Proteus 8: <a target="_blank" href="../resources/site4/project.pdsprj">project.pdsprj</a></p>
-
-<p>Dan berikut lampiran kodingan Arduino nya: [1]</p>
+<p>Berikut lampiran hasil projek yang saya buat di Proteus 8: <a target="_blank" href="../resources/site4/project.pdsprj">project.pdsprj</a> <br />
+Dan berikut lampiran kodingan Arduino nya: <a target="_blank" href="../resources/site4/light-showcase-ez.ino">code.ino</a></p>
 
 <h3>Sensor Cahaya</h3>
 
@@ -204,6 +203,13 @@ Perlu diingat pada gambar diatas biru = LOW, merah = HIGH (ya, saya tau emang an
 
 <p>Yang seharusnya menghasilkan <code>3V</code>, walaupun real nya kurang sedikit yaitu <code>2.9985V</code>.</p>
 
+<p>Nah, bisa kita liat perbedaan pada ketiga gambar diatas terlihat jelas pada <code>Vref</code> atau <code>B1</code> nya dimana disaat <code>B1</code> nya memiliki tegangan sebesar <code>12V</code> maka output dari setiap OpAmp nya HIGH atau ditandai dengan warna merah, dan disaat <code>B1</code> hanya memiliki tegangan sebesar <code>5V</code> maka hanya OpAmp paling bawah yang mengoutputkan nilai HIGH.</p>
+
+<p>Hal itu terjadi dikarenakan saat <code>B1</code> bernilai <code>5V</code> maka satu-satunya OpAmp yang memiliki nilai input negatif (inverting input) lebih rendah dari <code>5V</code> yaitu OpAmp terakhir dimana nilai input negatif nya sebesar <code>2.9985V</code> karena efek dari pembagi tegangan yang sudah dijelaskan sebelumnya tadi.</p>
+
+<p><img src="https://media.giphy.com/media/LqajRC2pU0Je8/giphy.gif" alt="mindblown" /> <br />
+Gimana ? mindblown kan wkwk, saya merasa demikian karena ternyata dengan mengkombinasikan runtutan efek dari berbagai jenis rangkaian dan komponen bisa menghasilkan yang sedemikian rupa.</p>
+
 <p>Dengan demikian lengkap lah sudah seluruh rangkaian Flash ADC kita, karena dengan adanya pembagi tegangan seperti diatas kita bisa mengatur output keluaran sinyal digital sesuai dengan <code>Vref</code> atau <code>B1</code> pada rangkaian di gambar atas tersebut.</p>
 
 <h3>Combination</h3>
@@ -233,7 +239,20 @@ Perlu diingat bahwa disini saya hanya mencontohkan dengan menggunakan 3 OpAmp Co
 <span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="n">val1</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span><span class="p">(</span><span class="n">val2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="n">val3</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Dan dengan begini, jadilah sudah keseluruhan dari projek ini, sekali lagi terimakasih kepada tim dosen yang sudah membuatkan soal yang menarik seperti ini.</p>
+<p>Dan dengan begini, jadilah sudah keseluruhan dari projek ini, sekali lagi terimakasih kepada tim dosen yang sudah membuatkan soal yang menarik seperti ini 👍.</p>
+
+<h3>Referensi</h3>
+
+<p>Berikut beberapa referensi yang saya pakai disaat pembuatan blog ini maupun saat pengerjaan projeknya :</p>
+
+<ul>
+<li><a target="_blank" href="https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc">https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc</a></li>
+<li><a target="_blank" href="https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html">https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html</a>  </li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=NASkjo7s8f4&amp;ab_channel=ALLABOUTELECTRONICS">https://www.youtube.com/watch?v=NASkjo7s8f4&amp;ab_channel=ALLABOUTELECTRONICS</a>  </li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=71XWsoDl5SA&amp;ab_channel=ColumbiaGorgeCommunityCollege">https://www.youtube.com/watch?v=71XWsoDl5SA&amp;ab_channel=ColumbiaGorgeCommunityCollege</a>  </li>
+<li><a target="_blank" href="https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/">https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/</a>  </li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=QkoVvf7_f0I">https://www.youtube.com/watch?v=QkoVvf7_f0I</a>  </li>
+</ul>
 
 <h3>Last word</h3>
 
