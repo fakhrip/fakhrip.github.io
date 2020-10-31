@@ -154,12 +154,12 @@ Dan dengan begini, jadilah sudah keseluruhan dari projek ini, sekali lagi terima
 
 Berikut beberapa referensi yang saya pakai disaat pembuatan blog ini maupun saat pengerjaan projeknya :
 
-- https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc  
-- https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html  
-- https://www.youtube.com/watch?v=NASkjo7s8f4&ab_channel=ALLABOUTELECTRONICS  
-- https://www.youtube.com/watch?v=71XWsoDl5SA&ab_channel=ColumbiaGorgeCommunityCollege  
-- https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/  
-- https://www.youtube.com/watch?v=QkoVvf7_f0I  
+- [https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc](https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc)
+- [https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html](https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html)  
+- [https://www.youtube.com/watch?v=NASkjo7s8f4&ab_channel=ALLABOUTELECTRONICS](https://www.youtube.com/watch?v=NASkjo7s8f4&ab_channel=ALLABOUTELECTRONICS)  
+- [https://www.youtube.com/watch?v=71XWsoDl5SA&ab_channel=ColumbiaGorgeCommunityCollege](https://www.youtube.com/watch?v=71XWsoDl5SA&ab_channel=ColumbiaGorgeCommunityCollege)  
+- [https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/](https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/)  
+- [https://www.youtube.com/watch?v=QkoVvf7_f0I](https://www.youtube.com/watch?v=QkoVvf7_f0I)  
 
 ### Last word
 
