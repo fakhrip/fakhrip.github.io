@@ -43,6 +43,11 @@
     background: linear-gradient(to bottom right, #57D5C1, #4547B7);
 }
 
+#electronics {
+    color: black;
+    background: linear-gradient(to bottom right, #AAC541, #37A681);
+}
+
 #series {
     color: white;
     border: 3px solid;

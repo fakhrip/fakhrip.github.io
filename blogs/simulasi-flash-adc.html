@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/tag.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/native.css">
+    <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512"  href="../favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+
+    <title>f4r4w4y</title>
+</head>
+<body>
+
+    <div class="fullscreen-bg">
+        <img src="/pictures/bg1.jpg" alt="full-bg">
+    </div>
+
+    <div class="small-left-top-term">
+        <div class="container">
+            <h3 class="fullname">Muhammad Fakhri Putra <br> Supriyadi</h3>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tldr ./simulasi-flash-adc.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        TL;DR <p>I <strong>really love</strong> this kind of <code>practical</code> mid-term exam, kudos to all the lecturers 👍👍👍.</p>
+
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="small-left-bottom-term">
+        <div class="container">
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tags ./simulasi-flash-adc.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <div class="tags-container">
+                            
+                            <span class="tag" id="electronics">
+                                ELECTRONICS
+                            </span>
+                            
+                        </div>
+                    </li>
+                </ul>
+            </h5>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">timing ./simulasi-flash-adc.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Estimated <p>5 mins read</p>
+
+                    </li>
+                </ul>
+            </h5>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./simulasi-flash-adc.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Last updated on October 31, 2020 at 19:08:54
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="full-term">
+        <div class="container text">
+            <h5 class="text">
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">cd <a class="link underline" href="/blogs.html">..</a></span>
+            </h5>
+
+            <h5 class="text">
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">fancyblogcat <span id="location" style="font-weight: normal"></span></span>
+            </h5>
+
+            <hr/>
+            <center>
+                <span style="font-weight: normal">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>
+            </center>
+            <hr/>
+            
+            <div class="blog-content">
+                <h1>Simulasi Flash ADC</h1>
+
+<p>UTS atau Ujian Tengah Semester untuk tahun ini cukup menarik dikarenakan adanya pandemi sehingga (mungkin) mengharuskan seluruh dosen untuk membuat ujian yang sifatnya tugas, dengan tujuan memperlihatkan bahwa mahasiswanya sudah menguasai materi yang diberikan tanpa adanya kekhawatiran mengenai contek-menyontek.  </p>
+
+<p>Yang membuat saya senang adalah jenis ujian ini menurut saya <strong>jauh lebih bagus dibanding jenis ujian sebelumnya (saat offline)</strong> dimana mahasiswa hanya diharuskan mengerjakan soal yang <em>biasanya</em> tidak relevan dengan dunia industri aslinya, akan tetapi dengan pembuatan UTS yang menyerupai tugas ini sangat menarik karena bisa memperlihatkan potensi masing masing mahasiswa sekaligus dengan tidak adanya peraturan aneh seperti tidak boleh buka internet (karena pada dasarnya saat pengerjaan projek real, pasti harus buka internet untuk mencari hal yang tidak diketahui) dan juga tidak perlu <strong>mengingat</strong> rumus, karena ini juga termasuk hal yang aneh lainnya, <code>rumus</code> bagi saya bukan untuk diingat sama hal nya dengan <code>syntax</code> pada programming mereka itu untuk dipahami.  </p>
+
+<p>Dan yang lebih menarik perhatian saya adalah UTS pada mata kuliah <code>Sensor dan Aktuator</code>, menurut saya para dosennya sudah sangat baik dalam membuat UTS berbentuk seperti ini (really appreciate that 👏), berikut penjelasan singkat mengenai UTS pada matkul ini.  </p>
+
+<p>Mahasiswa diberikan waktu selama 12 jam, dalam kurun waktu tersebut masing-masing mahasiswa disuruh untuk membuat sebuah <code>projek</code> kecil yang harus melibatkan <code>sensor</code>, <code>filter dan/atau op-amp</code>, dan sebagai outputnya berupa <code>LED dan/atau LCD dan/atau Relay</code>, dengan ketentuan sensor berdasarkan nim terakhir yang dimiliki tiap mahasiswa, berikut merupakan list nya.  </p>
+
+<pre><code>- NIM terakhir 0. Sensor kecepatan menggunakan encoder
+- NIM terakhir 1. Sensor kelembaban 
+- NIM terakhir 2. Sensor pH
+- NIM terakhir 3. Sensor level suara
+- NIM terakhir 4. Sensor tekanan/ gaya/ berat
+- NIM terakhir 5. Sensor cahaya
+- NIM terakhir 6. Sensor gas buang (pilih salah 1 : CO, NO, CO2)
+- NIM terakhir 7. Sensor kekeruhan air  
+- NIM terakhir 8. Sensor suhu   
+- NIM terakhir 9. Sensor jarak  
+</code></pre>
+
+<p>Dikarenakan saya memiliki nim 1102174055 maka nim terakhir saya adalah 5, yang berarti saya harus menggunakan <strong>sensor cahaya</strong>.</p>
+
+<h3>Sneak-Peek</h3>
+
+<p>Berikut hasil dari projek kecil yang saya buat untuk uts ini, saya selesaikan dalam waktu kurang lebih 10 jam (maklum masih noob :v).</p>
+
+<p><img src="../pictures/site4/animation.gif" alt="Animation" /></p>
+
+<p>Dalam projek ini saya membuat sebuah sistem dengan runtutan seperti berikut:</p>
+
+<pre><code>1. Cahaya --(masuk kedalam)-&gt; LDR    
+2. LDR --(merubah resistansi, lalu masuk kedalam)-&gt; Flash ADC    
+3. Flash ADC --(merubah sinyal analog menjadi digital, lalu masuk kedalam)-&gt; Arduino (Mikrokontroller)    
+4. Arduino --(merubah output pada LCD)-&gt; LCD   
+5. LCD (menampilkan output sesuai arduino)    
+</code></pre>
+
+<p>Berikut lampiran hasil projek yang saya buat di Proteus 8: <a target="_blank" href="../resources/site4/project.pdsprj">project.pdsprj</a> <br />
+Dan berikut lampiran kodingan Arduino nya: <a target="_blank" href="../resources/site4/light-showcase-ez.ino">code.ino</a></p>
+
+<h3>Sensor Cahaya</h3>
+
+<p>Karena hanya diberikan waktu 12 jam (sebenarnya bisa saya katakan ini waktunya lebih lama dari seharusnya wkwk, karena kalau udah terbiasa membuat rangkaian seharusnya 2 jam pun selesai), maka dari itu saya memilih sensor cahaya yang sangat sederhana yaitu <a target="_blank" href="https://www.electronics-notes.com/articles/electronic_components/resistors/light-dependent-resistor-ldr.php">LDR(Light Dependent Resistor)</a>.</p>
+
+<p>Singkatnya, LDR merupakan jenis sensor cahaya dimana semakin tinggi intensitas cahaya yang diterima maka akan semakin kecil nilai resistansinya.</p>
+
+<p><img src="https://www.researchgate.net/publication/323359222/figure/fig3/AS:597176380035073@1519389352693/The-resistance-VS-illumination-Graph-of-LDR.png" alt="LDR-graph" /> <br />
+sumber: <a target="_blank" href="https://www.researchgate.net/publication/323359222/figure/fig3/AS:597176380035073@1519389352693/The-resistance-VS-illumination-Graph-of-LDR.png">researchgate</a></p>
+
+<p>Dengan menggunakan efek dari LDR ini kita bisa membuat suatu hal yang bekerja berdasarkan intensitas cahaya yang didapatkan oleh LDR nya itu sendiri.</p>
+
+<h3>Signal Conditioning</h3>
+
+<p>Efek dari LDR menghasilkan sebuah nilai resistansi yang berubah seiring perubahan intensitas cahaya yang didapatkan, akan tetapi bentuk sinyal dari nilai resistansi nya terlalu sulit untuk saya bisa gunakan dengan mudah (bisa dilihat diatas bentuknya yang melengkung aneh seperti itu).</p>
+
+<p>Maka dari itu saya harus bisa mengubah sinyal berbentuk melengkung aneh itu menjadi sebuah sinyal yang akan mempermudah saya dalam menganalisa sistem yang sangat bergantung pada intensitas cahaya yang akan saya buat ini.</p>
+
+<p>Dan berdasarkan rencana saya, maka saya akan mengubah sinyal analog yang melengkung aneh yang merupakan hasil dari LDR itu menjadi sinyal digital yang terurut dari <code>000</code> hingga <code>111</code> sehingga akan sangat mempermudah saya untuk menganalisa selanjutnya.</p>
+
+<p>Langkah ini disebut dengan <a target="_blank" href="https://www.ni.com/en-id/innovations/white-papers/09/what-is-signal-conditioning-.html">Signal Conditioning</a>.</p>
+
+<h3>Flash ADC</h3>
+
+<p>Seperti yang saya telah tulis diatas, saya akan menggunakan Flash ADC yang akan berguna untuk mengubah sinyal analog menjadi sinyal digital yang saya inginkan yaitu <code>000 - 111</code>.</p>
+
+<p>Flash ADC bekerja dengan cara menggabungkan <a target="_blank" href="https://www.electronics-tutorials.ws/opamp/op-amp-comparator.html">OpAmp Comparator</a> dengan <a target="_blank" href="https://www.electronics-tutorials.ws/combination/comb_4.html">Priority Encoder</a>.</p>
+
+<p>OpAmp Comparator secara sederhananya bekerja dengan cara membandingkan tegangan pada input positif (non-inverting input) dengan input negatif (inverting input), dan dilakukan perbandingan seperti berikut:</p>
+
+<ul>
+<li><p>Jika <strong>input positif &gt; input negatif</strong>, maka output akan menghasilkan tegangan yang sangat <strong>tinggi</strong> yang bisa kita anggap sebagai <strong>sinyal high (1)</strong>.</p></li>
+<li><p>Jika <strong>input positif &lt; input negatif</strong>, maka output akan menghasilkan tegangan yang sangat <strong>rendah</strong> yang bisa kita anggap sebagai <strong>sinyal low (0)</strong>.</p></li>
+</ul>
+
+<p>Selanjutnya, Priority Encoder bekerja dengan menghasilkan sinyal digital output bergantung kepada sinyal digital pada input dengan menyesuaikan pada tabel kebenaran berikut:</p>
+
+<p><img src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/combination-comb12.gif" alt="pe-truth-table" /> <br />
+sumber: <a target="_blank" href="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/combination-comb12.gif">electronics-tutorials.ws</a></p>
+
+<p>Intinya, Priority Encoder hanya akan melihat nilai high (1) dari input tertinggi (D7) ke terendah (D0), jadi pada saat ada input dengan urutan (D0 - D7) berupa <code>11100000</code> maka akan mengoutputkan <code>010</code> karena input tertinggi dengan nilai high (1) merupakan D2, sementara nilai high pada input dibawah D2 yaitu D1 dan D0 tidak akan dilihat.</p>
+
+<p>Dengan kombinasi ini kita bisa membuat Flash ADC, namun ada satu hal yang kurang dari sistem ini (mungkin pembaca yang teliti akan langsung mengetahuinya) yaitu bagaimana kita bisa membuat sebuah rangkaian OpAmp Comparator yang bisa mengoutputkan 8 buah sinyal digital secara beragam (<code>00000000 - 11111111</code>) yang nantinya akan masuk kedalam Priority Encoder dan menghasilkan output (<code>000 - 111</code>), sementara variable yang bisa kita ubah hanyalah nilai dari resistansi LDR.</p>
+
+<p><img src="https://media.giphy.com/media/1oJLpejP9jEvWQlZj4/giphy.gif" alt="confused" /></p>
+
+<h3>Voltage Divider to the rescue</h3>
+
+<p>Inilah alasan mengapa pada Flash ADC tidak hanya terdapat OpAmp Comparator dan Priority Encoder.</p>
+
+<p>Dengan adanya rangkaian <a target="_blank" href="https://www.electronics-tutorials.ws/dccircuits/voltage-divider.html">voltage divider</a> / pembagi tegangan, maka kita bisa dengan mudah membagikan tegangan pada tiap inputan OpAmp Comparator, masih bingungkan ? wkwk, saya akan perlihatkan menggunakan rangkaian agar lebih mudah dicerna.</p>
+
+<p><img src = "../pictures/site4/pic1.png" width ="250" /> <img src = "../pictures/site4/pic2.png" width ="250" /> <img src = "../pictures/site4/pic3.png" width ="250" /> <br />
+Perlu diingat pada gambar diatas biru = LOW, merah = HIGH (ya, saya tau emang aneh wkwk)</p>
+
+<p>Bisa dilihat pada <code>Voltage probe R4(2)</code> dia mendeteksi adanya tegangan sebesar <code>2.9985V</code>, nah nilai ini didapatkan dari hasil pembagi tegangan menggunakan resistor yang dihubungkan secara seri (bisa dilihat ada R1 - R4 dengan nilai resistansi 1k ohm), dengan perhitungan sebagai berikut :</p>
+
+<p><img style="background-color: #fff; padding: 10px;" src="https://latex.codecogs.com/svg.latex?\Large&space;{\frac{\sum(Rb)}{\sum(R)}\times{Vin}}"/>  </p>
+
+<p>Dimana <code>Vin</code> adalah <code>B2</code> pada gambar diatas, <code>Rb</code> adalah <code>Resistor Bawah</code> dari output tegangan yang ingin kita ketahui, <code>R</code> adalah seluruh resistor pada rangkaian pembagi tegangannya.</p>
+
+<p>Jadi untuk mendapatkan nilai pada <code>Voltage probe R4(2)</code>, kita bisa lihat resistor bawahnya hanya ada <code>R4</code> maka bila kita masukkan kedalam rumusnya menjadi :</p>
+
+<p><img style="background-color: #fff; padding: 10px;" src="https://latex.codecogs.com/svg.latex?\Large&space;{\frac{\1k\Omega}{1k\Omega + 1k\Omega + 1k\Omega + 1k\Omega}\times{12V}}"/>  </p>
+
+<p>Yang seharusnya menghasilkan <code>3V</code>, walaupun real nya kurang sedikit yaitu <code>2.9985V</code>.</p>
+
+<p>Nah, bisa kita liat perbedaan pada ketiga gambar diatas terlihat jelas pada <code>Vref</code> atau <code>B1</code> nya dimana disaat <code>B1</code> nya memiliki tegangan sebesar <code>12V</code> maka output dari setiap OpAmp nya HIGH atau ditandai dengan warna merah, dan disaat <code>B1</code> hanya memiliki tegangan sebesar <code>5V</code> maka hanya OpAmp paling bawah yang mengoutputkan nilai HIGH.</p>
+
+<p>Hal itu terjadi dikarenakan saat <code>B1</code> bernilai <code>5V</code> maka satu-satunya OpAmp yang memiliki nilai input negatif (inverting input) lebih rendah dari <code>5V</code> yaitu OpAmp terakhir dimana nilai input negatif nya sebesar <code>2.9985V</code> karena efek dari pembagi tegangan yang sudah dijelaskan sebelumnya tadi.</p>
+
+<p><img src="https://media.giphy.com/media/LqajRC2pU0Je8/giphy.gif" alt="mindblown" /> <br />
+Gimana ? mindblown kan wkwk, saya merasa demikian karena ternyata dengan mengkombinasikan runtutan efek dari berbagai jenis rangkaian dan komponen bisa menghasilkan yang sedemikian rupa.</p>
+
+<p>Dengan demikian lengkap lah sudah seluruh rangkaian Flash ADC kita, karena dengan adanya pembagi tegangan seperti diatas kita bisa mengatur output keluaran sinyal digital sesuai dengan <code>Vref</code> atau <code>B1</code> pada rangkaian di gambar atas tersebut.</p>
+
+<h3>Combination</h3>
+
+<p><img src="https://media.giphy.com/media/0Av9l0VIc01y1isrDw/giphy.gif" alt="Combination" /></p>
+
+<p>Sekarang, masuk ke tahap terakhir yaitu menggambungkan semua rangkaian diatas sebagai berikut:</p>
+
+<p>LDR -> Flash ADC -> Arduino -> LCD</p>
+
+<p>Untuk menghubungkan LDR dengan Flash ADC nya kita cukup mengganti <code>Vref</code> atau <code>B1</code> pada gambar diatas tadi, dengan rangkaian LDR yang bisa kita buat dengan konsep pembagi tegangan juga.</p>
+
+<p><img src="../pictures/site4/pic4.png" alt="pic4" /> <br />
+Perlu diingat bahwa disini saya hanya mencontohkan dengan menggunakan 3 OpAmp Comparator yang seharusnya pada real case kita menggunakan 8.</p>
+
+<p>Selanjutnya kita hubungkan output dari setiap OpAmp menjadi input dari Priority Encoder, pada Proteus 8 kita bisa menggunakan <code>modul 74HC148</code>.</p>
+
+<p>Lalu hubungkan output dari Priority Encoder nya ke Arduino, dan karena outputnya sudah berupa sinyal digital maka kita hubungkan ke <strong>pin Digital</strong> pada Arduino nya pada projek saya, saya hubungkan ke pin <code>D2, D3, dan D4</code>.</p>
+
+<p>Setelah itu hubungkan Arduino nya dengan LCD dan buat program untuk mengubah binary <code>000 - 111</code> menjadi bilangan desimal <code>1 - 8</code>, untuk bagian ini saya tidak akan menjelaskan karena sudah OOT hehe, tapi setidaknya untuk bagian convert binary ke desimal saya menggunakan potongan kode berikut :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">// Saya balikkan menjadi (8 - X) </span>
+<span class="c1">// karena ternyata saya masangnya kebalik :v</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="mi">8</span> <span class="o">-</span> <span class="p">((</span><span class="n">val1</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span><span class="p">(</span><span class="n">val2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="n">val3</span><span class="p">))</span>
+
+<span class="c1">// Seharusnya jika masangnya benar bisa langsung</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="n">val1</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span><span class="p">(</span><span class="n">val2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="n">val3</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Dan dengan begini, jadilah sudah keseluruhan dari projek ini, sekali lagi terimakasih kepada tim dosen yang sudah membuatkan soal yang menarik seperti ini 👍.</p>
+
+<h3>Last word</h3>
+
+<p>Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja.</p>
+
+<p>Terimakasih kepada Allah SWT dan juga para pembaca disini, semua yang buruk datangnya dari saya dan yang baik hanya datang dari-Nya, mohon maaf bila ada kesalahan 🙏.</p>
+
+            </div>
+
+            <br/>
+            <hr/>
+            <center>
+                <span style="font-weight: normal">Comment(s)</span>
+            </center>
+            <hr/>
+
+            <script src="https://utteranc.es/client.js"
+                repo="fakhrip/fakhrip.github.io"
+                issue-term="pathname"
+                label="blog-post-comment"
+                theme="photon-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("location").innerHTML = './' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+</script>
+</html>

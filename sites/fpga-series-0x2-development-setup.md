@@ -1,6 +1,6 @@
 Tags: Embedded-System|Series
 Times: 10 mins read + 10 more mins if you want to do it too
-TLDR: Verilog merupakan salah satu HDL yang dipakai untuk FPGA Programming
+TLDR: Iverilog + GTKWave combo for fpga programming
 --+--+--+--
 # FPGA Series: (0x2) Development Setup 
 

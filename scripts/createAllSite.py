@@ -185,8 +185,8 @@ def main():
 
         renderedResult = Template(BLOGTEMPLATE).render(
             contents = convertedSite,
-            updatedDate = datetime.fromtimestamp(blogLastUpdated).strftime("%B %d, %Y"),
-            updatedTime = datetime.fromtimestamp(blogLastUpdated).strftime("%H:%M:%S"),
+            updatedDate = datetime.fromtimestamp(blogLastUpdated, tz=timezone('Asia/Jakarta')).strftime("%B %d, %Y"),
+            updatedTime = datetime.fromtimestamp(blogLastUpdated, tz=timezone('Asia/Jakarta')).strftime("%H:%M:%S"),
             tags = tags,
             times = times,
             tldr = tldr,
