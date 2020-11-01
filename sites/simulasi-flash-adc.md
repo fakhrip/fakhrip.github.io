@@ -12,7 +12,7 @@ Dan yang lebih menarik perhatian saya adalah UTS pada mata kuliah `Sensor dan Ak
 
 Mahasiswa diberikan waktu selama 12 jam, dalam kurun waktu tersebut masing-masing mahasiswa disuruh untuk membuat sebuah `projek` kecil yang harus melibatkan `sensor`, `filter dan/atau op-amp`, dan sebagai outputnya berupa `LED dan/atau LCD dan/atau Relay`, dengan ketentuan sensor berdasarkan nim terakhir yang dimiliki tiap mahasiswa, berikut merupakan list nya.  
 
-```markdown
+```md
 - NIM terakhir 0. Sensor kecepatan menggunakan encoder
 - NIM terakhir 1. Sensor kelembaban 
 - NIM terakhir 2. Sensor pH
@@ -35,7 +35,7 @@ Berikut hasil dari projek kecil yang saya buat untuk uts ini, saya selesaikan da
 
 Dalam projek ini saya membuat sebuah sistem dengan runtutan seperti berikut:
 
-```markdown
+```md
 1. Cahaya --(masuk kedalam)-> LDR    
 2. LDR --(merubah resistansi, lalu masuk kedalam)-> Flash ADC    
 3. Flash ADC --(merubah sinyal analog menjadi digital, lalu masuk kedalam)-> Arduino (Mikrokontroller)    
