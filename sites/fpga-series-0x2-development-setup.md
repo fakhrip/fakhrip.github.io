@@ -24,7 +24,7 @@ Series nya ini saya bentuk secara berurut menggunakan penomoran dalam bentuk hex
 
 Sebenarnya saya sangat beruntung dikarenakan dosennya menyuruh untuk memakai verilog dibandingkan bahasa lainnya, karena verilog ini memiliki support yang sangat luas termasuk pada open-source tools yang ada.
 
-Salah satu tools nya adalah [Icarus Verilog](http://iverilog.icarus.com/) atau biasa disebut dengan singkatannya iverilog, tool ini berguna untuk meng-synthesize sekaligus mensimulasikan program yang sudah kita buat menggunakan bahasa verilog.
+Salah satu tools nya adalah [Icarus Verilog](http://iverilog.icarus.com/) atau biasa disebut dengan singkatannya iverilog, tool ini berguna untuk meng-compile sekaligus mensimulasikan program yang sudah kita buat menggunakan bahasa verilog (penjelasan lebih lengkap ada pada websitenya).
 
 Cara instalasi nya akan saya bagi menyesuaikan os nya :
 
@@ -103,7 +103,7 @@ Buat para manusia yang sangat-sangat tertarik dan ingin tau lebih banyak mengena
 
 Selanjutnya saya akan membahas contoh dari workflow penggunaan tool-chain yang sudah saya sebutkan diatas.
 
-Tool-chain diatas itu merupakan tool-chain paling sederhana dan sejauh yang saya tau hanya bisa untuk sekedar academic research saja, belum bisa dipakai untuk production, karena banyak hal yang cukup menyulitkan untuk orang orang pada umumnya membuat open-source software untuk hal ini apalagi dengan adanya proprietary software / software yang berharga, yang bisa all-in-one. 
+Tool-chain diatas itu merupakan tool-chain paling sederhana dan sejauh yang saya tau hanya bisa untuk sekedar academic research saja, belum bisa dipakai untuk production, karena banyak hal yang cukup menyulitkan untuk orang orang pada umumnya membuat open-source software untuk hal ini apalagi dengan adanya proprietary software / software yang berbayar, yang bisa all-in-one. 
 
 ### Last word
 
