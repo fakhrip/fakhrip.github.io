@@ -530,7 +530,7 @@ table th, table td:before {
 }
 #ascii_art {
     background-color: var(--page-color);
-    font-size: 6px;
+    font-size: 6.6px;
     color: #C4CBBF;
 }
 #b { color: #C4C5B9 }
