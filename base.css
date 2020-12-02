@@ -45,7 +45,7 @@ body {
 }
 
 .text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: 'Fira Code', monospace;
     word-wrap: break-word;
     margin-right: 10px;
@@ -355,9 +355,9 @@ table th, table td:before {
 
 .right-bottom-left-term {
     position: absolute;
-    width: calc(25% - 205px);
+    width: calc(25% - 125px);
     height: calc(50% - 2rem);
-    right: calc(25% + 150px);
+    right: calc(25% + 70px);
     bottom: 0;
     margin-left: 1rem;
     margin-top: 1rem;
@@ -372,7 +372,7 @@ table th, table td:before {
 
 .right-bottom-right-term {
     position: absolute;
-    width: calc(25% + 135px);
+    width: calc(25% + 55px);
     height: calc(50% - 1.5rem);
     right: 0;
     bottom: 0;
@@ -530,7 +530,7 @@ table th, table td:before {
 }
 #ascii_art {
     background-color: var(--page-color);
-    font-size: 7.2px;
+    font-size: 6px;
     color: #C4CBBF;
 }
 #b { color: #C4C5B9 }
