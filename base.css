@@ -355,9 +355,9 @@ table th, table td:before {
 
 .right-bottom-left-term {
     position: absolute;
-    width: calc(25% - 55px);
+    width: calc(25% - 205px);
     height: calc(50% - 2rem);
-    right: 25%;
+    right: calc(25% + 150px);
     bottom: 0;
     margin-left: 1rem;
     margin-top: 1rem;
@@ -372,7 +372,7 @@ table th, table td:before {
 
 .right-bottom-right-term {
     position: absolute;
-    width: calc(25% - 25px);
+    width: calc(25% + 135px);
     height: calc(50% - 1.5rem);
     right: 0;
     bottom: 0;
@@ -519,3 +519,248 @@ table th, table td:before {
         object-fit: cover;
     }
 }
+
+/* ASCII STUFF */
+.container-ascii {
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+}
+#ascii_art {
+    background-color: var(--page-color);
+    font-size: 7.2px;
+    color: #C4CBBF;
+}
+#b { color: #C4C5B9 }
+#c { color: #D4E0D4 }
+#d { color: #D4D9CE }
+#e { color: #BCC2B5 }
+#f { color: #BCBDB1 }
+#g { color: #CCD7CC }
+#h { color: #CCCDC3 }
+#i { color: #CCD2C7 }
+#j { color: #764F3C }
+#k { color: #BCB6AC }
+#l { color: #C4BEB3 }
+#m { color: #6C4734 }
+#n { color: #B4B1A4 }
+#o { color: #DCE1D9 }
+#p { color: #DCE7DD }
+#q { color: #6C4030 }
+#r { color: #D4E6DB }
+#s { color: #ACAEA1 }
+#t { color: #B4B6AA }
+#u { color: #744734 }
+#v { color: #BCC6BC }
+#w { color: #69483C }
+#x { color: #ACA99C }
+#y { color: #64402F }
+#z { color: #5C3424 }
+#a0 { color: #B4BBAC }
+#a1 { color: #4C2C23 }
+#a2 { color: #CCDED4 }
+#a3 { color: #764A3C }
+#a4 { color: #BCB2A6 }
+#a5 { color: #643A2C }
+#a6 { color: #543224 }
+#a7 { color: #744234 }
+#a8 { color: #745644 }
+#a9 { color: #5C3A2C }
+#b0 { color: #B4AA9C }
+#b1 { color: #542E24 }
+#b2 { color: #B4BCB4 }
+#b3 { color: #59352C }
+#b4 { color: #A4A699 }
+#b5 { color: #645046 }
+#b6 { color: #7C4934 }
+#b7 { color: #D4D2CC }
+#b8 { color: #644634 }
+#b9 { color: #5C3F32 }
+#c0 { color: #1C1B1C }
+#c1 { color: #241C1C }
+#c2 { color: #6C3A2D }
+#c3 { color: #7C5743 }
+#c4 { color: #543A30 }
+#c5 { color: #442620 }
+#c6 { color: #141316 }
+#c7 { color: #442B24 }
+#c8 { color: #140E12 }
+#c9 { color: #A4A194 }
+#d0 { color: #946D55 }
+#d1 { color: #1C1517 }
+#d2 { color: #44211D }
+#d3 { color: #84513F }
+#d4 { color: #643629 }
+#d5 { color: #4C332B }
+#d6 { color: #4C2621 }
+#d7 { color: #DCEEE4 }
+#d8 { color: #3C211D }
+#d9 { color: #0C0E12 }
+#e0 { color: #845844 }
+#e1 { color: #382623 }
+#e2 { color: #77594D }
+#e3 { color: #94735B }
+#e4 { color: #2C1C1A }
+#e5 { color: #8C634B }
+#e6 { color: #44342F }
+#e7 { color: #8C6A53 }
+#e8 { color: #E4EEE4 }
+#e9 { color: #8D5E49 }
+#f0 { color: #2C2422 }
+#f1 { color: #341F1D }
+#f2 { color: #342C29 }
+#f3 { color: #542923 }
+#f4 { color: #9A998B }
+#f5 { color: #3C2C26 }
+#f6 { color: #B4C2B4 }
+#f7 { color: #261212 }
+#f8 { color: #445E73 }
+#f9 { color: #242425 }
+#g0 { color: #ABB0AD }
+#g1 { color: #845E49 }
+#g2 { color: #4C211F }
+#g3 { color: #CCC4B8 }
+#g4 { color: #ACA093 }
+#g5 { color: #2C2B28 }
+#g6 { color: #9C7560 }
+#g7 { color: #A48166 }
+#g8 { color: #946550 }
+#g9 { color: #5C473D }
+#h0 { color: #9C7A62 }
+#h1 { color: #5C2E25 }
+#h2 { color: #886C5E }
+#h3 { color: #361917 }
+#h4 { color: #9C7F68 }
+#h5 { color: #7C5E4D }
+#h6 { color: #8C5945 }
+#h7 { color: #947A64 }
+#h8 { color: #343332 }
+#h9 { color: #543E33 }
+#i0 { color: #2A2D37 }
+#i1 { color: #546C7F }
+#i2 { color: #1C2224 }
+#i3 { color: #3C3431 }
+#i4 { color: #547386 }
+#i5 { color: #7A6252 }
+#i6 { color: #84624C }
+#i7 { color: #4C4844 }
+#i8 { color: #446477 }
+#i9 { color: #4C6579 }
+#j0 { color: #6A5849 }
+#j1 { color: #C4B6AC }
+#j2 { color: #896555 }
+#j3 { color: #2B333D }
+#j4 { color: #745E51 }
+#j5 { color: #5D7589 }
+#j6 { color: #ACBAAB }
+#j7 { color: #9C6C55 }
+#j8 { color: #3C596D }
+#j9 { color: #443C38 }
+#k0 { color: #A48877 }
+#k1 { color: #642929 }
+#k2 { color: #4C6B7E }
+#k3 { color: #A7876A }
+#k4 { color: #998677 }
+#k5 { color: #461817 }
+#k6 { color: #446A7C }
+#k7 { color: #44586C }
+#k8 { color: #648091 }
+#k9 { color: #1C0D0C }
+#l0 { color: #242A2C }
+#l1 { color: #A4988C }
+#l2 { color: #3C474F }
+#l3 { color: #6C2E2C }
+#l4 { color: #6C3430 }
+#l5 { color: #9BA19F }
+#l6 { color: #9A8175 }
+#l7 { color: #9C9F92 }
+#l8 { color: #44423F }
+#l9 { color: #4B4F4F }
+#m0 { color: #642E2C }
+#m1 { color: #3C424C }
+#m2 { color: #3C3C39 }
+#m3 { color: #743433 }
+#m4 { color: #A49082 }
+#m5 { color: #947F69 }
+#m6 { color: #541D1E }
+#m7 { color: #333C48 }
+#m8 { color: #4C5E6F }
+#m9 { color: #7C6A5C }
+#n0 { color: #4C423E }
+#n1 { color: #ACB6AC }
+#n2 { color: #545251 }
+#n3 { color: #5C7E94 }
+#n4 { color: #AC8F74 }
+#n5 { color: #582223 }
+#n6 { color: #6C6D6C }
+#n7 { color: #5C7A8C }
+#n8 { color: #5C595C }
+#n9 { color: #3C5164 }
+#o0 { color: #343643 }
+#o1 { color: #8C8072 }
+#o2 { color: #A47A6C }
+#o3 { color: #3C3D4A }
+#o4 { color: #444742 }
+#o5 { color: #949089 }
+#o6 { color: #7C7E7A }
+#o7 { color: #A4AEA4 }
+#o8 { color: #9C6551 }
+#o9 { color: #5C2827 }
+#p0 { color: #546575 }
+#p1 { color: #BCA898 }
+#p2 { color: #BC9F8C }
+#p3 { color: #5C5E5C }
+#p4 { color: #76645D }
+#p5 { color: #646561 }
+#p6 { color: #8C938E }
+#p7 { color: #2A3432 }
+#p8 { color: #748C95 }
+#p9 { color: #848A86 }
+#q0 { color: #54585A }
+#q1 { color: #343B38 }
+#q2 { color: #6C6664 }
+#q3 { color: #547A8C }
+#q4 { color: #5C6E7C }
+#q5 { color: #34424C }
+#q6 { color: #6C8090 }
+#q7 { color: #84817A }
+#q8 { color: #2C3A3C }
+#q9 { color: #B49278 }
+#r0 { color: #444F61 }
+#r1 { color: #37495C }
+#r2 { color: #AC8978 }
+#r3 { color: #BC987C }
+#r4 { color: #34120F }
+#r5 { color: #6C5E4F }
+#r6 { color: #747470 }
+#r7 { color: #B3977B }
+#r8 { color: #7C7A77 }
+#r9 { color: #8C725D }
+#s0 { color: #646A68 }
+#s1 { color: #84867F }
+#s2 { color: #8C3E34 }
+#s3 { color: #9CA7A5 }
+#s4 { color: #7C322C }
+#s5 { color: #849498 }
+#s6 { color: #8C8D89 }
+#s7 { color: #544742 }
+#s8 { color: #7C8E94 }
+#s9 { color: #847364 }
+#t0 { color: #3C1113 }
+#t1 { color: #8CA0A4 }
+#t2 { color: #5C5047 }
+#t3 { color: #6C7A8C }
+#t4 { color: #8C9A9C }
+#t5 { color: #344E62 }
+#t6 { color: #747E84 }
+#t7 { color: #728692 }
+#t8 { color: #7C868C }
+#t9 { color: #4C525C }
+#u0 { color: #746C64 }
+#u1 { color: #A47264 }
+#u2 { color: #822E28 }
+#u3 { color: #9C8668 }
+#u4 { color: #9C8E84 }
+#u5 { color: #849AA0 }
