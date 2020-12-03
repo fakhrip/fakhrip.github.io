@@ -100,9 +100,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
             <hr/>
             
             <div class="blog-content">
-            <center>
                 {{ contents }}
-            </center>
             </div>
 
             <br/>
