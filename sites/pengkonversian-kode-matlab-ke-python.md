@@ -175,7 +175,7 @@ Tanpa basa basi lanjut, berikut beberapa fungsi yang saya konversi :
     image_filled = imfill(image_clean, 'holes');
     ```
   
-### And another ~~one~~ many
+### And another <strike>one</strike> many
 
 Yang sudah saya tuliskan diatas hanya fungsi-fungsi saya konversi dari kode `Matlab`, akan tetapi sebenarnya ada banyak sekali kode yang saya konversi dalam bentuk pecahan pecahan kecil, jadi akan lebih baik jika dilihat sendiri dari beberapa referensi yang saya suguhkan berikut ini :
 
