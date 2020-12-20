@@ -65,7 +65,7 @@ Tanpa basa basi lanjut, berikut beberapa fungsi yang saya konversi :
       real_w, real_h = image.size
 
       image.thumbnail([w if w != None else real_w, 
-                          h if h != None else real_h])
+                       h if h != None else real_h])
 
       return np.array(image)
     ```
@@ -179,10 +179,10 @@ Tanpa basa basi lanjut, berikut beberapa fungsi yang saya konversi :
 
 Yang sudah saya tuliskan diatas hanya fungsi-fungsi saya konversi dari kode `Matlab`, akan tetapi sebenarnya ada banyak sekali kode yang saya konversi dalam bentuk pecahan pecahan kecil, jadi akan lebih baik jika dilihat sendiri dari beberapa referensi yang saya suguhkan berikut ini :
 
-- http://mathesaurus.sourceforge.net/matlab-numpy.html (Matlab to NumPy cheatsheet)  
-- https://www.mathworks.com/help/ (Matlab documentation itself)  
+- [http://mathesaurus.sourceforge.net/matlab-numpy.html](http://mathesaurus.sourceforge.net/matlab-numpy.html) (Matlab to NumPy cheatsheet)  
+- [https://www.mathworks.com/help/](https://www.mathworks.com/help/) (Matlab documentation itself)  
   Ini berguna untuk mengetahui algoritma dari tiap fungsi pada Matlab nya, agar bilapun kita tidak menemui *free real estate snippet* yang orang lain sudah buat, kita bisa implementasi sendiri berdasarkan algoritmanya.  
-- https://scikit-image.org (Scikit Image documentation)  
+- [https://scikit-image.org](https://scikit-image.org) (Scikit Image documentation)  
   Disini biasanya sudah tertera banyak hal yang memang sudah kompatibel dengan fungsi yang ada pada Matlab, jadi bisa mempermudah untuk pengkonversian kode `Matlab` apapun itu.
 
   Anggap saja ini sebagai tambang emas yang menjadi harapan akhir saat otak pun sudah tidak mampu implementasi algo Matlabnya sendiri :(
@@ -190,10 +190,10 @@ Yang sudah saya tuliskan diatas hanya fungsi-fungsi saya konversi dari kode `Mat
 
 Dan berikut ini adalah beberapa referensi yang saya gunakan untuk pembuatan fungsinya :
 
-- https://stackoverflow.com/questions/5957470/matlab-style-find-function-in-python (find() Matlab in Python3)  
-- https://www.learnopencv.com/filling-holes-in-an-image-using-opencv-python-c/ (imfill holes in Python3)  
-- https://programmersought.com/article/82182780880/ (bwareaopen in Python3)  
-- https://note.nkmk.me/en/python-numpy-opencv-image-binarization/ (Python3 implementation of imbinarize and graythresh)  
+- [https://stackoverflow.com/questions/5957470/matlab-style-find-function-in-python](https://stackoverflow.com/questions/5957470/matlab-style-find-function-in-python) (find() Matlab in Python3)  
+- [https://www.learnopencv.com/filling-holes-in-an-image-using-opencv-python-c/](https://www.learnopencv.com/filling-holes-in-an-image-using-opencv-python-c/) (imfill holes in Python3)  
+- [https://programmersought.com/article/82182780880/](https://programmersought.com/article/82182780880/) (bwareaopen in Python3)  
+- [https://note.nkmk.me/en/python-numpy-opencv-image-binarization/](https://note.nkmk.me/en/python-numpy-opencv-image-binarization/) (Python3 implementation of imbinarize and graythresh)  
 
 
 
