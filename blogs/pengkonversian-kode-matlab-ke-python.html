@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/tag.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/native.css">
+    <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512"  href="../favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+
+    <title>f4r4w4y</title>
+</head>
+<body>
+
+    <div class="fullscreen-bg">
+        <img src="/pictures/bg1.jpg" alt="full-bg">
+    </div>
+
+    <div class="small-left-top-term">
+        <div class="container">
+            <h3 class="fullname">Muhammad Fakhri Putra <br> Supriyadi</h3>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tldr ./pengkonversian-kode-matlab-ke-python.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        TL;DR <p>Saya lebih prefer untuk memilih Python dibandingkan Matlab.</p>
+
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="small-left-bottom-term">
+        <div class="container">
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tags ./pengkonversian-kode-matlab-ke-python.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <div class="tags-container">
+                            
+                            <span class="tag" id="python">
+                                PYTHON
+                            </span>
+                            
+                            <span class="tag" id="programming">
+                                PROGRAMMING
+                            </span>
+                            
+                        </div>
+                    </li>
+                </ul>
+            </h5>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">timing ./pengkonversian-kode-matlab-ke-python.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Estimated <p>5 mins read</p>
+
+                    </li>
+                </ul>
+            </h5>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./pengkonversian-kode-matlab-ke-python.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Last updated on December 20, 2020 at 22:23:24
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="full-term">
+        <div class="container text">
+            <h5 class="text">
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">cd <a class="link underline" href="/blogs.html">..</a></span>
+            </h5>
+
+            <h5 class="text">
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">fancyblogcat <span id="location" style="font-weight: normal"></span></span>
+            </h5>
+
+            <hr/>
+            <center>
+                <span style="font-weight: normal">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>
+            </center>
+            <hr/>
+            
+            <div class="blog-content">
+                <h1>Pengkonversian kode dari Matlab ke Python</h1>
+
+<p>Sebenarnya, saya menulis artikel ini dengan tujuan ingin membagikan hal hal yang sudah saya dapatkan selama saya membantu salah satu teman saya untuk mengkonversi program yang sebelumnya ada di <code>Matlab</code> kedalam <code>Python</code> dengan alasan agar mempermudah dalam penambahan fitur dll (karena skill Matlab saya poor sekali XD).</p>
+
+<p>Dalam proses mengkonversi saya menemukan beberapa hal yang menarik yang ada pada <code>Matlab</code> yang membuat saya semakin tidak menyukainya :v.</p>
+
+<p>Salah satunya adalah fakta bahwa pada <code>Matlab</code>, array dimulai dari angka 1 (yeah, i know).</p>
+
+<p><img src="https://media.giphy.com/media/8b9Xax6L7qtAkAimGm/giphy.gif" alt="what?!?!" /></p>
+
+<p>Semua programmer yang sudah lama berkutat di dunia programming pasti keanehan dengan sebuah <em>weird quirk</em> yang dimiliki oleh <code>Matlab</code> ini.</p>
+
+<p>Dan ada banyak hal lainnya yang saya secara pribadi karena datang dari bahasa bahasa pemrograman lainnya, merasa sedikit tidak nyaman saat ngoding di <code>Matlab</code>.</p>
+
+<p>Dan sebenarnya juga semua kode yang dikonversi disini merupakan kode-kode yang sudah tersebar di internet dan mudah untuk dicari, akan tetapi saya tetap membuat artikel ini dengan tujuan lebih mempermudah pencarian kalian semuanya (looking at you code adventurer, i mean snippet explorer :v).</p>
+
+<h3>So, lets convert 'em all</h3>
+
+<p>Disini saya akan langsung saja memberi tahu apa saja fungsi yang saya <em>convert</em>, sekaligus beberapa tautan ke website lainnya yang menurut saya punya resource yang sangat baik juga.</p>
+
+<p>For a record, karena disini saya banyak menggunakannya fungsi fungsi yang berkaitan dengan <strong>image processing</strong>, beriringan dengan project yang saya bantu pada saat itu, jadi ya akan banyaknya fungsi tentang image processing.</p>
+
+<p>Tanpa basa basi lanjut, berikut beberapa fungsi yang saya konversi :</p>
+
+<ol>
+<li><p><code>find</code>  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> 
+        <span class="n">amounts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+        <span class="n">position</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;first&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+  <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="n">val</span><span class="p">)]</span>
+  <span class="n">sorted_list</span> <span class="o">=</span> <span class="n">filtered</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">position</span> <span class="o">==</span> <span class="s2">&quot;last&quot;</span> <span class="k">else</span> <span class="n">filtered</span>
+  <span class="k">return</span> <span class="n">sorted_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">amounts</span><span class="p">]</span>
+</code></pre></div>
+
+<p>Cara penggunaanya (Python) :  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Ekuivalensi pada Matlab:  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">foo</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">bar</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;first&#39;</span><span class="p">);</span>
+<span class="n">foo</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">bar</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;last&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Seperti yang dilihat, pada <code>Matlab</code>, disitu ada angka <code>1</code> sebagai argumen kedua dari fungsi <code>find</code>, hal ini sudah saya buat default pada versi <code>Python</code> nya dan bisa diubah dengan cara memasukkan argumen <code>amounts</code> secara explisit pada pemanggilan fungsinya.</p>
+
+<p>Contoh :  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">amounts</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">amounts</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Hal yang sama berlaku dengan argumen position juga.</p></li>
+<li><p><code>imresize</code>  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">imresize</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="p">,</span> 
+            <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+  <span class="n">real_w</span><span class="p">,</span> <span class="n">real_h</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
+
+  <span class="n">image</span><span class="o">.</span><span class="n">thumbnail</span><span class="p">([</span><span class="n">w</span> <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">real_w</span><span class="p">,</span> 
+                      <span class="n">h</span> <span class="k">if</span> <span class="n">h</span> <span class="o">!=</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">real_h</span><span class="p">])</span>
+
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Cara penggunaanya (Python) :  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="c1"># install dengan `pip install pillow`</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">imresize</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">),</span> <span class="n">w</span><span class="o">=</span><span class="mi">427</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Ekuivalensi pada Matlab:   </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">image</span> <span class="p">=</span> <span class="n">imresize</span><span class="p">(</span><span class="n">imread</span><span class="p">([</span><span class="n">image_path</span><span class="p">]),</span> <span class="p">[</span><span class="mi">427</span> <span class="n">NaN</span><span class="p">]);</span>
+</code></pre></div></li>
+<li><p><code>imbinarize</code>  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">skimage.filters</span> <span class="kn">import</span> <span class="n">threshold_otsu</span> <span class="c1"># install dengan `pip install scikit-image`</span>
+<span class="k">def</span> <span class="nf">imbinarize</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="nb">list</span><span class="p">(),</span> <span class="n">multiplier</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+  <span class="n">thresh</span> <span class="o">=</span> <span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="o">*</span> <span class="n">multiplier</span>
+  <span class="n">binary</span> <span class="o">=</span> <span class="n">image</span> <span class="o">&gt;</span> <span class="n">thresh</span>
+
+  <span class="n">image_binarized</span> <span class="o">=</span> <span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">image_binarized</span>
+</code></pre></div>
+
+<p>Cara penggunaanya (Python) :  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">image_binarized</span> <span class="o">=</span> <span class="n">imbinarize</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Ekuivalensi pada Matlab:  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">image_binarized</span> <span class="p">=</span> <span class="n">im2bw</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="p">(</span><span class="n">graythresh</span><span class="p">(</span><span class="n">img_gray</span><span class="p">)</span> <span class="o">.*</span> <span class="mf">0.7</span><span class="p">));</span>
+</code></pre></div></li>
+<li><p><code>bwareaopen</code>  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">cv2</span> <span class="kn">import</span> <span class="n">cv2</span> <span class="c1"># install dengan `pip install opencv-python`</span>
+<span class="k">def</span> <span class="nf">bwareaopen</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="nb">list</span><span class="p">(),</span> <span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+  <span class="n">area</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="c1"># Find profile</span>
+  <span class="n">contours</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_TREE</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)</span>
+
+  <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">len_contours</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">contours</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len_contours</span><span class="p">):</span>
+      <span class="n">area</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">contourArea</span><span class="p">(</span><span class="n">contours</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len_contours</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">area</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">:</span>
+          <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+          <span class="k">pass</span>
+
+  <span class="c1"># Find profile</span>
+  <span class="n">contours</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_TREE</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)</span>
+  <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="c1"># Returns the binarized image after removal of the target small area</span>
+  <span class="k">return</span> <span class="n">image</span>
+</code></pre></div>
+
+<p>Cara penggunaanya (Python) :  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">image_clean</span> <span class="o">=</span> <span class="n">bwareaopen</span><span class="p">(</span><span class="n">image_binarized</span><span class="p">,</span> <span class="mi">31337</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Ekuivalensi pada Matlab:  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">image_clean</span> <span class="p">=</span> <span class="n">bwareaopen</span><span class="p">(</span><span class="n">image_binarized</span><span class="p">,</span> <span class="mi">31337</span><span class="p">);</span>
+</code></pre></div></li>
+<li><p><code>imfill</code>  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">cv2</span> <span class="kn">import</span> <span class="n">cv2</span> <span class="c1"># install dengan `pip install opencv-python`</span>
+<span class="k">def</span> <span class="nf">imfill</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="nb">list</span><span class="p">()):</span>
+  <span class="c1"># Copy the thresholded image.</span>
+  <span class="n">im_floodfill</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+  <span class="c1"># Mask used to flood filling.</span>
+  <span class="c1"># Notice the size needs to be 2 pixels than the image.</span>
+  <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+  <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">h</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">w</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+  <span class="c1"># Floodfill from point (0, 0)</span>
+  <span class="n">cv2</span><span class="o">.</span><span class="n">floodFill</span><span class="p">(</span><span class="n">im_floodfill</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">255</span><span class="p">)</span>
+
+  <span class="c1"># Invert floodfilled image</span>
+  <span class="n">im_floodfill_inv</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_not</span><span class="p">(</span><span class="n">im_floodfill</span><span class="p">)</span>
+
+  <span class="c1"># Combine the two images to get the foreground.</span>
+  <span class="n">im_out</span> <span class="o">=</span> <span class="n">image</span> <span class="o">|</span> <span class="n">im_floodfill_inv</span>
+
+  <span class="k">return</span> <span class="n">im_out</span>
+</code></pre></div>
+
+<p>Cara penggunaanya (Python) :  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">image_filled</span> <span class="o">=</span> <span class="n">imfill</span><span class="p">(</span><span class="n">image_clean</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Ekuivalensi pada Matlab:  </p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">image_filled</span> <span class="p">=</span> <span class="n">imfill</span><span class="p">(</span><span class="n">image_clean</span><span class="p">,</span> <span class="s">&#39;holes&#39;</span><span class="p">);</span>
+</code></pre></div></li>
+</ol>
+
+<h3>And another ~~one~~ many</h3>
+
+<p>Yang sudah saya tuliskan diatas hanya fungsi-fungsi saya konversi dari kode <code>Matlab</code>, akan tetapi sebenarnya ada banyak sekali kode yang saya konversi dalam bentuk pecahan pecahan kecil, jadi akan lebih baik jika dilihat sendiri dari beberapa referensi yang saya suguhkan berikut ini :</p>
+
+<ul>
+<li>http://mathesaurus.sourceforge.net/matlab-numpy.html (Matlab to NumPy cheatsheet)  </li>
+<li>https://www.mathworks.com/help/ (Matlab documentation itself) <br />
+Ini berguna untuk mengetahui algoritma dari tiap fungsi pada Matlab nya, agar bilapun kita tidak menemui <em>free real estate snippet</em> yang orang lain sudah buat, kita bisa implementasi sendiri berdasarkan algoritmanya.  </li>
+<li><p>https://scikit-image.org (Scikit Image documentation) <br />
+Disini biasanya sudah tertera banyak hal yang memang sudah kompatibel dengan fungsi yang ada pada Matlab, jadi bisa mempermudah untuk pengkonversian kode <code>Matlab</code> apapun itu.</p>
+
+<p>Anggap saja ini sebagai tambang emas yang menjadi harapan akhir saat otak pun sudah tidak mampu implementasi algo Matlabnya sendiri :(</p></li>
+</ul>
+
+<p>Dan berikut ini adalah beberapa referensi yang saya gunakan untuk pembuatan fungsinya :</p>
+
+<ul>
+<li>https://stackoverflow.com/questions/5957470/matlab-style-find-function-in-python (find() Matlab in Python3)  </li>
+<li>https://www.learnopencv.com/filling-holes-in-an-image-using-opencv-python-c/ (imfill holes in Python3)  </li>
+<li>https://programmersought.com/article/82182780880/ (bwareaopen in Python3)  </li>
+<li>https://note.nkmk.me/en/python-numpy-opencv-image-binarization/ (Python3 implementation of imbinarize and graythresh)  </li>
+</ul>
+
+<h3>Last word</h3>
+
+<p>Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja.</p>
+
+<p>Terimakasih kepada Allah SWT dan juga para pembaca disini, semua yang buruk datangnya dari saya dan yang baik hanya datang dari-Nya, mohon maaf bila ada kesalahan 🙏.</p>
+
+            </div>
+
+            <br/>
+            <hr/>
+            <center>
+                <span style="font-weight: normal">Comment(s)</span>
+            </center>
+            <hr/>
+
+            <script src="https://utteranc.es/client.js"
+                repo="fakhrip/fakhrip.github.io"
+                issue-term="pathname"
+                label="blog-post-comment"
+                theme="photon-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("location").innerHTML = './' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+</script>
+</html>

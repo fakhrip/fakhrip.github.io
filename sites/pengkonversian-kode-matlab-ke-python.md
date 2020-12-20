@@ -26,145 +26,154 @@ For a record, karena disini saya banyak menggunakannya fungsi fungsi yang berkai
 
 Tanpa basa basi lanjut, berikut beberapa fungsi yang saya konversi :
 
-**1. `find`**
-  ```python
-  def find(a, func, 
-           amounts: int = 1, 
-           position: str = "first") -> list:
-    filtered = [i for i, val in enumerate(a) if func(val)]
-    sorted_list = filtered[::-1] if position == "last" else filtered
-    return sorted_list[0:amounts]
-  ```
-  Cara penggunaanya (Python) :
-  ```python
-  foo = find(bar, lambda x: x > 0)
-  foo = find(bar, lambda x: x > 0, position="last")
-  ```
-  Ekuivalensi pada Matlab:
-  ```matlab
-  foo = find(bar > 0, 1, 'first');
-  foo = find(bar > 0, 1, 'last');
-  ```
-  Seperti yang dilihat, pada `Matlab`, disitu ada angka `1` sebagai argumen kedua dari fungsi `find`, hal ini sudah saya buat default pada versi `Python` nya dan bisa diubah dengan cara memasukkan argumen `amounts` secara explisit pada pemanggilan fungsinya.
+1. `find`  
+    ```python  
+    def find(a, func, 
+            amounts: int = 1, 
+            position: str = "first") -> list:
+      filtered = [i for i, val in enumerate(a) if func(val)]
+      sorted_list = filtered[::-1] if position == "last" else filtered
+      return sorted_list[0:amounts]
+    ```
 
-  Contoh :
-  ```python
-  foo = find(bar, lambda x: x > 0, amounts=2)
-  foo = find(bar, lambda x: x > 0, amounts=2, position="last")
-  ```
-  Hal yang sama berlaku dengan argumen position juga.
+    Cara penggunaanya (Python) :  
+    ```python  
+    foo = find(bar, lambda x: x > 0)
+    foo = find(bar, lambda x: x > 0, position="last")
+    ```
 
-**2. `imresize`**
-  ```python
-  def imresize(image: Image, 
-               w: int = None, h: int = None):
-    real_w, real_h = image.size
+    Ekuivalensi pada Matlab:  
+    ```matlab  
+    foo = find(bar > 0, 1, 'first');
+    foo = find(bar > 0, 1, 'last');
+    ```
 
-    image.thumbnail([w if w != None else real_w, 
-                     h if h != None else real_h])
+    Seperti yang dilihat, pada `Matlab`, disitu ada angka `1` sebagai argumen kedua dari fungsi `find`, hal ini sudah saya buat default pada versi `Python` nya dan bisa diubah dengan cara memasukkan argumen `amounts` secara explisit pada pemanggilan fungsinya.
 
-    return np.array(image)
-  ```
-  Cara penggunaanya (Python) :
-  ```python
-  from PIL import Image # install dengan `pip install pillow`
-  image = imresize(Image.open(image_path), w=427)
-  ```
-  Ekuivalensi pada Matlab:
-  ```matlab
-  image = imresize(imread([image_path]), [427 NaN]);
-  ```
+    Contoh :  
+    ```python  
+    foo = find(bar, lambda x: x > 0, amounts=2)
+    foo = find(bar, lambda x: x > 0, amounts=2, position="last")
+    ```
 
-**3. `imbinarize`**
-  ```python
-  def imbinarize(image: list(), multiplier: int = 1):
+    Hal yang sama berlaku dengan argumen position juga.
+
+2. `imresize`  
+    ```python  
+    def imresize(image: Image, 
+                w: int = None, h: int = None):
+      real_w, real_h = image.size
+
+      image.thumbnail([w if w != None else real_w, 
+                          h if h != None else real_h])
+
+      return np.array(image)
+    ```
+
+    Cara penggunaanya (Python) :  
+    ```python  
+    from PIL import Image # install dengan `pip install pillow`
+    image = imresize(Image.open(image_path), w=427)
+    ```
+
+    Ekuivalensi pada Matlab:   
+    ```matlab  
+    image = imresize(imread([image_path]), [427 NaN]);
+    ```
+
+3. `imbinarize`  
+    ```python  
     from skimage.filters import threshold_otsu # install dengan `pip install scikit-image`
+    def imbinarize(image: list(), multiplier: int = 1):
+      thresh = threshold_otsu(image) * multiplier
+      binary = image > thresh
 
-    thresh = threshold_otsu(image) * multiplier
-    binary = image > thresh
+      image_binarized = img_as_ubyte(binary)
+      return image_binarized
+    ```
 
-    image_binarized = img_as_ubyte(binary)
-    return image_binarized
-  ```
-  Cara penggunaanya (Python) :
-  ```python
-  image_binarized = imbinarize(img_gray, 0.7)
-  ```
-  Ekuivalensi pada Matlab:
-  ```matlab
-  image_binarized = im2bw(img_gray, (graythresh(img_gray) .* 0.7));
-  ```
+    Cara penggunaanya (Python) :  
+    ```python  
+    image_binarized = imbinarize(img_gray, 0.7)
+    ```
 
-**4. `bwareaopen`**
-  ```python
-  def bwareaopen(image: list(), p, level: int = 100):
+    Ekuivalensi pada Matlab:  
+    ```matlab  
+    image_binarized = im2bw(img_gray, (graythresh(img_gray) .* 0.7));
+    ```
+
+4. `bwareaopen`  
+    ```python  
     from cv2 import cv2 # install dengan `pip install opencv-python`
+    def bwareaopen(image: list(), p, level: int = 100):
+      area = []
 
-    area = []
+      # Find profile
+      contours, _ = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Find profile
-    contours, _ = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+      cv2.drawContours(image, contours, -1, (255, 255, 255), -1)
+      len_contours = len(contours)
 
-    cv2.drawContours(image, contours, -1, (255, 255, 255), -1)
-    len_contours = len(contours)
+      for i in range(0, len_contours):
+          area.append(cv2.contourArea(contours[i]))
 
-    for i in range(0, len_contours):
-        area.append(cv2.contourArea(contours[i]))
+      for i in range(0, len_contours):
+          if area[i] < p:
+              cv2.drawContours(image, contours, i, (0, 0, 0), -1)
+          else:
+              pass
 
-    for i in range(0, len_contours):
-        if area[i] < p:
-            cv2.drawContours(image, contours, i, (0, 0, 0), -1)
-        else:
-            pass
+      # Find profile
+      contours, _ = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+      cv2.drawContours(image, contours, -1, (255, 255, 255), -1)
 
-    # Find profile
-    contours, _ = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(image, contours, -1, (255, 255, 255), -1)
+      # Returns the binarized image after removal of the target small area
+      return image
+    ```
 
-    # Returns the binarized image after removal of the target small area
-    return image
-  ```
-  Cara penggunaanya (Python) :
-  ```python
-  image_clean = bwareaopen(image_binarized, 31337)
-  ```
-  Ekuivalensi pada Matlab:
-  ```matlab
-  image_clean = bwareaopen(image_binarized, 31337);
-  ```
+    Cara penggunaanya (Python) :  
+    ```python  
+    image_clean = bwareaopen(image_binarized, 31337)
+    ```
 
-**5. `imfill`**
-  ```python
-  def imfill(image: list()):
+    Ekuivalensi pada Matlab:  
+    ```matlab  
+    image_clean = bwareaopen(image_binarized, 31337);
+    ```
+
+5. `imfill`  
+    ```python  
     from cv2 import cv2 # install dengan `pip install opencv-python`
+    def imfill(image: list()):
+      # Copy the thresholded image.
+      im_floodfill = image.copy()
 
-    # Copy the thresholded image.
-    im_floodfill = image.copy()
+      # Mask used to flood filling.
+      # Notice the size needs to be 2 pixels than the image.
+      h, w = image.shape[:2]
+      mask = np.zeros((h + 2, w + 2), np.uint8)
 
-    # Mask used to flood filling.
-    # Notice the size needs to be 2 pixels than the image.
-    h, w = image.shape[:2]
-    mask = np.zeros((h + 2, w + 2), np.uint8)
+      # Floodfill from point (0, 0)
+      cv2.floodFill(im_floodfill, mask, (0, 0), 255)
 
-    # Floodfill from point (0, 0)
-    cv2.floodFill(im_floodfill, mask, (0, 0), 255)
+      # Invert floodfilled image
+      im_floodfill_inv = cv2.bitwise_not(im_floodfill)
 
-    # Invert floodfilled image
-    im_floodfill_inv = cv2.bitwise_not(im_floodfill)
+      # Combine the two images to get the foreground.
+      im_out = image | im_floodfill_inv
 
-    # Combine the two images to get the foreground.
-    im_out = image | im_floodfill_inv
+      return im_out
+    ```
 
-    return im_out
-  ```
-  Cara penggunaanya (Python) :
-  ```python
-  image_filled = imfill(image_clean)
-  ```
-  Ekuivalensi pada Matlab:
-  ```matlab
-  image_filled = imfill(image_clean, 'holes');
-  ```
+    Cara penggunaanya (Python) :  
+    ```python  
+    image_filled = imfill(image_clean)
+    ```
+
+    Ekuivalensi pada Matlab:  
+    ```matlab  
+    image_filled = imfill(image_clean, 'holes');
+    ```
   
 ### And another ~~one~~ many
 
