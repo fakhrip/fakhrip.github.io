@@ -48,6 +48,11 @@
     background: linear-gradient(to bottom right, #AAC541, #37A681);
 }
 
+#robotics {
+    color: white;
+    background: linear-gradient(to bottom right, #E54A35, #1E193A);
+}
+
 #series {
     color: white;
     border: 3px solid;
