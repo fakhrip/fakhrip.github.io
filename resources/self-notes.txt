@@ -8,5 +8,6 @@ Available tags:
 - automation 
 - blogging 
 - embedded-system 
-- electronics 
+- electronics
+- robotics 
 - series
