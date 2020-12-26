@@ -1,6 +1,6 @@
 Tags: Python|Programming|Robotics
 Times: 5 mins read + 15 more mins if you want to do it + undefined mins if there are some error involved 😝
-TLDR: Siapa coba yang mau ngoding didalem simulasi ¯\_(ツ)_/¯ a.k.a API FTW
+TLDR: Siapa coba yang mau ngoding didalem simulasi ¯\\_(ツ)_/¯ a.k.a API FTW
 --+--+--+--
 # Simulasi CoppeliaSim menggunakan Python
 
@@ -65,7 +65,7 @@ Berikut steps nya :
    ```md
    - (folder tempat instalasi CoppeliaSim)/libb0.so  
    - (folder tempat instalasi CoppeliaSim)/libzmq.so  
-   - (folder tempat instalasi CoppeliaSim)/\*boost\*.so  
+   - (folder tempat instalasi CoppeliaSim)/*boost*.so  
    ```
 
    Contoh pada linux :  
