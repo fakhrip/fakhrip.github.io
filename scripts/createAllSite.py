@@ -12,6 +12,14 @@ BLOGTEMPLATE = """<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    /* OGP (https://ogp.me/) */
+    <meta property="og:site_name" content="f4r4w4y"/>
+    <meta property="og:description" content="{{ tldr }}"/>
+    <meta property="og:title" content="{{ title }}"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/{{ site | replace(".md", ".html") }}" />
+    <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
+
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tag.css">
     <link rel="stylesheet" href="/base.css">
@@ -190,7 +198,8 @@ def main():
             tags = tags,
             times = times,
             tldr = tldr,
-            site = site
+            site = site,
+            title = site.replace('-','').replace('.md','')
         )
 
         blogFile.write(renderedResult)
