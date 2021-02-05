@@ -290,7 +290,7 @@ Ini mengartikan ada gap sebesar `0x14` bytes antara `var_20h` dengan `var_34h`, 
 
 Dengan memikirkan kembali konsep yang tadi sudah kita pikirkan, maka kita bisa meng-craft payload seperti berikut :
 
-```
+```md
 A * 20 (kita buat junk payload sebesar 20 bytes, hanya untuk mengisi buffer)
 0xeebaf3ca (ini sebenarnya 0xcaf3baee, nah kenapa dibalik balik, karena binary ELF itu menggunakan little endian)
 ```
