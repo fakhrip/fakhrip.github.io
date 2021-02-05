@@ -199,7 +199,7 @@ def main():
             times = times,
             tldr = tldr,
             site = site,
-            title = site.replace('-','').replace('.md','')
+            title = site.replace('-',' ').replace('.md','')
         )
 
         blogFile.write(renderedResult)
