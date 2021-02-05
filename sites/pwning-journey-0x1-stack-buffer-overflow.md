@@ -108,21 +108,21 @@ Setelah itu kita bisa melihat assembly nya dengan cara men-disassemble program y
 ╭─f4r4w4y@blackrock ~/Documents/random 
 ╰─$ objdump -D -Mintel testing | grep main -A15 | tail -16
 0000000000001129 <main>:
-    1129:	f3 0f 1e fa          	endbr64 
-    112d:	55                   	push   rbp
-    112e:	48 89 e5             	mov    rbp,rsp
-    1131:	c7 45 f4 01 00 00 00 	mov    DWORD PTR [rbp-0xc],0x1
-    1138:	c7 45 f8 02 00 00 00 	mov    DWORD PTR [rbp-0x8],0x2
-    113f:	8b 55 f4             	mov    edx,DWORD PTR [rbp-0xc]
-    1142:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
-    1145:	01 d0                	add    eax,edx
-    1147:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
-    114a:	b8 00 00 00 00       	mov    eax,0x0
-    114f:	5d                   	pop    rbp
-    1150:	c3                   	ret    
-    1151:	66 2e 0f 1f 84 00 00 	nop    WORD PTR cs:[rax+rax*1+0x0]
-    1158:	00 00 00 
-    115b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+  1129:	f3 0f 1e fa          	endbr64 
+  112d:	55                   	push   rbp
+  112e:	48 89 e5             	mov    rbp,rsp
+  1131:	c7 45 f4 01 00 00 00 	mov    DWORD PTR [rbp-0xc],0x1
+  1138:	c7 45 f8 02 00 00 00 	mov    DWORD PTR [rbp-0x8],0x2
+  113f:	8b 55 f4             	mov    edx,DWORD PTR [rbp-0xc]
+  1142:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  1145:	01 d0                	add    eax,edx
+  1147:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+  114a:	b8 00 00 00 00       	mov    eax,0x0
+  114f:	5d                   	pop    rbp
+  1150:	c3                   	ret    
+  1151:	66 2e 0f 1f 84 00 00 	nop    WORD PTR cs:[rax+rax*1+0x0]
+  1158:	00 00 00 
+  115b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
 ```
 
 Argumen `-D` mengartikan bahwa kita ingin melakukan disassembly, dan argumen `-Mintel` mengartikan bahwa kita ingin menggunakan syntax Intel, command lainnya seperti `grep` dan `tail` hanya digunakan untuk langsung memfokuskan output pada fungsi `main` dari program yang telah dibuat.
@@ -167,7 +167,7 @@ Tidak semua challenges nya akan saya tulis disini solusi nya karena sangat memak
 
 Kita diberikan sebuah program bernama `boi` yang bila dijalankan akan meminta sebuah inputan dan langsung dilanjutkan dengan output berupa datetime saat dijalankan, seperti berikut :
 
-```
+```bash
 ╭─f4r4w4y@blackrock stack-buffer-overflows/csaw-boi
 ╰─$ ./boi
 Are you a big boiiiii??
@@ -177,7 +177,7 @@ Jum 05 Feb 2021 04:23:54  WIB
 
 Dan bila kita jalankan command file maka akan mendapatkan output seperti berikut :
 
-```
+```bash
 ╭─f4r4w4y@blackrock stack-buffer-overflows/csaw-boi 
 ╰─$ file boi 
 boi: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=1537584f3b2381e1b575a67cba5fbb87878f9711, not stripped
@@ -187,7 +187,7 @@ Itu mengartikan bahwa file nya merupakan program dengan arsitektur x64 (64 bit),
 
 Selanjutnya kita akan melihat proteksi apa saja yang dimiliki oleh program yang telah dibuat, dan hal ini bisa dilakukan dengan menggunakan command `checksec` apabila pwntools telah diinstall didalam mesin yang digunakan, seperti berikut :
 
-```
+```bash
 ╭─f4r4w4y@blackrock stack-buffer-overflows/csaw-boi 
 ╰─$ checksec boi 
 [*] '/home/f4r4w4y/Documents/general/LearningJourney_v1/Security/Binary Exploitation/stack-buffer-overflows/csaw-boi/boi'
@@ -245,7 +245,7 @@ Dalam hal ini hasil rekonstruksinya sudah akurat dan tidak perlu lagi lihat baha
 
 Lalu yang terpenting adalah kita bisa lihat bahwa disana ada perbandingan nilai antara variable `var_20h` dengan nilai `-0x350c4512`, yang bila kita lihat pada hasil disassemble nya dia membandingkan dengan nilai `0xcaf3baee`, seperti berikut : 
 
-```
+```bash
 0x004006a5      mov     eax, dword [var_1ch]
 0x004006a8      cmp     eax, 0xcaf3baee
 0x004006ad      jne     0x4006bb
@@ -266,13 +266,13 @@ Balik lagi ke program, bisa dilihat bahwa value dari variable `var_20h` tidak pe
 
 Value awal dari variable `var_20h` adalah `0xdeadbeef`, hal ini juga bisa dilihat pada hasil disassembly nya, seperti berikut :
 
-```
+```bash
 0x0040067e      mov     dword [var_1ch], 0xdeadbeef
 ```
 
 Bila kita perhatikan hasil rekonstruksi programnya dengan seksama, maka ternyata terjadi `stack buffer overflow` disaat mengambil inputan menggunakan `read()`, dikarenakan inputan yang akan diambil yaitu sebesar `0x18` bytes sementara variable `var_34h` berada pada offset `0x34` bytes sedangkan variable `var_20h` berada pada offset `0x20` bytes, ini bisa dilihat dari stack frame yang berada pada paling atas fungsi main di disassembler pada Cutter nya, seperti berikut :
 
-```
+```bash
 159: int main (int argc, char **argv);
 ; var char **var_40h @ rbp-0x40
 ; var int64_t var_34h @ rbp-0x34
@@ -315,7 +315,7 @@ Baris awal mengartikan bahwa kita akan mengimport `pwntools` untuk mempermudah p
 
 Bila kita jalankan python code nya maka akan mendapatkan shell seperti berikut ini :
 
-```
+```bash
 ╭─f4r4w4y@blackrock stack-buffer-overflows/csaw-boi  
 ╰─$ python3 x.py
 [+] Starting local process './boi': pid 1235563
