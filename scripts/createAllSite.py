@@ -14,7 +14,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
 
     /* OGP (https://ogp.me/) */
     <meta property="og:site_name" content="f4r4w4y"/>
-    <meta property="og:description" content="{{ tldr }}"/>
+    <meta property="og:description" content="{{ desc }}"/>
     <meta property="og:title" content="{{ title }}"/>
     <meta property="og:type" content="blog"/>
     <meta property="og:url" content="https://fakhrip.github.io/blogs/{{ site | replace(".md", ".html") }}" />
@@ -171,6 +171,7 @@ def main():
         tags = ""
         times = ""
         tldr = ""
+        desc = ""
         for meta in siteMeta.split("\n"):
             if "Tags" == meta.split(": ")[0] :
                 tags = meta.split(": ")[1].split("|")
@@ -183,6 +184,7 @@ def main():
                     "target-blank-links"
                 ])
             if "TLDR" == meta.split(": ")[0] :
+                desc = meta.split(": ")[1]
                 tldr = markdown2.markdown(meta.split(": ")[1], extras = [
                     "footnotes", 
                     "fenced-code-blocks", 
@@ -199,6 +201,7 @@ def main():
             times = times,
             tldr = tldr,
             site = site,
+            desc = desc,
             title = site.replace('-',' ').replace('.md','')
         )
 
