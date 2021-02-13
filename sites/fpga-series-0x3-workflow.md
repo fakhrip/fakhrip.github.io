@@ -316,7 +316,7 @@ b = 20
 c = 7
 pilih = 0
 
-Karena pilih == 1, maka dia seharusnya menghasilkan nilai
+Karena pilih == 0, maka dia seharusnya menghasilkan nilai
 dari (b ^ c), dan jika kita hitung (20 ^ 7) 
 maka hasil nya adalah 19
 
