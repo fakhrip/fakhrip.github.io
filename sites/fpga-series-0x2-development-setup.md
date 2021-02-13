@@ -16,6 +16,7 @@ Series nya ini saya bentuk secara berurut menggunakan penomoran dalam bentuk hex
 | --- |
 | [Icarus Verilog](#icarus-verilog) |  
 | [GTK Wave](#gtkwave) |  
+| [WaveTrace](#wavetrace) |  
 | [Bonus Resource](#bonus) |  
 | [What's next ?](#whats-next) |  
 
@@ -90,6 +91,17 @@ Untuk yang satu ini, instalasi nya sudah dijelaskan dengan sangat jelas di [webs
   jika tidak bisa maka download dari link berikut https://sourceforge.net/projects/gtkwave/files/ download file yang ada akhiran `osx-app` nya lalu install seperti biasa.  
 
 - Untuk sama dengan MacOS tetapi download file yang akhirannya `bin-win32` ataupun `bin-win64` menyesuaikan dengan arsitektur komputer anda masing-masing.
+
+<div id="wavetrace"></div>
+### WaveTrace
+
+Tools ini berfungsi seperti halnya GTK Wave, hanya saja saya lebih memilih ini ketimbang GTK Wave dikarenakan saya bisa menggunakannya langsung dari vscode, jadi saya tidak perlu pindah pindah aplikasi untuk melihat hasil sinyal yang terbentuk dari testbench nya.
+
+Instalasi nya sangat mudah, bisa langsung saja masuk ke [website nya](https://www.wavetrace.io/) lalu klik pada tombol `Install from Visual Studio Marketplace`.
+
+Atau langsung saja di vscode bagian extension, search `Wavetrace` dan klik install seperti pada gambar berikut (saya sudah menginstall nya jadi digambar tertulis `uninstall`, jika belum harusnya tertulis `install`).
+
+![wavetrace](../pictures/site7/wavetrace.png)
 
 <div id="bonus"></div>
 ### Bonus Resource
