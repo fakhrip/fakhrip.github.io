@@ -1,5 +1,5 @@
 Tags: Embedded-System|Series
-Times: 10 mins read + 10 more mins if you want to do it too
+Times: 5 mins read + 10 more mins if you want to do it too
 TLDR: Iverilog + GTKWave combo for fpga programming
 --+--+--+--
 # FPGA Series: (0x2) Development Setup 
