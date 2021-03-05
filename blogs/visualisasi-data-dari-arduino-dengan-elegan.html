@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- OGP (https://ogp.me/) -->
+    <meta property="og:site_name" content="f4r4w4y"/>
+    <meta property="og:description" content="arduino-cli + gnuplot + pyserial == amazing visualization"/>
+    <meta property="og:title" content="visualisasi data dari arduino dengan elegan"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/visualisasi-data-dari-arduino-dengan-elegan.html" />
+    <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/tag.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/native.css">
+    <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512"  href="../favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+
+    <title>f4r4w4y</title>
+</head>
+<body>
+
+    <div class="fullscreen-bg">
+        <img src="/pictures/bg1.jpg" alt="full-bg">
+    </div>
+
+    <div class="small-left-top-term">
+        <div class="container">
+            <h3 class="fullname">Muhammad Fakhri Putra <br> Supriyadi</h3>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tldr ./visualisasi-data-dari-arduino-dengan-elegan.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        TL;DR <p>arduino-cli + gnuplot + pyserial == amazing visualization</p>
+
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="small-left-bottom-term">
+        <div class="container">
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tags ./visualisasi-data-dari-arduino-dengan-elegan.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <div class="tags-container">
+                            
+                            <span class="tag" id="embedded-system">
+                                EMBEDDED-SYSTEM
+                            </span>
+                            
+                            <span class="tag" id="programming">
+                                PROGRAMMING
+                            </span>
+                            
+                        </div>
+                    </li>
+                </ul>
+            </h5>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">timing ./visualisasi-data-dari-arduino-dengan-elegan.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Estimated <p>15 mins read + 15 more mins if you want to do it too</p>
+
+                    </li>
+                </ul>
+            </h5>
+
+            <h5 class="text">    
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./visualisasi-data-dari-arduino-dengan-elegan.md</span>
+                <ul style="list-style-type: none;">
+                    <li>
+                        Last updated on March 05, 2021 at 14:30:10
+                    </li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="full-term">
+        <div class="container text">
+            <h5 class="text">
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">cd <a class="link underline" href="/blogs.html">..</a></span>
+            </h5>
+
+            <h5 class="text">
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">fancyblogcat <span id="location" style="font-weight: normal"></span></span>
+            </h5>
+
+            <hr/>
+            <center>
+                <span style="font-weight: normal">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>
+            </center>
+            <hr/>
+            
+            <div class="blog-content">
+                <h1>Visualisasi Data dari Arduino <em>in a more elegant way</em></h1>
+
+<p>Ini merupakan sebuah eksperimen iseng yang saya lakukan untuk mempermudah visualisasi data saat hendak melakukan signal processing dari data yang sudah diambil menggunakan arduino, sebelum menemukan solusi yang cepat, mudah, efisien, dan tidak bloated/overkill saya melakukan banyak browsing hingga akhirnya menemukan <a target="_blank" href="http://www.gnuplot.info/">gnuplot</a>, dimana gnuplot ini bisa dibilang sebuah alternatif mudah untuk bisa memvisualisasikan data dalam bentuk grafik tanpa perlu menggunakan matlab ataupun python.</p>
+
+<p>Dan terlebih dari hanya sekedar eksperimen kecil, disini juga saya gunakan <a target="_blank" href="https://github.com/arduino/arduino-cli">arduino-cli</a> yang merupakan sebuah open source tool terbaru yang direlease oleh arduino nya langsung, jadi bagi para manusia pecinta terminal bisa melakukan segala hal yang berhubungan dengan arduino tanpa perlu campur tangan IDE nya (go mouseless iykwim), dan juga kita bisa melakukan automasi dalam segala bidang (pipelining you know ?) bahkan mungkin <code>arduino as a service</code>, oke maaf saya sudah berlebihan wkwk (but its actually a good idea, isnt it).</p>
+
+<h3>The beginning of the arduino automation</h3>
+
+<p>Dengan menggunakan <code>arduino-cli</code>, kita bisa melakukan banyak hal seperti berikut tanpa perlu membuka IDE nya dulu (again, go mouseless) :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="k">-</span> board            Arduino board commands.
+<span class="k">-</span> burn-bootloader  Upload the bootloader.
+<span class="k">-</span> compile          Compiles Arduino sketches.
+<span class="k">-</span> core             Arduino core operations.
+<span class="k">-</span> debug            Debug Arduino sketches.
+<span class="k">-</span> lib              Arduino commands about libraries.
+<span class="k">-</span> sketch           Arduino CLI sketch commands.
+<span class="k">-</span> update           Updates the index of cores and libraries
+<span class="k">-</span> upgrade          Upgrades installed cores and libraries.
+<span class="k">-</span> upload           Upload Arduino sketches.
+</code></pre></div>
+
+<p>Sangat banyak yang bisa kita lakukan bukan ?, dan dengan begini kita bisa dengan lebih jelas mengetahui apa yang sebenarnya terjadi saat kita meng-klik suatu tombol pada IDE nya.</p>
+
+<p>Okay, mari saya percepat penjelasannya dengan langsung hands-on dan gunakan command yang kita perlukan untuk bisa melakukan seluruh workflow pada arduino dari mulai pembuatan sketch, compile, hingga upload sketch ke arduino nya.</p>
+
+<p>(Untuk detail mengenai command-command nya silahkan baca dokumentasi nya, karena artikel nya akan menjadi out-of-context bila saya jelaskan bagian ini terlalu berlebihan)</p>
+
+<h4>-> Installation</h4>
+
+<p>Oke biar ga ribet baca dokumentasi (walaupun saran saya demikian, karena cara disini bisa jadi akan obsolete):</p>
+
+<p>Melalui curl [silahkan ganti nilai BINDIR dengan target tempat instalasi yang diinginkan] :</p>
+
+<div class="codehilite"><pre><span></span><code>curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh <span class="p">|</span> <span class="nv">BINDIR</span><span class="o">=</span>/bin sudo sh
+</code></pre></div>
+
+<p>Bisa juga kalian download langsung saja binary file nya di link berikut ini:</p>
+
+<p><a target="_blank" href="https://arduino.github.io/arduino-cli/latest/installation/#download">https://arduino.github.io/arduino-cli/latest/installation/#download</a></p>
+
+<h4>-> Automation</h4>
+
+<p>Saya asumsikan kalian sudah mengerti workflow pada arduino secara biasanya, sekarang kita ubah semua hal itu dengan menggunakan <code>arduino-cli</code>, seperti berikut :</p>
+
+<ol>
+<li><p>Hubungkan arduino nya ke komputer dengan menggunakan USB (ya jelas, apalagi), dan masukkan command seperti berikut :</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random 
+╰─$ arduino-cli board list
+Port         Type              Board Name  FQBN            Core       
+/dev/ttyACM0 Serial Port <span class="o">(</span>USB<span class="o">)</span> Arduino Uno arduino:avr:uno arduino:avr
+/dev/ttyS0   Serial Port       Unknown                                
+</code></pre></div>
+
+<p>Seperti yang bisa dilihat, dia langsung mendeteksi sekaligus meng-outputkan board arduino yang terhubung pada komputer kita beserta port tempat dia terhubung (mantap kan ?).</p>
+
+<p>Dari situ terdapat hal penting, dan yang paling penting kita perhatikan adalah bagian FQBN (Fully Qualified Board Name), karena ini akan berhubungan dengan command selanjutnya.</p>
+
+<blockquote>
+  <p>NOTES, jika ternyata terdeteksi ada board tetapi tidak dituliskan Board Name dan/atau FQBN nya, tenang saja anda masih bisa menebak-nebak sesuai arduino nya, misal pada arduino nano (yang biasa terjadi): gunakan saja FQBN nya yaitu <code>arduino:avr:nano</code></p>
+</blockquote></li>
+<li><p>Setelah itu kita harus menginstall core yang sesuai dengan FQBN yang kita dapatkan melalui command sebelumnya tadi.</p>
+
+<p>Dikarenakan saya menggunakan arduino uno yang FQBN nya <code>arduino:avr:uno</code> yang mengartikan bahwa UNO merupakan AVR-family, maka saya harus menginstall core untuk AVR-family board seperti berikut :</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random 
+╰─$ arduino-cli core install arduino:avr  
+Downloading packages...
+arduino:avr-gcc@7.3.0-atmel3.6.1-arduino7 already downloaded
+arduino:avrdude@6.3.0-arduino17 already downloaded
+arduino:arduinoOTA@1.3.0 already downloaded
+arduino:avr@1.8.3 already downloaded
+Installing arduino:avr-gcc@7.3.0-atmel3.6.1-arduino7...
+arduino:avr-gcc@7.3.0-atmel3.6.1-arduino7 installed
+Installing arduino:avrdude@6.3.0-arduino17...
+arduino:avrdude@6.3.0-arduino17 installed
+Installing arduino:arduinoOTA@1.3.0...
+arduino:arduinoOTA@1.3.0 installed
+Installing arduino:avr@1.8.3...
+Configuring platform...
+arduino:avr@1.8.3 installed
+</code></pre></div></li>
+<li><p>Sebelum kita membuat kode, kita akan buat sketch nya terlebih dahulu untuk nantinya kita compile dan upload, kita bisa membuat sketch nya dengan cara seperti berikut :</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random 
+╰─$ arduino-cli sketch new fun_code  
+Sketch created in: /home/f4r4w4y/Documents/random/fun_code
+</code></pre></div>
+
+<p>Perlu diingat bahwa kalian bisa menggunakan nama saja untuk sketch nya, disitu saya contohkan dengan <code>fun_code</code>.</p>
+
+<p>Secara otomatis akan terbuat folder <code>fun_code</code> yang didalamnya terdapat <code>fun_code.ino</code> yang merupakan file program utamanya yang akan kita ubah dengan kode yang kita inginkan (seperti saat ngoding di IDE), kalian bisa mengedit file <code>.ino</code> ini menggunakan text editor apapun (vscode, vim, emacs, dan lainnya).</p>
+
+<p>Mari kita buat sebuah kode sederhana untuk membaca data dari sebuah sensor ultrasonik sebagai contohnya, berikut kode yang dipakai :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="cp">#define echoPin 2</span>
+<span class="cp">#define trigPin 3</span>
+
+<span class="kr">long</span> <span class="n">duration</span><span class="p">;</span>
+<span class="kr">int</span> <span class="n">distance</span><span class="p">;</span> 
+
+<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">pinMode</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span> 
+  <span class="nf">pinMode</span><span class="p">(</span><span class="n">echoPin</span><span class="p">,</span> <span class="kr">INPUT</span><span class="p">);</span> 
+  <span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span> 
+<span class="p">}</span>
+
+<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+  <span class="nf">delayMicroseconds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
+  <span class="nf">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+
+  <span class="n">duration</span> <span class="o">=</span> <span class="nf">pulseIn</span><span class="p">(</span><span class="n">echoPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
+  <span class="n">distance</span> <span class="o">=</span> <span class="n">duration</span> <span class="o">*</span> <span class="mf">0.034</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> 
+
+  <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Distance: &quot;</span> <span class="o">+</span> <span class="kr">String</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; cm&quot;</span><span class="p">);</span>
+
+  <span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><p>Setelah membuat kodenya, mari kita compile dengan cara seperti berikut ini :</p>
+
+<p>Masuk dulu kedalam folder sketch nya.</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random 
+╰─$ <span class="nb">cd</span> fun_code 
+</code></pre></div>
+
+<p>Lalu kita compile kode nya.</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random/fun_code 
+╰─$ arduino-cli -b arduino:avr:uno compile -v
+Using board <span class="s1">&#39;uno&#39;</span> from platform in folder: /home/f4r4w4y/.arduino15/packages/arduino/hardware/avr/1.8.3
+Using core <span class="s1">&#39;arduino&#39;</span> from platform in folder: /home/f4r4w4y/.arduino15/packages/arduino/hardware/avr/1.8.3
+Detecting libraries used...
+
+<span class="o">[</span>LONG OUTPUT<span class="o">]</span>
+
+Sketch uses <span class="m">4384</span> bytes <span class="o">(</span><span class="m">13</span>%<span class="o">)</span> of program storage space. Maximum is <span class="m">32256</span> bytes.
+Global variables use <span class="m">212</span> bytes <span class="o">(</span><span class="m">10</span>%<span class="o">)</span> of dynamic memory, leaving <span class="m">1836</span> bytes <span class="k">for</span> <span class="nb">local</span> variables. Maximum is <span class="m">2048</span> bytes.
+</code></pre></div>
+
+<p>Disitu saya compile menggunakan opsi <code>-v</code> yang akan mengoutputkan keseluruhan proses dari kompilasi programnya (ingat v mengartikan verbose), jika kalian tidak ingin melihat output teks yang panjang itu maka tidak perlu ditambahkan <code>-v</code> nya.</p>
+
+<p>Dan perlu diketahui bahwa opsi <code>-b</code> itu digunakan untuk memberitahukan kepada compilernya apa FQBN yang akan digunakan untuk mengkompilasi program tersebut, ini kita gunakan FQBN yang kita dapatkan dari tahap pertama yang sudah saya jelaskan diatas.</p>
+
+<p>Setelah di compile, maka hasil compile nya akan ditaruh di folder yang tertera pada output dari kompilasi saat menggunakan opsi <code>-v</code>, akan tetapi hasil kompilasi nya juga bisa kita outputkan di folder sketch saat ini dengan cara menambahkan opsi <code>-e</code>, yang nantinya setelah kompilasi akan terdapat beberapa hasilnya seperti berikut :</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random/fun_code 
+╰─$ ll
+total <span class="m">8</span>,0K
+drwxr-xr-x <span class="m">3</span> f4r4w4y f4r4w4y <span class="m">4</span>,0K Mar  <span class="m">5</span> <span class="m">08</span>:04 build
+-rw-r--r-- <span class="m">1</span> f4r4w4y f4r4w4y  <span class="m">446</span> Mar  <span class="m">5</span> <span class="m">07</span>:55 fun_code.ino
+╭─f4r4w4y@blackrock ~/Documents/random/fun_code 
+╰─$ tree build 
+build
+└── arduino.avr.uno
+    ├── fun_code.ino.eep
+    ├── fun_code.ino.elf
+    ├── fun_code.ino.hex
+    ├── fun_code.ino.with_bootloader.bin
+    └── fun_code.ino.with_bootloader.hex
+
+<span class="m">1</span> directory, <span class="m">5</span> files
+</code></pre></div></li>
+<li><p>Setelah kita compile programnya, kita bisa langsung saja upload hasil kompilasinya kedalam arduino nya dengan menggunakan command <code>upload</code> seperti berikut :</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random/fun_code 
+╰─$ arduino-cli -b arduino:avr:uno -p /dev/ttyACM0 upload -v
+<span class="s2">&quot;/home/f4r4w4y/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude&quot;</span> <span class="s2">&quot;-C/home/f4r4w4y/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf&quot;</span> -v -V -patmega328p -carduino <span class="s2">&quot;-P/dev/ttyACM0&quot;</span> -b115200 -D <span class="s2">&quot;-Uflash:w:/tmp/arduino-sketch-4458DF6C1E2A31A6B3A97B09078FC49A/fun_code.ino.hex:i&quot;</span>
+
+<span class="o">[</span>LONG OUTPUT<span class="o">]</span>
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading <span class="p">|</span> <span class="c1">################################################## | 100% 0.00s</span>
+
+avrdude: Device <span class="nv">signature</span> <span class="o">=</span> 0x1e950f <span class="o">(</span>probably m328p<span class="o">)</span>
+avrdude: reading input file <span class="s2">&quot;/tmp/arduino-sketch-4458DF6C1E2A31A6B3A97B09078FC49A/fun_code.ino.hex&quot;</span>
+avrdude: writing flash <span class="o">(</span><span class="m">4384</span> bytes<span class="o">)</span>:
+
+Writing <span class="p">|</span> <span class="c1">################################################## | 100% 0.83s</span>
+
+avrdude: <span class="m">4384</span> bytes of flash written
+
+avrdude <span class="k">done</span>.  Thank you.
+</code></pre></div>
+
+<p>Seperti yang bisa dilihat, outputnya sangat panjang karena saya menggunakan opsi <code>-v</code> dan saya juga sarankan untuk selalu menggunakan <code>-v</code> saat compile dan upload agar mempermudah untuk mendebug saat ada kesalahan yang terjadi.</p>
+
+<p>Disitu juga saya gunakan opsi <code>-b</code> sama seperti proses kompilasi untuk memberitahu <code>arduino-cli</code> nya FQBN apa yang akan dipakai, lalu digunakan opsi <code>-p</code> untuk memberitahukan port tempat arduino nya terhubung, ini bisa didapatkan dari tahap pertama yang juga sudah saya jelaskan ditahap tersebut.</p></li>
+</ol>
+
+<blockquote>
+  <p>TIPS: kalian bisa saja meng-compile dan upload disaat bersamaan dengan menggunakan command <code>arduino-cli -b arduino:avr:uno -p /dev/ttyACM0 compile -v -u</code></p>
+</blockquote>
+
+<h3>Here comes the python</h3>
+
+<p>Setelah program berhasil kita compile dan upload ke arduino nya, maka selanjutnya kita bisa melihat output dari komunikasi serial pada program dengan menggunakan package <code>pyserial</code> pada python.</p>
+
+<p>Sebelum kesana saya ingin memberi tips sederhana (untuk UNIX-family user) karena pada dasarnya di konsep UNIX semua hal merupakan file, maka dari itu kita bisa langsung membaca port nya menggunakan cat untuk melihat data yang diterima melalui komunikasi serial nya, contohnya seperti berikut ini :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="o">(</span>base<span class="o">)</span> ╭─f4r4w4y@blackrock ~/Documents/random/fun_code 
+╰─$ sudo cat /dev/ttyACM0
+<span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> f4r4w4y: 
+Distance: <span class="m">6</span> cm
+
+Distance: <span class="m">5</span> cm
+
+Distance: <span class="m">5</span> cm
+
+Distance: <span class="m">5</span> cm
+
+Distance: <span class="m">5</span> cm
+
+Distance: <span class="m">5</span> cm
+
+Distance: <span class="m">5</span> cm
+</code></pre></div>
+
+<p>Pretty handy, right ? <br />
+<img src="https://media.giphy.com/media/8Z5q6iiiUbeNUQTJZx/giphy.gif" alt="hmmm" /></p>
+
+<p>Okee sekarang mari kita lakukan hal yang sama di python untuk mem-parse data dari komunikasi serial tersebut, dan selanjutnya kita masukkan ke file untuk nantinya di visualisasikan menggunakan <code>gnuplot</code>.</p>
+
+<p>Saya tidak akan menjelaskan cara menginstall pyserial nya, karena kalian bisa langsung saja lihat pada <a target="_blank" href="https://github.com/pyserial/pyserial">link github</a> nya untuk lebih detail.</p>
+
+<p>Berikut ini adalah fully-commented python code yang saya gunakan (dan sudah ada penjelesan detail menggunakan komen) :</p>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Berikut ini digunakan untuk mengimport</span>
+<span class="c1"># seluruh package yang akan digunakan pada program ini</span>
+<span class="kn">import</span> <span class="nn">serial</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">os</span>
+
+<span class="c1"># Fungsi ini digunakan untuk mendapatkan waktu</span>
+<span class="c1"># sekarang saat program nya sedang berlangsung</span>
+<span class="c1"># yang nantinya akan digunakan sebagai x axis</span>
+<span class="c1"># dari grafik yang dibuat</span>
+<span class="k">def</span> <span class="nf">getCurTime</span><span class="p">(</span><span class="n">st</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span><span class="p">)</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># Berikut ini untuk menghubungkan ke komunikasi</span>
+<span class="c1"># serial nya dengan cara memasukkan baudrate dan</span>
+<span class="c1"># port yang sesuai</span>
+<span class="n">ser</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">()</span>
+<span class="n">ser</span><span class="o">.</span><span class="n">baudrate</span> <span class="o">=</span> <span class="mi">9600</span>
+<span class="n">ser</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="s1">&#39;/dev/ttyACM0&#39;</span>
+<span class="n">ser</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># readline() ini digunakan untuk membaca data</span>
+        <span class="c1"># dari komunikasi serial hingga ditemukan &quot;\n&quot;</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Dari data tersebut kita ambil bagian value nya</span>
+        <span class="c1"># saja dengan cara menghilangkan bagian &quot;Distance: &quot;</span>
+        <span class="c1"># dan juga bagian &quot; cm\r\n&quot; nya</span>
+        <span class="c1"># ---</span>
+        <span class="c1"># ini bisa diketahui dengan print() dulu value line </span>
+        <span class="c1"># diatas sebelumnya</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;Distance: &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">distance_val</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; cm</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Bagian ini berguna untuk menuliskan datanya</span>
+        <span class="c1"># ke file output.txt agar nantinya bisa dibaca</span>
+        <span class="c1"># oleh gnuplot untuk mem-plot grafik nya</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;{getCurTime(start_time)} </span><span class="si">{distance_val}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Ini untuk printing saja, agar kita tetap bisa</span>
+        <span class="c1"># keep track data-data yang didapatkan secara</span>
+        <span class="c1"># realtime</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[&#39;{getCurTime(start_time)}&#39;, &#39;</span><span class="si">{distance_val}</span><span class="s2">&#39;]&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="c1"># Bagian ini akan dijalankan saat kalian</span>
+        <span class="c1"># mengklik ctrl+C, maka program akan menghapus</span>
+        <span class="c1"># file output.txt dan menutup koneksi serial nya</span>
+        <span class="c1"># agar tidak menghabiskan memori</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">)</span>
+        <span class="n">ser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">continue</span>
+</code></pre></div>
+
+<p>Saya menamai kode itu sebagai <code>readNwrite.py</code>.</p>
+
+<h3>Lets plot it !!!</h3>
+
+<blockquote>
+  <p>INTERMEZZO: Perlu diingat bahwa gnuplot tidak ada hubungannya dengan GNU wkwk.</p>
+</blockquote>
+
+<p>Pada UNIX based OS, kalian bisa menginstall gnuplot seperti biasa menggunakan package manager masing masing, contohnya <code>sudo apt-get install gnuplot</code>, akan tetapi untuk windows, kalian harus mendownload gnuplot <a target="_blank" href="http://www.gnuplot.info/download.html">di link ini</a>.</p>
+
+<p>Intinya untuk bagian ini kita akan melakukan beberapa hal yaitu seperti berikut :</p>
+
+<ul>
+<li>Membaca data dari file output.txt</li>
+<li>Plot data sebelum spasi (waktu) pada file tersebut pada sumbu x</li>
+<li>Plot data setelah spasi (distance) pada file tersebut pada sumbu y</li>
+</ul>
+
+<p>Kita bisa melakukan hal tersebut dengan menggunakan code ini :</p>
+
+<div class="codehilite"><pre><span></span><code>plot <span class="s2">&quot;output.txt&quot;</span> using <span class="m">1</span>:2 with linespoint
+pause .5
+reread
+</code></pre></div>
+
+<p>Saya menamai kode itu sebagai <code>plot.aja</code>.</p>
+
+<p>Untuk menjalankannya kita akan pertama-tama menjalankan kode python nya terlebih dahulu dengan <code>python readNwrite.py</code>.</p>
+
+<p>Setelah itu disaat yang bersamaan kita jalankan juga kode untuk gnuplot nya ini dengan cara :</p>
+
+<div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random 
+╰─$ gnuplot -c plot.aja
+</code></pre></div>
+
+<blockquote>
+  <p>Untuk yang menggunakan windows, dikarenakan gnuplot nya tidak dijalankan dengan terminal tapi menggunakan aplikasinya, maka tinggal masukkan command <code>load "plot.aja"</code> kedalam aplikasi gnuplot nya saat sudah dibuka.</p>
+</blockquote>
+
+<p>Dan bisa kalian lihat sendiri setelah mencoba, hasilnya akan kurang bagus karena grafik berusaha menampilkan seluruh datanya, untuk memperbagus bisa kita potong sehingga data yang ditampilkan pada grafik hanya 35 data terakhir dengan cara merubah kode <code>plot.aja</code> nya menjadi berikut :</p>
+
+<div class="codehilite"><pre><span></span><code>plot <span class="s2">&quot;&lt; tail -n 35 output.txt&quot;</span> using <span class="m">1</span>:2 with linespoint
+pause .5
+reread
+</code></pre></div>
+
+<p>Saya belum mencoba cara itu di windows karena itu menggunakan command UNIX-family, jadi bila tidak bisa dijalankan di windows, silahkan ubah kode python nya agar menghapus data sebelumnya dan menyisakan 35 data saja selama proses menulis data ke file <code>output.txt</code>, tapi untuk ini akan saya tinggalkan sebagai latihan bagi para pembaca hehe :D</p>
+
+<h3>Demo</h3>
+
+<p><img src="../pictures/site8/demo.gif" alt="demo" /></p>
+
+<p><img src="https://media.giphy.com/media/XxSIGiSOCEBr8G6cxB/giphy.gif" alt="elegant" /></p>
+
+<h3>Last word</h3>
+
+<p>Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja.</p>
+
+<p>Terimakasih kepada Allah SWT dan juga para pembaca disini, semua yang buruk datangnya dari saya dan yang baik hanya datang dari-Nya, mohon maaf bila ada kesalahan 🙏.</p>
+
+            </div>
+
+            <br/>
+            <hr/>
+            <center>
+                <span style="font-weight: normal">Comment(s)</span>
+            </center>
+            <hr/>
+
+            <script src="https://utteranc.es/client.js"
+                repo="fakhrip/fakhrip.github.io"
+                issue-term="pathname"
+                label="blog-post-comment"
+                theme="photon-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("location").innerHTML = './' + window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+</script>
+</html>
