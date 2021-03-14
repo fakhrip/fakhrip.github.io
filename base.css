@@ -186,6 +186,14 @@ table th, table td:before {
     line-height: 1.25em;
 }
 
+.blog-content h1 code {
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    color: var(--page-color);
+    font-weight: bold;
+    padding: 2.5px;
+}
+
 .blog-content p, .blog-content h3, .blog-content h4 {
     font-family: 'Raleway', sans-serif;
     max-width: 900px;
