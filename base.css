@@ -161,6 +161,7 @@ table th, table td:before {
 .blog-content {
     margin-left: 7.5rem;
     margin-right: 7.5rem;
+    padding-left: 5rem;
 }
 
 .container > hr {
@@ -172,6 +173,7 @@ table th, table td:before {
     border-left: 10px solid rgb(57, 66, 55);
     margin: 1.5em 0px;
     padding: 1em 30px;
+    margin-left: -5rem;
 }
 
 .blog-content blockquote p {
@@ -210,6 +212,7 @@ table th, table td:before {
     padding: 10px 30px;
     border-radius: 10px;
     overflow-x: auto;
+    margin-left: -5rem;
 }
 
 .blog-content ol li {
