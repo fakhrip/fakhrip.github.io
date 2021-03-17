@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- OGP (https://ogp.me/) -->
+    <meta property="og:site_name" content="f4r4w4y"/>
+    <meta property="og:description" content="Iverilog + GTKWave combo for fpga programming"/>
+    <meta property="og:title" content="fpga series 0x2 development setup"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/fpga-series-0x2-development-setup.html" />
+    <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
+
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tag.css">
     <link rel="stylesheet" href="/base.css">
@@ -65,7 +73,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">timing ./fpga-series-0x2-development-setup.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Estimated <p>10 mins read + 10 more mins if you want to do it too</p>
+                        Estimated <p>5 mins read + 10 more mins if you want to do it too</p>
 
                     </li>
                 </ul>
@@ -75,7 +83,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./fpga-series-0x2-development-setup.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Last updated on November 06, 2020 at 20:09:34
+                        Last updated on February 14, 2021 at 12:54:49
                     </li>
                 </ul>
             </h5>
@@ -123,6 +131,9 @@
   <td><a href="#gtkwave">GTK Wave</a></td>
 </tr>
 <tr>
+  <td><a href="#wavetrace">WaveTrace</a></td>
+</tr>
+<tr>
   <td><a href="#bonus">Bonus Resource</a></td>
 </tr>
 <tr>
@@ -137,7 +148,7 @@
 
 <p>Sebenarnya saya sangat beruntung dikarenakan dosennya menyuruh untuk memakai verilog dibandingkan bahasa lainnya, karena verilog ini memiliki support yang sangat luas termasuk pada open-source tools yang ada.</p>
 
-<p>Salah satu tools nya adalah <a target="_blank" href="http://iverilog.icarus.com/">Icarus Verilog</a> atau biasa disebut dengan singkatannya iverilog, tool ini berguna untuk meng-compile sekaligus mensimulasikan program yang sudah kita buat menggunakan bahasa verilog (penjelasan lebih lengkap ada pada websitenya).</p>
+<p>Salah satu tools nya adalah <a rel="noopener" target="_blank" href="http://iverilog.icarus.com/">Icarus Verilog</a> atau biasa disebut dengan singkatannya iverilog, tool ini berguna untuk meng-compile sekaligus mensimulasikan program yang sudah kita buat menggunakan bahasa verilog (penjelasan lebih lengkap ada pada websitenya).</p>
 
 <p>Cara instalasi nya akan saya bagi menyesuaikan os nya :</p>
 
@@ -158,7 +169,7 @@ make install
 </code></pre></div></li>
 <li><p>Windows   </p>
 
-<p>Untuk windows sangat mudah, tinggal pergi ke <a target="_blank" href="http://bleyer.org/icarus/">link berikut</a>, lalu download <code>setup.exe</code> untuk iverilog versi terakhir, dan jalankan dengan klik dua kali file nya.</p>
+<p>Untuk windows sangat mudah, tinggal pergi ke <a rel="noopener" target="_blank" href="http://bleyer.org/icarus/">link berikut</a>, lalu download <code>setup.exe</code> untuk iverilog versi terakhir, dan jalankan dengan klik dua kali file nya.</p>
 
 <p>Untuk men-check bila program telah terinstall dengan baik atau belum, cukup buka cmd(command prompt) / powershell, tergantung terminal yang anda sukai, lalu ketikkan <code>iverilog -h</code>.</p>
 
@@ -180,12 +191,12 @@ See the man page <span class="k">for</span> details.
 <p>Jika terdapat error apapun yang tidak dipahami silahkan comment dibawah, insyaAllah saya jawab secepatnya.</p></li>
 <li><p>MacOS  </p>
 
-<p>Untuk OS unik satu ini saya tidak tau dan tidak bisa memverifikasi cara yang tepat gimana (karena ga punya + mahal :v), jadi saya kasih link ini saja <a target="_blank" href="http://macappstore.org/icarus-verilog/">http://macappstore.org/icarus-verilog/</a>.</p>
+<p>Untuk OS unik satu ini saya tidak tau dan tidak bisa memverifikasi cara yang tepat gimana (karena ga punya + mahal :v), jadi saya kasih link ini saja <a rel="noopener" target="_blank" href="http://macappstore.org/icarus-verilog/">http://macappstore.org/icarus-verilog/</a>.</p>
 
 <p>Jika saya lihat berdasarkan command yang dijalankan memang sepertinya website itu sudah menjalankan instalasi dengan benar, jadi tinggal ikuti saja arahan pada websitenya.</p>
 
 <p>Note: <br />
-Bisa juga menggunakan command yang dipakai untuk instalasi linux diatas, hanya saja untuk bagian instalasi git nya silahkan cari sendiri di internet dan juga diperlukan untuk mendownload dan install software <a target="_blank" href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> terlebih dahulu.</p></li>
+Bisa juga menggunakan command yang dipakai untuk instalasi linux diatas, hanya saja untuk bagian instalasi git nya silahkan cari sendiri di internet dan juga diperlukan untuk mendownload dan install software <a rel="noopener" target="_blank" href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> terlebih dahulu.</p></li>
 </ul>
 
 <div id="gtkwave"></div>
@@ -194,7 +205,7 @@ Bisa juga menggunakan command yang dipakai untuk instalasi linux diatas, hanya s
 
 <p>Tools ini berguna untuk menampilkan hasil sinyal yang telah didapatkan berdasarkan hasil program yang dicompile oleh <code>iverilog</code>.</p>
 
-<p>Untuk yang satu ini, instalasi nya sudah dijelaskan dengan sangat jelas di <a target="_blank" href="http://gtkwave.sourceforge.net/">website nya</a>.</p>
+<p>Untuk yang satu ini, instalasi nya sudah dijelaskan dengan sangat jelas di <a rel="noopener" target="_blank" href="http://gtkwave.sourceforge.net/">website nya</a>.</p>
 
 <ul>
 <li><p>Untuk linux bisa juga dengan <code>sudo apt install gtkwave</code> atau menyesuaikan dengan package manager masing-masing karena kemungkinan besar pasti ada di semua package manager.   </p></li>
@@ -203,13 +214,25 @@ jika tidak bisa maka download dari link berikut https://sourceforge.net/projects
 <li><p>Untuk sama dengan MacOS tetapi download file yang akhirannya <code>bin-win32</code> ataupun <code>bin-win64</code> menyesuaikan dengan arsitektur komputer anda masing-masing.</p></li>
 </ul>
 
+<div id="wavetrace"></div>
+
+<h3>WaveTrace</h3>
+
+<p>Tools ini berfungsi seperti halnya GTK Wave, hanya saja saya lebih memilih ini ketimbang GTK Wave dikarenakan saya bisa menggunakannya langsung dari vscode, jadi saya tidak perlu pindah pindah aplikasi untuk melihat hasil sinyal yang terbentuk dari testbench nya.</p>
+
+<p>Instalasi nya sangat mudah, bisa langsung saja masuk ke <a rel="noopener" target="_blank" href="https://www.wavetrace.io/">website nya</a> lalu klik pada tombol <code>Install from Visual Studio Marketplace</code>.</p>
+
+<p>Atau langsung saja di vscode bagian extension, search <code>Wavetrace</code> dan klik install seperti pada gambar berikut (saya sudah menginstall nya jadi digambar tertulis <code>uninstall</code>, jika belum harusnya tertulis <code>install</code>).</p>
+
+<p><img src="../pictures/site7/wavetrace.png" alt="wavetrace" /></p>
+
 <div id="bonus"></div>
 
 <h3>Bonus Resource</h3>
 
 <p>Buat para manusia yang sangat-sangat tertarik dan ingin tau lebih banyak mengenai tools nya apa saja yang bisa dipakai, saya sarankan untuk menonton video berikut ini.</p>
 
-<p><a target="_blank" href="https://www.youtube.com/watch?v=MI18Wk4gxA4">Open-Source Tools for FPGA Development</a> (Talk by Marek Vašut, DENX Software Engineering)</p>
+<p><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=MI18Wk4gxA4">Open-Source Tools for FPGA Development</a> (Talk by Marek Vašut, DENX Software Engineering)</p>
 
 <div id="whats-next"></div>
 

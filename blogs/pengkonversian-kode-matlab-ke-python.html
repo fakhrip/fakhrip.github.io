@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- OGP (https://ogp.me/) -->
+    <meta property="og:site_name" content="f4r4w4y"/>
+    <meta property="og:description" content="Saya lebih prefer untuk memilih Python dibandingkan Matlab."/>
+    <meta property="og:title" content="pengkonversian kode matlab ke python"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/pengkonversian-kode-matlab-ke-python.html" />
+    <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
+
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tag.css">
     <link rel="stylesheet" href="/base.css">
@@ -75,7 +83,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./pengkonversian-kode-matlab-ke-python.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Last updated on December 20, 2020 at 22:27:23
+                        Last updated on December 20, 2020 at 22:39:17
                     </li>
                 </ul>
             </h5>
@@ -162,7 +170,7 @@
   <span class="n">real_w</span><span class="p">,</span> <span class="n">real_h</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
 
   <span class="n">image</span><span class="o">.</span><span class="n">thumbnail</span><span class="p">([</span><span class="n">w</span> <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">real_w</span><span class="p">,</span> 
-                      <span class="n">h</span> <span class="k">if</span> <span class="n">h</span> <span class="o">!=</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">real_h</span><span class="p">])</span>
+                   <span class="n">h</span> <span class="k">if</span> <span class="n">h</span> <span class="o">!=</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">real_h</span><span class="p">])</span>
 
   <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </code></pre></div>
@@ -275,10 +283,10 @@
 <p>Yang sudah saya tuliskan diatas hanya fungsi-fungsi saya konversi dari kode <code>Matlab</code>, akan tetapi sebenarnya ada banyak sekali kode yang saya konversi dalam bentuk pecahan pecahan kecil, jadi akan lebih baik jika dilihat sendiri dari beberapa referensi yang saya suguhkan berikut ini :</p>
 
 <ul>
-<li>http://mathesaurus.sourceforge.net/matlab-numpy.html (Matlab to NumPy cheatsheet)  </li>
-<li>https://www.mathworks.com/help/ (Matlab documentation itself) <br />
+<li><a rel="noopener" target="_blank" href="http://mathesaurus.sourceforge.net/matlab-numpy.html">http://mathesaurus.sourceforge.net/matlab-numpy.html</a> (Matlab to NumPy cheatsheet)  </li>
+<li><a rel="noopener" target="_blank" href="https://www.mathworks.com/help/">https://www.mathworks.com/help/</a> (Matlab documentation itself) <br />
 Ini berguna untuk mengetahui algoritma dari tiap fungsi pada Matlab nya, agar bilapun kita tidak menemui <em>free real estate snippet</em> yang orang lain sudah buat, kita bisa implementasi sendiri berdasarkan algoritmanya.  </li>
-<li><p>https://scikit-image.org (Scikit Image documentation) <br />
+<li><p><a rel="noopener" target="_blank" href="https://scikit-image.org">https://scikit-image.org</a> (Scikit Image documentation) <br />
 Disini biasanya sudah tertera banyak hal yang memang sudah kompatibel dengan fungsi yang ada pada Matlab, jadi bisa mempermudah untuk pengkonversian kode <code>Matlab</code> apapun itu.</p>
 
 <p>Anggap saja ini sebagai tambang emas yang menjadi harapan akhir saat otak pun sudah tidak mampu implementasi algo Matlabnya sendiri :(</p></li>
@@ -287,10 +295,10 @@ Disini biasanya sudah tertera banyak hal yang memang sudah kompatibel dengan fun
 <p>Dan berikut ini adalah beberapa referensi yang saya gunakan untuk pembuatan fungsinya :</p>
 
 <ul>
-<li>https://stackoverflow.com/questions/5957470/matlab-style-find-function-in-python (find() Matlab in Python3)  </li>
-<li>https://www.learnopencv.com/filling-holes-in-an-image-using-opencv-python-c/ (imfill holes in Python3)  </li>
-<li>https://programmersought.com/article/82182780880/ (bwareaopen in Python3)  </li>
-<li>https://note.nkmk.me/en/python-numpy-opencv-image-binarization/ (Python3 implementation of imbinarize and graythresh)  </li>
+<li><a rel="noopener" target="_blank" href="https://stackoverflow.com/questions/5957470/matlab-style-find-function-in-python">https://stackoverflow.com/questions/5957470/matlab-style-find-function-in-python</a> (find() Matlab in Python3)  </li>
+<li><a rel="noopener" target="_blank" href="https://www.learnopencv.com/filling-holes-in-an-image-using-opencv-python-c/">https://www.learnopencv.com/filling-holes-in-an-image-using-opencv-python-c/</a> (imfill holes in Python3)  </li>
+<li><a rel="noopener" target="_blank" href="https://programmersought.com/article/82182780880/">https://programmersought.com/article/82182780880/</a> (bwareaopen in Python3)  </li>
+<li><a rel="noopener" target="_blank" href="https://note.nkmk.me/en/python-numpy-opencv-image-binarization/">https://note.nkmk.me/en/python-numpy-opencv-image-binarization/</a> (Python3 implementation of imbinarize and graythresh)  </li>
 </ul>
 
 <h3>Last word</h3>

@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- OGP (https://ogp.me/) -->
+    <meta property="og:site_name" content="f4r4w4y"/>
+    <meta property="og:description" content="Verilog merupakan salah satu HDL yang dipakai untuk FPGA Programming"/>
+    <meta property="og:title" content="fpga series 0x1 intro verilog"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/fpga-series-0x1-intro-verilog.html" />
+    <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
+
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tag.css">
     <link rel="stylesheet" href="/base.css">
@@ -103,7 +111,7 @@
 
 <p>Dimulai dari sekedar tugas kuliah yang tiba tiba datang dikala pandemi, tiba tiba saja saya terasa tertarik dan tertantang dengan yang namanya <code>embedded-system</code>, ketertarikan saya ini lebih terasa lagi disaat adanya mata kuliah yang berhubungan dengan FPGA yaitu <strong>Sistem Chipset Tunggal</strong>.</p>
 
-<p>Setelah saya <em>crawling the internet</em> dalam beberapa hari, akhirnya saya menemukan kombinasi <a target="_blank" href="https://en.wikipedia.org/wiki/Toolchain">tool-chain</a> yang menurut saya sangat pas apalagi mereka semua <a target="_blank" href="https://id.wikipedia.org/wiki/Sumber_terbuka">open-source</a>.</p>
+<p>Setelah saya <em>crawling the internet</em> dalam beberapa hari, akhirnya saya menemukan kombinasi <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Toolchain">tool-chain</a> yang menurut saya sangat pas apalagi mereka semua <a rel="noopener" target="_blank" href="https://id.wikipedia.org/wiki/Sumber_terbuka">open-source</a>.</p>
 
 <p>Maka dari itu saya membuat FPGA Series dalam blog saya ini untuk membagikan ilmu yang sudah saya dapatkan, sekaligus tempat untuk mengingat kembali hal-hal yang sudah saya pelajari sebelumnya (karena saya pelupa XD).</p>
 
@@ -143,7 +151,7 @@
 
 <p>FPGA merupakan singkatan dari Field-Programmable Gate Array (so mouthful isnt it).</p>
 
-<p>FPGA ini pada dasarnya merupakan persatuan dari banyak <strong>gerbang logika (<em>logic gate</em>)</strong> yang disatukan menjadi suatu hal yang dinamakan dengan <strong>Logic Block</strong>, dan karena FPGA ini programmable maka Logic Block nya ini juga <strong>Configurable</strong> yang dalam artian lain, FPGA ini menggunakan suatu hal yang disebut dengan <a target="_blank" href="https://www.ni.com/documentation/en/labview-comms/latest/fpga-targets/configurable-logic-blocks/">CLB(Configurable Logic Block)</a> yang disatukan sedemikian rupa sehingga antar satu blok dengan lainnya saling ter-interkonesi.</p>
+<p>FPGA ini pada dasarnya merupakan persatuan dari banyak <strong>gerbang logika (<em>logic gate</em>)</strong> yang disatukan menjadi suatu hal yang dinamakan dengan <strong>Logic Block</strong>, dan karena FPGA ini programmable maka Logic Block nya ini juga <strong>Configurable</strong> yang dalam artian lain, FPGA ini menggunakan suatu hal yang disebut dengan <a rel="noopener" target="_blank" href="https://www.ni.com/documentation/en/labview-comms/latest/fpga-targets/configurable-logic-blocks/">CLB(Configurable Logic Block)</a> yang disatukan sedemikian rupa sehingga antar satu blok dengan lainnya saling ter-interkonesi.</p>
 
 <p><img src="https://media.giphy.com/media/KxhIhXaAmjOVy/giphy.gif" alt="Hmm i think i know some of these words" /> <br />
 Yah, saya pun berekpresi sama saat pertama kali mendengar hal ini wkwk.</p>
@@ -171,9 +179,9 @@ Yah, saya pun berekpresi sama saat pertama kali mendengar hal ini wkwk.</p>
 - Verilog (Dibuat tahun 1984) <br />
 - SystemC (Dibuat tahun 1999) <br />
 - SystemVerilog (Dibuat tahun 2002) <br />
-- <a target="_blank" href="https://en.wikipedia.org/wiki/List_of_HDL_simulators">Dan masih banyak lagi</a>  </p>
+- <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/List_of_HDL_simulators">Dan masih banyak lagi</a>  </p>
 
-<p>Bahkan sekarang sudah banyak yang buat <a target="_blank" href="https://devopedia.org/transpiler">transpiler</a> dalam bentuk python, rust, java, dan bahasa bahasa lainnya.</p>
+<p>Bahkan sekarang sudah banyak yang buat <a rel="noopener" target="_blank" href="https://devopedia.org/transpiler">transpiler</a> dalam bentuk python, rust, java, dan bahasa bahasa lainnya.</p>
 
 <p>Tapi, kenapa verilog ?</p>
 

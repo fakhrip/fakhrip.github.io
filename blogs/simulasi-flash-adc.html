@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- OGP (https://ogp.me/) -->
+    <meta property="og:site_name" content="f4r4w4y"/>
+    <meta property="og:description" content="I **really love** this kind of `practical` mid-term exam, kudos to all the lecturers 👍👍👍."/>
+    <meta property="og:title" content="simulasi flash adc"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/simulasi-flash-adc.html" />
+    <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
+
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tag.css">
     <link rel="stylesheet" href="/base.css">
@@ -134,17 +142,17 @@
 <span class="k">5.</span> LCD (menampilkan output sesuai arduino)    
 </code></pre></div>
 
-<p>Berikut lampiran hasil projek yang saya buat di Proteus 8: <a target="_blank" href="../resources/site4/project.pdsprj">project.pdsprj</a> <br />
-Dan berikut lampiran kodingan Arduino nya: <a target="_blank" href="../resources/site4/light-showcase-ez.ino">code.ino</a></p>
+<p>Berikut lampiran hasil projek yang saya buat di Proteus 8: <a rel="noopener" target="_blank" href="../resources/site4/project.pdsprj">project.pdsprj</a> <br />
+Dan berikut lampiran kodingan Arduino nya: <a rel="noopener" target="_blank" href="../resources/site4/light-showcase-ez.ino">code.ino</a></p>
 
 <h3>Sensor Cahaya</h3>
 
-<p>Karena hanya diberikan waktu 12 jam (sebenarnya bisa saya katakan ini waktunya lebih lama dari seharusnya wkwk, karena kalau udah terbiasa membuat rangkaian seharusnya 2 jam pun selesai), maka dari itu saya memilih sensor cahaya yang sangat sederhana yaitu <a target="_blank" href="https://www.electronics-notes.com/articles/electronic_components/resistors/light-dependent-resistor-ldr.php">LDR(Light Dependent Resistor)</a>.</p>
+<p>Karena hanya diberikan waktu 12 jam (sebenarnya bisa saya katakan ini waktunya lebih lama dari seharusnya wkwk, karena kalau udah terbiasa membuat rangkaian seharusnya 2 jam pun selesai), maka dari itu saya memilih sensor cahaya yang sangat sederhana yaitu <a rel="noopener" target="_blank" href="https://www.electronics-notes.com/articles/electronic_components/resistors/light-dependent-resistor-ldr.php">LDR(Light Dependent Resistor)</a>.</p>
 
 <p>Singkatnya, LDR merupakan jenis sensor cahaya dimana semakin tinggi intensitas cahaya yang diterima maka akan semakin kecil nilai resistansinya.</p>
 
 <p><img src="https://www.researchgate.net/publication/323359222/figure/fig3/AS:597176380035073@1519389352693/The-resistance-VS-illumination-Graph-of-LDR.png" alt="LDR-graph" /> <br />
-sumber: <a target="_blank" href="https://www.researchgate.net/publication/323359222/figure/fig3/AS:597176380035073@1519389352693/The-resistance-VS-illumination-Graph-of-LDR.png">researchgate</a></p>
+sumber: <a rel="noopener" target="_blank" href="https://www.researchgate.net/publication/323359222/figure/fig3/AS:597176380035073@1519389352693/The-resistance-VS-illumination-Graph-of-LDR.png">researchgate</a></p>
 
 <p>Dengan menggunakan efek dari LDR ini kita bisa membuat suatu hal yang bekerja berdasarkan intensitas cahaya yang didapatkan oleh LDR nya itu sendiri.</p>
 
@@ -156,13 +164,13 @@ sumber: <a target="_blank" href="https://www.researchgate.net/publication/323359
 
 <p>Dan berdasarkan rencana saya, maka saya akan mengubah sinyal analog yang melengkung aneh yang merupakan hasil dari LDR itu menjadi sinyal digital yang terurut dari <code>000</code> hingga <code>111</code> sehingga akan sangat mempermudah saya untuk menganalisa selanjutnya.</p>
 
-<p>Langkah ini disebut dengan <a target="_blank" href="https://www.ni.com/en-id/innovations/white-papers/09/what-is-signal-conditioning-.html">Signal Conditioning</a>.</p>
+<p>Langkah ini disebut dengan <a rel="noopener" target="_blank" href="https://www.ni.com/en-id/innovations/white-papers/09/what-is-signal-conditioning-.html">Signal Conditioning</a>.</p>
 
 <h3>Flash ADC</h3>
 
 <p>Seperti yang saya telah tulis diatas, saya akan menggunakan Flash ADC yang akan berguna untuk mengubah sinyal analog menjadi sinyal digital yang saya inginkan yaitu <code>000 - 111</code>.</p>
 
-<p>Flash ADC bekerja dengan cara menggabungkan <a target="_blank" href="https://www.electronics-tutorials.ws/opamp/op-amp-comparator.html">OpAmp Comparator</a> dengan <a target="_blank" href="https://www.electronics-tutorials.ws/combination/comb_4.html">Priority Encoder</a>.</p>
+<p>Flash ADC bekerja dengan cara menggabungkan <a rel="noopener" target="_blank" href="https://www.electronics-tutorials.ws/opamp/op-amp-comparator.html">OpAmp Comparator</a> dengan <a rel="noopener" target="_blank" href="https://www.electronics-tutorials.ws/combination/comb_4.html">Priority Encoder</a>.</p>
 
 <p>OpAmp Comparator secara sederhananya bekerja dengan cara membandingkan tegangan pada input positif (non-inverting input) dengan input negatif (inverting input), dan dilakukan perbandingan seperti berikut:</p>
 
@@ -174,7 +182,7 @@ sumber: <a target="_blank" href="https://www.researchgate.net/publication/323359
 <p>Selanjutnya, Priority Encoder bekerja dengan menghasilkan sinyal digital output bergantung kepada sinyal digital pada input dengan menyesuaikan pada tabel kebenaran berikut:</p>
 
 <p><img src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/combination-comb12.gif" alt="pe-truth-table" /> <br />
-sumber: <a target="_blank" href="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/combination-comb12.gif">electronics-tutorials.ws</a></p>
+sumber: <a rel="noopener" target="_blank" href="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/combination-comb12.gif">electronics-tutorials.ws</a></p>
 
 <p>Intinya, Priority Encoder hanya akan melihat nilai high (1) dari input tertinggi (D7) ke terendah (D0), jadi pada saat ada input dengan urutan (D0 - D7) berupa <code>11100000</code> maka akan mengoutputkan <code>010</code> karena input tertinggi dengan nilai high (1) merupakan D2, sementara nilai high pada input dibawah D2 yaitu D1 dan D0 tidak akan dilihat.</p>
 
@@ -186,7 +194,7 @@ sumber: <a target="_blank" href="https://www.electronics-tutorials.ws/wp-content
 
 <p>Inilah alasan mengapa pada Flash ADC tidak hanya terdapat OpAmp Comparator dan Priority Encoder.</p>
 
-<p>Dengan adanya rangkaian <a target="_blank" href="https://www.electronics-tutorials.ws/dccircuits/voltage-divider.html">voltage divider</a> / pembagi tegangan, maka kita bisa dengan mudah membagikan tegangan pada tiap inputan OpAmp Comparator, masih bingungkan ? wkwk, saya akan perlihatkan menggunakan rangkaian agar lebih mudah dicerna.</p>
+<p>Dengan adanya rangkaian <a rel="noopener" target="_blank" href="https://www.electronics-tutorials.ws/dccircuits/voltage-divider.html">voltage divider</a> / pembagi tegangan, maka kita bisa dengan mudah membagikan tegangan pada tiap inputan OpAmp Comparator, masih bingungkan ? wkwk, saya akan perlihatkan menggunakan rangkaian agar lebih mudah dicerna.</p>
 
 <p><img src = "../pictures/site4/pic1.png" width ="250" /> <img src = "../pictures/site4/pic2.png" width ="250" /> <img src = "../pictures/site4/pic3.png" width ="250" /> <br />
 Perlu diingat pada gambar diatas biru = LOW, merah = HIGH (ya, saya tau emang aneh wkwk)</p>
@@ -246,12 +254,12 @@ Perlu diingat bahwa disini saya hanya mencontohkan dengan menggunakan 3 OpAmp Co
 <p>Berikut beberapa referensi yang saya pakai disaat pembuatan blog ini maupun saat pengerjaan projeknya :</p>
 
 <ul>
-<li><a target="_blank" href="https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc">https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc</a></li>
-<li><a target="_blank" href="https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html">https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html</a>  </li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=NASkjo7s8f4&amp;ab_channel=ALLABOUTELECTRONICS">https://www.youtube.com/watch?v=NASkjo7s8f4&amp;ab_channel=ALLABOUTELECTRONICS</a>  </li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=71XWsoDl5SA&amp;ab_channel=ColumbiaGorgeCommunityCollege">https://www.youtube.com/watch?v=71XWsoDl5SA&amp;ab_channel=ColumbiaGorgeCommunityCollege</a>  </li>
-<li><a target="_blank" href="https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/">https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/</a>  </li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=QkoVvf7_f0I">https://www.youtube.com/watch?v=QkoVvf7_f0I</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc">https://electronics.stackexchange.com/questions/382342/ldr-issue-interfacing-with-adc</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html">https://www.seas.upenn.edu/~ese206/labs/adc206/adc206.html</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=NASkjo7s8f4&amp;ab_channel=ALLABOUTELECTRONICS">https://www.youtube.com/watch?v=NASkjo7s8f4&amp;ab_channel=ALLABOUTELECTRONICS</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=71XWsoDl5SA&amp;ab_channel=ColumbiaGorgeCommunityCollege">https://www.youtube.com/watch?v=71XWsoDl5SA&amp;ab_channel=ColumbiaGorgeCommunityCollege</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/">https://www.nyebarilmu.com/rangkaian-sensor-ldr-untuk-saklar-lampu-otomatis/</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=QkoVvf7_f0I">https://www.youtube.com/watch?v=QkoVvf7_f0I</a>  </li>
 </ul>
 
 <h3>Last word</h3>

@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- OGP (https://ogp.me/) -->
+    <meta property="og:site_name" content="f4r4w4y"/>
+    <meta property="og:description" content="Siapa coba yang mau ngoding didalem simulasi ¯\\_(ツ)_/¯ a.k.a API FTW"/>
+    <meta property="og:title" content="simulasi coppeliasim menggunakan python"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/simulasi-coppeliasim-menggunakan-python.html" />
+    <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
+
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tag.css">
     <link rel="stylesheet" href="/base.css">
@@ -32,7 +40,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tldr ./simulasi-coppeliasim-menggunakan-python.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        TL;DR <p>Siapa coba yang mau ngoding didalem simulasi ¯_(ツ)_/¯ a.k.a API FTW</p>
+                        TL;DR <p>Siapa coba yang mau ngoding didalem simulasi ¯\<em>(ツ)</em>/¯ a.k.a API FTW</p>
 
                     </li>
                 </ul>
@@ -79,7 +87,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./simulasi-coppeliasim-menggunakan-python.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Last updated on December 26, 2020 at 21:22:27
+                        Last updated on December 26, 2020 at 21:26:53
                     </li>
                 </ul>
             </h5>
@@ -105,7 +113,7 @@
             <div class="blog-content">
                 <h1>Simulasi CoppeliaSim menggunakan Python</h1>
 
-<p>Dikarenakan tubes (tugas besar) sebuah mata kuliah <code>Robotika</code>, saya "terpaksa" untuk mempelajari hal-hal yang berkaitan dengan simulasi robot menggunakan software <a target="_blank" href="https://www.coppeliarobotics.com/">CoppeliaSim</a> (yang sebelumnya bernama <code>V-REP</code>), walaupun demikian saya tidak merasa dirugikan untuk mempalajari tentang hal ini, karena ternyata ada banyak hal yang menarik yang bisa saya gali lebih dalam mengenai simulasi ini.</p>
+<p>Dikarenakan tubes (tugas besar) sebuah mata kuliah <code>Robotika</code>, saya "terpaksa" untuk mempelajari hal-hal yang berkaitan dengan simulasi robot menggunakan software <a rel="noopener" target="_blank" href="https://www.coppeliarobotics.com/">CoppeliaSim</a> (yang sebelumnya bernama <code>V-REP</code>), walaupun demikian saya tidak merasa dirugikan untuk mempalajari tentang hal ini, karena ternyata ada banyak hal yang menarik yang bisa saya gali lebih dalam mengenai simulasi ini.</p>
 
 <p>Seperti yang dikatakan pada website nya (<code>The robot simulator CoppeliaSim</code>), <code>CoppeliaSim</code> merupakan sebuah software yang dirancang khusus untuk mensimulasikan sistem robot yang telah di modelkan sedemikian rupa.</p>
 
@@ -122,17 +130,17 @@
 
 <p>Dalam hal ini, API bisa digunakan sebagai sebuah perantara yang menghubungkan antara program Python yang kita buat dengan simulasi pada CoppeliaSim nya, jadi dalam artian lain kita sudah bisa mengeliminasi builtin code editor yang sangat merusak mata wkwk (look at that default light theme editor 🤮).</p>
 
-<p>Beruntung bagi kita, dan props to the Coppelia DevTeam, API yang disediakan oleh CoppeliaSim ternyata bukan main bro, mereka bener bener antusias dengan pembuatan API nya (mungkin karena sadar code editor nya jelek wkwk JK), semua tentang API nya bisa dilihat di link berikut ini <a target="_blank" href="https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiOverview.htm">https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiOverview.htm</a>.</p>
+<p>Beruntung bagi kita, dan props to the Coppelia DevTeam, API yang disediakan oleh CoppeliaSim ternyata bukan main bro, mereka bener bener antusias dengan pembuatan API nya (mungkin karena sadar code editor nya jelek wkwk JK), semua tentang API nya bisa dilihat di link berikut ini <a rel="noopener" target="_blank" href="https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiOverview.htm">https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiOverview.htm</a>.</p>
 
 <p>Seperti yang bisa dilihat pada link tersebut, mereka membuat API yang bisa diakses oleh banyak bahasa yaitu C++, Python, Java, Matlab dan Lua (amazing isn't it).</p>
 
-<p>Ternyata setelah saya lihat lihat lagi mereka secara spesifik menggunakan sebuah <a target="_blank" href="https://en.wikipedia.org/wiki/Middleware">middleware</a> bernama BlueZero atau yang mereka singkat dengan <code>b0</code>, yang bisa dilihat disini <a target="_blank" href="https://github.com/CoppeliaRobotics/bluezero">https://github.com/CoppeliaRobotics/bluezero</a>, mereka bahkan meng-opensource kan semuanya 👏 (mantap, nambah resource baru di personal toolbox).</p>
+<p>Ternyata setelah saya lihat lihat lagi mereka secara spesifik menggunakan sebuah <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Middleware">middleware</a> bernama BlueZero atau yang mereka singkat dengan <code>b0</code>, yang bisa dilihat disini <a rel="noopener" target="_blank" href="https://github.com/CoppeliaRobotics/bluezero">https://github.com/CoppeliaRobotics/bluezero</a>, mereka bahkan meng-opensource kan semuanya 👏 (mantap, nambah resource baru di personal toolbox).</p>
 
 <p>Tanpa basa basi lagi mengenai hal-hal diluar bahasan inti, mari kita fokus bagaimana cara menghubungkan Python dengan CoppeliaSim menggunakan API ini.</p>
 
 <h3>Python Binding (Now we're talking)</h3>
 
-<p>Sebenarnya, semuanya sudah terangkai jelas dalam tutorial yang ada di website nya ini <a target="_blank" href="https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiClientSide.htm">https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiClientSide.htm</a>, akan tetapi saya jabarkan agar lebih mudah dipahami, terkhusus di Python nya.</p>
+<p>Sebenarnya, semuanya sudah terangkai jelas dalam tutorial yang ada di website nya ini <a rel="noopener" target="_blank" href="https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiClientSide.htm">https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiClientSide.htm</a>, akan tetapi saya jabarkan agar lebih mudah dipahami, terkhusus di Python nya.</p>
 
 <p>Berikut steps nya :  </p>
 
@@ -162,7 +170,7 @@
 
 <div class="codehilite"><pre><span></span><code><span class="k">-</span> (folder tempat instalasi CoppeliaSim)/libb0.so  
 <span class="k">-</span> (folder tempat instalasi CoppeliaSim)/libzmq.so  
-<span class="k">-</span> (folder tempat instalasi CoppeliaSim)/\*boost\*.so  
+<span class="k">-</span> (folder tempat instalasi CoppeliaSim)/*boost*.so  
 </code></pre></div>
 
 <p>Contoh pada linux : <br />
@@ -200,7 +208,7 @@
 <span class="k">5.</span> Box bawah (menampilkan gambar yang diterima)
 </code></pre></div>
 
-<p>Lumayan belibet kan prosesnya, walaupun demikian semuanya berjalan dengan cepat (bisa dilihat dari gambar yang tidak nge-lag pada Box bawah), ini semua berkat BlueZero yang mempercepat proses komunikasi melalui API nya dengan cepat menggunakan sistem <a target="_blank" href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)">multithreading</a>.</p>
+<p>Lumayan belibet kan prosesnya, walaupun demikian semuanya berjalan dengan cepat (bisa dilihat dari gambar yang tidak nge-lag pada Box bawah), ini semua berkat BlueZero yang mempercepat proses komunikasi melalui API nya dengan cepat menggunakan sistem <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)">multithreading</a>.</p>
 
 <h3>Now what ?</h3>
 
@@ -227,7 +235,7 @@
 
 <p>Itu versi simple nya yang hanya memperlihatkan cara untuk terhubung dengan simulasi nya, untuk penggunaan API dengan tujuan yang beragam bisa dicari tutorial nya ditempat lain hehe (mungkin saya nanti buat, <strong>"mungkin"</strong>).</p>
 
-<p>Selain tutorial lain, saran saya anda bisa saja lebih mudah dengan melihat dokumentasi nya langsung disini <a target="_blank" href="https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApi-python.htm">https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApi-python.htm</a>. </p>
+<p>Selain tutorial lain, saran saya anda bisa saja lebih mudah dengan melihat dokumentasi nya langsung disini <a rel="noopener" target="_blank" href="https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApi-python.htm">https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApi-python.htm</a>. </p>
 
 <h3>Last word</h3>
 
