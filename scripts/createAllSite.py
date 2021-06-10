@@ -20,7 +20,7 @@ BLOGTEMPLATE = """<!DOCTYPE html>
     <meta property="og:url" content="https://fakhrip.github.io/blogs/{{ site | replace(".md", ".html") }}" />
     <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
 
-    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700&&family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700|Raleway:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tag.css">
     <link rel="stylesheet" href="/base.css">
     <link rel="stylesheet" href="/native.css">
