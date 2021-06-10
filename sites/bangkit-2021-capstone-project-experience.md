@@ -37,7 +37,7 @@ I was actually only have 3 person including myself in the team (the A and B, bot
 
 This is actually the part where i hate the most because i have to reject people and its the hardest thing to do for me until this time, but also i learned a lot from rejecting people and how it actually feels like being a recruiter in a company, the only difference is the quantity, i can say that i only have 1:10 amount of people that trying to be recruited compared to a company or even startups.
 
-**From this i learned the importance of portfolio** whether its in the form of a project or even a certificate, so always remember to make a good portfolio (so update your `github` with all projects you've created and also put up a good resume somewhere either in your website/cv/linkedin).
+**From this i learned the importance of portfolio** whether its in the form of a project or even a certificate, so always remember to make a good portfolio (update your `github` with all projects you've created and also put up a good resume somewhere either in your website/cv/linkedin).
 
 And also there is a reason why **social networking is important**, because that is how i know A and B (my university friends) and make up a team with them.
 
@@ -76,7 +76,7 @@ I will tear this discussion in to two parts, first in a perspective of a leader,
 
     Also you have to **be very kind and patient to each and every member in your team**, managing project is hard, managing people is harder, but remember, managing problem that comes because the lack of teamwork is the hardest one, so always avoid having a bad work environment in your team by being kind and respectful to one and another.
 
-    In case of something bad happened in your team, you have to make a decision and be able to put the fire down real quick, if the problem is regarding member's attitude, try to have a 1 on 1 session with and talk about the problem they're facing, but if the problem is about the fact that your member just don't care about the project, honestly i dont know the solution myself but i think i will just try to cover their progress together with the rest of the team members and share the burden across all of us.
+    In case of something bad happened in your team, you have to make a decision and be able to put the fire down real quick, if the problem is regarding member's attitude, try to have a 1 on 1 session with them and talk about the problem they're facing, but if the problem is about the fact that your member just don't care about the project, honestly i dont know the solution myself but i think i will just try to cover their progress together with the rest of the team members and share the burden across all of us.
 
 2. **Member**
 
