@@ -257,6 +257,7 @@ table th, table td:before {
         margin-left: 5rem;
         margin-right: 5rem;
         padding-left: 4rem;
+        padding-right: 0rem;
     }
 }
 
@@ -267,6 +268,7 @@ table th, table td:before {
         margin-left: 3rem;
         margin-right: 3rem;
         padding-left: 4rem;
+        padding-right: 0rem;
     }
 }
 
@@ -277,16 +279,19 @@ table th, table td:before {
         margin-left: 0rem;
         margin-right: 2rem;
         padding-left: 3rem;
+        padding-right: 0rem;
     }
 
     .blog-content .codehilite {
         padding: 10px 30px;
         margin-left: -3rem;
+        margin-right: 0rem;
     }
 
     .blog-content blockquote {
         margin: 1.5em 0px;
         margin-left: -3rem;
+        margin-right: 0rem;
     }
 }
 
@@ -296,17 +301,40 @@ table th, table td:before {
     .blog-content {
         margin-left: 1rem;
         margin-right: 2rem;
-        padding-left: 0rem;
+        padding-left: 1rem;
+        padding-right: 2rem;
     }
 
     .blog-content .codehilite {
         padding: 10px 30px;
-        margin-left: 0rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
     }
 
     .blog-content blockquote {
         margin: 1.5em 0px;
-        margin-left: 0rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
+    }
+
+    .blog-content p code {
+        font-size: 13px;
+    }
+    
+    .tag {
+        font-size: 13px;
+    }
+    
+    .text {
+        font-size: 0.87rem;
+    }
+    
+    .big-title {
+        font-size: 1.85rem;
+    }
+    
+    .fullname {
+        font-size: 1.25rem;
     }
 }
 
