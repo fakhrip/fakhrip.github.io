@@ -31,6 +31,8 @@ D. Last one comes from a machine learning path that have a big brain about
    idea brainstorming and documentation stuff
 ```
 
+> **Update:** they gave me permission and want me to mention them, so here you go, A is [@ihza](https://github.com/zaza-ipynb), B is [@alif](https://github.com/alifsiregar), C is [@fyan](https://github.com/ianfyan), D is [@triska](https://github.com/Triskarum01)
+
 Question is, how can i even get a team like that ?
 
 I was actually only have 3 person including myself in the team (the A and B, both are my university friends), but i start opening a recruitment and people start to message me about themselves and what kind of project they have done in the past (basically their cv) and that is where i got C and D from.
