@@ -18,16 +18,21 @@ Well, i think everyone (at least those who code) know the answer, **just be lazy
 
 Okay okay, i sure know this is just such a classical *just be lazy* kind of stuff for those who code, but is this kind of thing actually could be implemented in real life ?
 
-Dont be surprised because the answer is stil yes, and for one more time, let me tell you why...
+Dont be surprised because the answer is still yes, and for one more time, let me tell you why...
 
 I think most people (unless you are crazy rich since you were born) would have come across a situation in their life where they need to make some money for their living and thus dilligently working all the time to survive this life.
 
-You can do that, however there are a lot more choices than you might already think :
+You can do that, however there are lot more choices than you might already think :
 
 ```md
 1. Dont care about money and just blatantly living this life however you like it (be free like a tarzan XD).   
-2. Dont be stupid by thinking that being dilligent all the time is the only way, calculate how much money you think is safe for your future, and for how many years you will have to be dilligent enough to catch that target, and thats it, you can live your life in laziness for the rest of your time.  
-3. Just cheat it, alright this might be the dumbest and silliest idea, but think about it, you can just become a beggar in one big and developed country and then move to the lower and developing country and boom you got more money than you think to actually make some business in the country that you've just moved in and make even more money out of it, easy right ? (**but dont do this stupid crappy solution**, unless you are not smart enough to think about other solution, use your brain people).  
+2. Dont be stupid by thinking that being dilligent all the time is the only way, calculate how much money you think is safe for your future, 
+   and for how many years you will have to be dilligent enough to catch that target, and thats it, 
+   you can live your life in laziness for the rest of your time.  
+3. Just cheat it, alright this might be the dumbest and silliest idea, but think about it, you can just become a beggar in one big and developed country 
+   and then move to the lower and developing country and boom you got more money than you think to actually make some business in the country that you've just moved in 
+   and make even more money out of it, easy right ? (**but dont do this stupid crappy solution**, 
+   unless you are not smart enough to think about other solution, use your brain people).  
 ```
 
 ### Hell in the other edge of the sword
