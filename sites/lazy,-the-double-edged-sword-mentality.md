@@ -24,16 +24,11 @@ I think most people (unless you are crazy rich since you were born) would have c
 
 You can do that, however there are lot more choices than you might already think :
 
-```md
-1. Dont care about money and just blatantly living this life however you like it (be free like a tarzan XD).   
-2. Dont be stupid by thinking that being dilligent all the time is the only way, calculate how much money you think is safe for your future, 
-   and for how many years you will have to be dilligent enough to catch that target, and thats it, 
-   you can live your life in laziness for the rest of your time.  
-3. Just cheat it, alright this might be the dumbest and silliest idea, but think about it, you can just become a beggar in one big and developed country 
-   and then move to the lower and developing country and boom you got more money than you think to actually make some business in the country that you've just moved in 
-   and make even more money out of it, easy right ? (**but dont do this stupid crappy solution**, 
-   unless you are not smart enough to think about other solution, use your brain people).  
-```
+1. Dont care about money and just blatantly living this life however you like it (be free like a tarzan XD).
+
+2. Dont be stupid by thinking that being dilligent all the time is the only way, calculate how much money you think is safe for your future, and for how many years you will have to be dilligent enough to catch that target, and thats it, you can live your life in laziness for the rest of your time. 
+
+3. Just cheat it, alright this might be the dumbest and silliest idea, but think about it, you can just become a beggar in one big and developed country and then move to the lower and developing country and boom you got more money than you think to actually make some business in the country that you've just moved in and make even more money out of it, easy right ? (**but dont do this stupid crappy solution**, unless you are not smart enough to think about other solution, use your brain people).
 
 ### Hell in the other edge of the sword
 
