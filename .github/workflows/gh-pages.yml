@@ -37,6 +37,9 @@ jobs:
       - name: Run magic script
         run: python scripts/createAllSite.py
 
+      - name: Unignore the generated html files
+        run: sed -i "s/blogs\/\*.html//g" .gitignore
+
       - name: Deploy site
         uses: peaceiris/actions-gh-pages@v3
         with:
