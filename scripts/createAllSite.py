@@ -69,7 +69,7 @@ def main():
                     ],
                 )
 
-        commits = repo.get_commits(path='./sites/analogi-developer,-hacker,-user.md')
+        commits = repo.get_commits(path=f"./sites/{site}")
         datetime_res = commits[0].commit.committer.date
 
         renderedResult = Template(ARTICLE_TEMPLATE).render(
