@@ -1,6 +1,5 @@
-from datetime import datetime
-from subprocess import check_output
 from os.path import isfile, join
+from datetime import datetime
 from jinja2 import Template
 from pytz import timezone
 import markdown2, os, json
@@ -99,9 +98,12 @@ def main():
     cur_date = datetime.now(timezone("Asia/Jakarta")).strftime("%B %d, %Y")
     cur_time = datetime.now(timezone("Asia/Jakarta")).strftime("%H:%M:%S")
 
-    github_urls = check_output(
-        'curl "https://api.github.com/users/fakhrip/repos?per_page=100" | jq "[ .[] | select(.archived == "false") | .html_url ]"',
-        shell=True,
+    github_urls = (
+        os.popen(
+            'curl -s "https://api.github.com/users/fakhrip/repos?per_page=100" | jq "[ .[] | select(.archived == "false") | .html_url ]"'
+        )
+        .read()
+        .strip()
     )
     github_urls = [url for url in json.loads(github_urls)]
     github_urls = sorted(github_urls)
