@@ -2,6 +2,8 @@ from os.path import isfile, join
 from datetime import datetime
 from jinja2 import Template
 from pytz import timezone
+from github import Github
+
 import markdown2, os, json
 
 ARTICLE_TEMPLATE = open("./templates/articleTemplate.html", "r").read()
@@ -21,6 +23,8 @@ def main():
 
     print("[+] ===")
     print("[+] Converting /sites to /blogs")
+
+    repo = Github().get_repo("fakhrip/fakhrip.github.io")
     for site in allSites:
         print("[|] Working on '{}'".format(site))
 
@@ -65,17 +69,13 @@ def main():
                     ],
                 )
 
-        datetime_res = (
-            os.popen(f"echo $(git log -1 --format=%cd ./sites/{site})")
-            .read()
-            .strip()
-            .split()
-        )
+        commits = repo.get_commits(path='./sites/analogi-developer,-hacker,-user.md')
+        datetime_res = commits[0].commit.committer.date
 
         renderedResult = Template(ARTICLE_TEMPLATE).render(
             contents=convertedSite,
-            updatedDate=f"{datetime_res[1]} {datetime_res[2]}, {datetime_res[4]}",
-            updatedTime=f"{datetime_res[3]}",
+            updatedDate=datetime_res.strftime("%B %d, %Y"),
+            updatedTime=datetime_res.strftime("%H:%M:%S"),
             tags=tags,
             times=times,
             tldr=tldr,
