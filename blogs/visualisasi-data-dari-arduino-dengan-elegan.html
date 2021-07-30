@@ -83,7 +83,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./visualisasi-data-dari-arduino-dengan-elegan.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Last updated on Jul 30, 2021 at 21:28:01
+                        Last updated on Jul 30, 2021 at 21:28:17
                     </li>
                 </ul>
             </h5>
@@ -194,7 +194,7 @@ arduino:avr@1.8.3 installed
 
 <div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random 
 ╰─$ arduino-cli sketch new fun_code  
-Sketch created in: /home/f4r4w4y/Documents/random/fun_code
+Sketch created <span class="k">in</span>: /home/f4r4w4y/Documents/random/fun_code
 </code></pre></div>
 
 <p>Perlu diingat bahwa kalian bisa menggunakan nama saja untuk sketch nya, disitu saya contohkan dengan <code>fun_code</code>.</p>
@@ -243,8 +243,8 @@ Sketch created in: /home/f4r4w4y/Documents/random/fun_code
 
 <div class="codehilite"><pre><span></span><code>╭─f4r4w4y@blackrock ~/Documents/random/fun_code 
 ╰─$ arduino-cli -b arduino:avr:uno compile -v
-Using board <span class="s1">&#39;uno&#39;</span> from platform in folder: /home/f4r4w4y/.arduino15/packages/arduino/hardware/avr/1.8.3
-Using core <span class="s1">&#39;arduino&#39;</span> from platform in folder: /home/f4r4w4y/.arduino15/packages/arduino/hardware/avr/1.8.3
+Using board <span class="s1">&#39;uno&#39;</span> from platform <span class="k">in</span> folder: /home/f4r4w4y/.arduino15/packages/arduino/hardware/avr/1.8.3
+Using core <span class="s1">&#39;arduino&#39;</span> from platform <span class="k">in</span> folder: /home/f4r4w4y/.arduino15/packages/arduino/hardware/avr/1.8.3
 Detecting libraries used...
 
 <span class="o">[</span>LONG OUTPUT<span class="o">]</span>
@@ -382,12 +382,12 @@ Distance: <span class="m">5</span> cm
         <span class="c1"># ke file output.txt agar nantinya bisa dibaca</span>
         <span class="c1"># oleh gnuplot untuk mem-plot grafik nya</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;{getCurTime(start_time)} </span><span class="si">{distance_val}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">getCurTime</span><span class="p">(</span><span class="n">start_time</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">distance_val</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="c1"># Ini untuk printing saja, agar kita tetap bisa</span>
         <span class="c1"># keep track data-data yang didapatkan secara</span>
         <span class="c1"># realtime</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[&#39;{getCurTime(start_time)}&#39;, &#39;</span><span class="si">{distance_val}</span><span class="s2">&#39;]&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[&#39;</span><span class="si">{</span><span class="n">getCurTime</span><span class="p">(</span><span class="n">start_time</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">distance_val</span><span class="si">}</span><span class="s2">&#39;]&quot;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
         <span class="c1"># Bagian ini akan dijalankan saat kalian</span>
         <span class="c1"># mengklik ctrl+C, maka program akan menghapus</span>
