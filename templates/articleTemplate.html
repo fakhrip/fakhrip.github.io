@@ -7,10 +7,10 @@
 
     <!-- OGP (https://ogp.me/) -->
     <meta property="og:site_name" content="f4r4w4y"/>
-    <meta property="og:description" content="Regolith over i3 still worth it (if you are lazy ricing stuff)"/>
-    <meta property="og:title" content="review tentang regolith pada ubuntu"/>
+    <meta property="og:description" content="{{ desc }}"/>
+    <meta property="og:title" content="{{ title }}"/>
     <meta property="og:type" content="blog"/>
-    <meta property="og:url" content="https://fakhrip.github.io/blogs/review-tentang-regolith-pada-ubuntu.html" />
+    <meta property="og:url" content="https://fakhrip.github.io/blogs/{{ site | replace(".md", ".html") }}" />
     <meta property="og:image" content="https://media.discordapp.net/attachments/670439298058813442/807173134200864768/characterssss.png" />
 
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Press+Start+2P|Bitter:wght@700|Raleway:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
@@ -37,11 +37,10 @@
             <h3 class="fullname">Muhammad Fakhri Putra <br> Supriyadi</h3>
 
             <h5 class="text">    
-                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tldr ./review-tentang-regolith-pada-ubuntu.md</span>
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tldr ./{{ site }}</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        TL;DR <p>Regolith over i3 still worth it (if you are lazy ricing stuff)</p>
-
+                        TL;DR {{ tldr }}
                     </li>
                 </ul>
             </h5>
@@ -51,39 +50,34 @@
     <div class="small-left-bottom-term">
         <div class="container">
             <h5 class="text">    
-                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tags ./review-tentang-regolith-pada-ubuntu.md</span>
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">tags ./{{ site }}</span>
                 <ul style="list-style-type: none;">
                     <li>
                         <div class="tags-container">
-                            
-                            <span class="tag" id="linux">
-                                LINUX
+                            {% for tag in tags %}
+                            <span class="tag" id="{{ tag|lower }}">
+                                {{ tag|upper }}
                             </span>
-                            
-                            <span class="tag" id="general">
-                                GENERAL
-                            </span>
-                            
+                            {% endfor %}
                         </div>
                     </li>
                 </ul>
             </h5>
 
             <h5 class="text">    
-                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">timing ./review-tentang-regolith-pada-ubuntu.md</span>
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">timing ./{{ site }}</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Estimated <p>5 mins read</p>
-
+                        Estimated {{ times }}
                     </li>
                 </ul>
             </h5>
 
             <h5 class="text">    
-                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./review-tentang-regolith-pada-ubuntu.md</span>
+                [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./{{ site }}</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Last updated on Jul 30, 2021 at 21:24:33
+                        Last updated on {{ updatedDate }} at {{ updatedTime }}
                     </li>
                 </ul>
             </h5>
@@ -107,35 +101,7 @@
             <hr/>
             
             <div class="blog-content">
-                <h1>Regolith</h1>
-
-<p>Suatu hari pc saya sudah diperbaiki setelah lamanya saya menggunakan laptop, dan karena saya butuh pc saya untuk bisa siap dengan cepat tanpa harus masuk kedalam <em>setup-hell</em>, akhirnya saya langsung saja install ubuntu yang cepat dan simple.</p>
-
-<p>Tetapi jiwa <strong>customization</strong> saya tetap teriak untuk bisa mengcustomize ubuntu ini dan juga dikarenakan kecintaan saya terhadap <strong>tiling window manager</strong> dibanding desktop window manager memang tidak bisa dihentikan lagi...</p>
-
-<p>Lalu saya mencari dan mencari tentang tiling window manager yang bisa saya install cepat didalam ubuntu nya (karena saya tetap harus fokus kedalam kerjaan saya pada saat itu).</p>
-
-<p>Dan saya menemukan <code>regolith</code>, saya sangat senang telah menemukan ini dikarenakan customization yang cukup simple dan juga tiling wm yang langsung terpakai begitu saja</p>
-
-<h3>Jadi, apa itu regolith ?</h3>
-
-<p><a target="_blank" href="https://regolith-linux.org/">Regolith</a> menggunakan i3 sebagai tiling wm backend nya dan dengan kombinasi fitur fitur lainnya yang memang sering saya gunakan disaat <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">ricing</a> arch linux saya, jadi bisa dibilang saya sudah sangat familiar dengan komponen-komponennya.</p>
-
-<p><img src="../pictures/site3/components.png" alt="components" /> <br />
-sumber: <a target="_blank" href="https://regolith-linux.org/docs/customize/components/">regolith-doc</a></p>
-
-<h3>Regolith vs Native i3</h3>
-
-<p>Menurut saya jika perbandingannya dengan i3 nya itu sendiri maka jelas kita akan lebih leluasa dalam meng-customize tampilan serta seluruh konfigurasi yang diinginkan didalam sistem kita.</p>
-
-<p>Tetapi ini balik lagi kepada urgency dan kebutuhan dari penggunanya, dan jika saya sedang memiliki waktu yang sangat kosong maka akan saya gunakan i3 dan bahkan install lagi arch linux serta rice seluruh konfigurasi nya.</p>
-
-<h3>Last word</h3>
-
-<p>Semoga artikel nya mudah dipahami dan menyenangkan, jika memang dirasa bermanfaat silahkan sebarkan kepada yang lainnya agar ilmu nya tidak berhenti disini saja.</p>
-
-<p>Terimakasih kepada Allah SWT dan juga para pembaca disini, semua yang buruk datangnya dari saya dan yang baik hanya datang dari-Nya, mohon maaf bila ada kesalahan 🙏.</p>
-
+                {{ contents }}
             </div>
 
             <br/>
