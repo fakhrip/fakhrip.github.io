@@ -39,6 +39,9 @@ jobs:
 
       - name: Unignore the generated html files
         run: sed -i "s/blogs\/\*.html//g" .gitignore
+      
+      - name: just for testing purpose
+        run: echo $(git log -1 --format=%cd sites/analogi-developer,-hacker,-user.md)
 
       - name: Deploy site
         uses: peaceiris/actions-gh-pages@v3
