@@ -83,7 +83,7 @@
                 [fai@f4r4w4y blogs]$ <span style="font-weight: normal">articlelastupdated ./pwning-journey-0x1-stack-buffer-overflow.md</span>
                 <ul style="list-style-type: none;">
                     <li>
-                        Last updated on Jul 30, 2021 at 21:24:33
+                        Last updated on Jul 30, 2021 at 21:28:01
                     </li>
                 </ul>
             </h5>
@@ -111,26 +111,26 @@
 
 <p>Series ini saya buat untuk membagikan apa yang sudah dan sedang saya pelajari mengenai <code>binary exploitation</code>, dan terlebih dari itu juga untuk menjadi pengingat saya disaat saya lupa dengan teknik-teknik simple (bahkan syntax debugging pada <code>gef</code> :v).</p>
 
-<p>Semua hal yang saya tulis di series ini didasarkan oleh banyak sumber pelajaran yang saya dapatkan terutama dari <a target="_blank" href="https://guyinatuxedo.github.io/index.html">nightmare course by guyinatuxedo</a>.</p>
+<p>Semua hal yang saya tulis di series ini didasarkan oleh banyak sumber pelajaran yang saya dapatkan terutama dari <a rel="noopener" target="_blank" href="https://guyinatuxedo.github.io/index.html">nightmare course by guyinatuxedo</a>.</p>
 
 <p>Bahkan karena bisa dibilang ini versi indonesia dan lebih detailnya dari nigthmare course, maka saya sarankan untuk orang yang paham bahasa inggris, sudah dapat basic nya, ingin serba cepat dan to-the-point maka langsung saja pelajari dari nightmare course yang saya sudah berikan link-nya diatas.</p>
 
 <h3>The Openings</h3>
 
-<p>Stack buffer overflow pertama kali diperkenalkan oleh Elias Levy (aka Aleph One) dengan artikel yang dia publish pada sebuah website hacker zine yang sangat terkenal yaitu phrack, dia menulis artikel berjudul "Smashing The Stack For Fun And Profit" yang bisa diakses <a target="_blank" href="http://phrack.org/issues/49/14.html">disini</a>. </p>
+<p>Stack buffer overflow pertama kali diperkenalkan oleh Elias Levy (aka Aleph One) dengan artikel yang dia publish pada sebuah website hacker zine yang sangat terkenal yaitu phrack, dia menulis artikel berjudul "Smashing The Stack For Fun And Profit" yang bisa diakses <a rel="noopener" target="_blank" href="http://phrack.org/issues/49/14.html">disini</a>. </p>
 
 <p>Sebenarnya semuanya yang dijelaskan disana sudah sangat jelas menurut saya akan tetapi saya tetap menulis artikel ini untuk mempermudah orang orang yang masih sangat baru dengan hal ini (terutama yang belum mahir bahasa inggris :v). </p>
 
-<p>Sebelum membaca lebih jauh, saya sangat sarankan untuk mempelajari tentang arsitektur CPU terlebih dahulu karena itu merupakan hal yang sangat penting untuk dipahami agar mempermudah pemahaman dalam pembuatan exploit, dan kebetulan sebuah CrashCourse yang dibuat oleh PBS Digital Studios sudah membuatkan video pada youtube yang membahas dengan sangat jelas bagaimana cara kerja CPU dan sebagainya yang bisa diakses <a target="_blank" href="https://www.youtube.com/watch?v=tpIctyqH29Q&amp;list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&amp;ab_channel=CrashCourse">disini</a>.</p>
+<p>Sebelum membaca lebih jauh, saya sangat sarankan untuk mempelajari tentang arsitektur CPU terlebih dahulu karena itu merupakan hal yang sangat penting untuk dipahami agar mempermudah pemahaman dalam pembuatan exploit, dan kebetulan sebuah CrashCourse yang dibuat oleh PBS Digital Studios sudah membuatkan video pada youtube yang membahas dengan sangat jelas bagaimana cara kerja CPU dan sebagainya yang bisa diakses <a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=tpIctyqH29Q&amp;list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&amp;ab_channel=CrashCourse">disini</a>.</p>
 
 <h3>What is stack anyway ?</h3>
 
-<p><a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a> merupakan sebuah teknik penyimpanan data pada sistem operasi dimana data yang disimpan ini akan seolah-olah berbentuk menyerupai sebuah tumpukan, atau bisa juga saya analogikan sebagai gelas yang tentunya hanya memiliki satu lubang yaitu diatasnya, dan air (dalam hal ini data) hanya bisa masuk dan keluar melalui satu lubang diatas tersebut.</p>
+<p><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a> merupakan sebuah teknik penyimpanan data pada sistem operasi dimana data yang disimpan ini akan seolah-olah berbentuk menyerupai sebuah tumpukan, atau bisa juga saya analogikan sebagai gelas yang tentunya hanya memiliki satu lubang yaitu diatasnya, dan air (dalam hal ini data) hanya bisa masuk dan keluar melalui satu lubang diatas tersebut.</p>
 
 <p>Seperti terlihat pada gambar dibawah, stack bisa mengeluarkan data yang terakhir/teratas dengan menggunakan <code>pop</code> dan bisa juga memasukkan data kedalamnya dengan menggunakan <code>push</code>, 2 hal ini menjadi suatu hal yang penting untuk dipahami karena akan menjadi landasan dalam pemahaman struktur data nya itu sendiri.</p>
 
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Lifo_stack.png" alt="stack-picture" /> <br />
-sumber: <a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">wikipedia</a></p>
+sumber: <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">wikipedia</a></p>
 
 <p>Dalam konteks sistem operasi, data yang disimpan pada stack merupakan sebuah <code>memory address</code> (alamat memori), yang berguna untuk menyimpan data lainnya (bisa berupa sebuah informasi yang penting dan banyak hal lainnya).</p>
 
@@ -150,13 +150,13 @@ sumber: <a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_d
 
 <p>Sebelum kita bisa membuat exploit untuk mengambil keuntungan dari celah yang ada pada sebuah program maka kita harus mengetahui terlebih dahulu bagaimana cara kerja sebuah program tersebut, dan untuk mengetahui cara kerja sebuah program kita harus mengetahui cara kerja sebuah CPU dalam menjalankan program tersebut (itulah kenapa pemahaman tentang arsitektur CPU penting).</p>
 
-<p>Diluar pemahaman tentang CPU, kita harus mengetahui cara kerja sebuah program dan untuk itulah ada yang namanya <a target="_blank" href="https://yohan.es/reverse-engineering/">reverse engineering</a>, di artikel yang saya link itu sudah menjelaskan dengan sangat detail dan juga saya tidak akan membahas terlalu dalam tentang reverse engineering itu sendiri (karena saya juga masih noob XD), akan tetapi disini saya akan jelaskan sedikit mengenai bagaimana caranya dan apa saja yang diperlukan untuk memahaminya.</p>
+<p>Diluar pemahaman tentang CPU, kita harus mengetahui cara kerja sebuah program dan untuk itulah ada yang namanya <a rel="noopener" target="_blank" href="https://yohan.es/reverse-engineering/">reverse engineering</a>, di artikel yang saya link itu sudah menjelaskan dengan sangat detail dan juga saya tidak akan membahas terlalu dalam tentang reverse engineering itu sendiri (karena saya juga masih noob XD), akan tetapi disini saya akan jelaskan sedikit mengenai bagaimana caranya dan apa saja yang diperlukan untuk memahaminya.</p>
 
 <h3>Reverse engineering</h3>
 
 <p>Reverse engineering merupakan sebuah proses dimana kita membongkar sebuah program untuk mengetahui bagaimana cara kerjanya (karena kita tidak memiliki source code dari program yang bersangkutan).</p>
 
-<p>Untuk bisa memahami ini kita harus sebelumnya memahami tentang <a target="_blank" href="https://yohan.es/reverse-engineering/bab5/">bahasa assembly</a> dan cara CPU menjalankannya, saya akan analogikan ini sebagai sebuah daftar aktifitas yang harus dilakukan oleh seorang murid di sekolah.</p>
+<p>Untuk bisa memahami ini kita harus sebelumnya memahami tentang <a rel="noopener" target="_blank" href="https://yohan.es/reverse-engineering/bab5/">bahasa assembly</a> dan cara CPU menjalankannya, saya akan analogikan ini sebagai sebuah daftar aktifitas yang harus dilakukan oleh seorang murid di sekolah.</p>
 
 <p>Mari kita anggap berikut ini adalah daftar aktifitasnya :</p>
 
@@ -175,22 +175,22 @@ sumber: <a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_d
 <span class="mh">0x11b</span> <span class="n">mov</span> <span class="n">DWORD</span> <span class="n">PTR</span> <span class="p">[</span><span class="n">rbp</span><span class="o">-</span><span class="mh">0x8</span><span class="p">],</span><span class="mh">0x2</span>
 </code></pre></div>
 
-<p>Maka CPU akan menjalankan seluruh instruksi diatas dari alamat <code>0x110 - 0x11b</code>, alamat <code>0x110 - 0x11b</code> merupakan sebuah alamat yang berada dalam sebuah <a target="_blank" href="http://www.cs.uwm.edu/classes/cs315/Bacon/Lecture/HTML/ch10s07.html">stack frame</a>.</p>
+<p>Maka CPU akan menjalankan seluruh instruksi diatas dari alamat <code>0x110 - 0x11b</code>, alamat <code>0x110 - 0x11b</code> merupakan sebuah alamat yang berada dalam sebuah <a rel="noopener" target="_blank" href="http://www.cs.uwm.edu/classes/cs315/Bacon/Lecture/HTML/ch10s07.html">stack frame</a>.</p>
 
 <p>Syntax assembly seperti contoh diatas merupakan syntax Intel dimana ada syntax lainnya yaitu AT&amp;T yang memiliki beberapa perbedaan termasuk penempatan argumen nya.</p>
 
 <p>Untuk lebih dalam tentang assembly saya berikan beberapa referensi yang bisa dipakai untuk penjelasan yang jauh lebih mendetail nya :</p>
 
 <ul>
-<li><a target="_blank" href="http://www.cs.virginia.edu/~evans/cs216/guides/x86.html">x86 assembly guide from University of Virginia Computer Science</a>  </li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=75gBFiFtAb8">x86 assembly crash course video from HackUCF</a>  </li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=H4Z0S9ZbC0g&amp;list=PL038BE01D3BAEFDB0&amp;ab_channel=OpenSecurityTraining">x86 detailed video playlist from Open Security Training</a>  </li>
+<li><a rel="noopener" target="_blank" href="http://www.cs.virginia.edu/~evans/cs216/guides/x86.html">x86 assembly guide from University of Virginia Computer Science</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=75gBFiFtAb8">x86 assembly crash course video from HackUCF</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=H4Z0S9ZbC0g&amp;list=PL038BE01D3BAEFDB0&amp;ab_channel=OpenSecurityTraining">x86 detailed video playlist from Open Security Training</a>  </li>
 </ul>
 
 <p>Dan karena contoh yang saya berikan diatas merupakan assembly untuk arsitektur x64 bisa dilihat dengan penamaan register menggunakan huruf awal <code>r</code> seperti <code>rbp, rsp, rax, dll</code>, berikut ada juga referensi yang bisa digunakan untuk memahami lebih dalam untuk arsitektur x64 :</p>
 
 <ul>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=rxsBghsrvpI&amp;list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA&amp;ab_channel=Creel">Modern x64 Assembly video playlist from Creel</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=rxsBghsrvpI&amp;list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA&amp;ab_channel=Creel">Modern x64 Assembly video playlist from Creel</a>  </li>
 </ul>
 
 <p>Dari pemahaman assembly itulah kita bisa memahami alur eksekusi sebuah program yang telah dicompile dengan cara men-disassembly, disassembly merupakan sebuah proses dimana kita melihat bentukan assembly dari sebuah program yang telah di compile sebelumnya, seperti artinya <code>disassembly == membongkar</code>.</p>
@@ -237,7 +237,7 @@ sumber: <a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_d
 <p>Artikel nya akan sangat panjang bila saya jelaskan lebih dalam tentang reverse engineering dan juga sudah lewat dari pembahasan utama yaitu <code>stack buffer overflow</code>, jadi saya berikan saja referensi yang menurut saya sangat bagus untuk memahami nya (mungkin akan bias, karena saya gunakan Cutter jadi disini saya kasih referensi yang menggunakan Cutter juga) :</p>
 
 <ul>
-<li><a target="_blank" href="https://www.jamieweb.net/blog/radare2-cutter-part-1-key-terminology-and-overview/">Reverse Engineering menggunakan Cutter from jamieweb.net</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.jamieweb.net/blog/radare2-cutter-part-1-key-terminology-and-overview/">Reverse Engineering menggunakan Cutter from jamieweb.net</a></li>
 </ul>
 
 <h3>Tooling</h3>
@@ -245,18 +245,18 @@ sumber: <a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_d
 <p>Sebelum membahas tentang exploitasi, saya akan membahas tentang apa saja tools yang bisa digunakan untuk mempermudah exploitasi dan juga merupakan tools standar yang sering digunakan oleh kebanyakan exploit developer.</p>
 
 <ul>
-<li><p><a target="_blank" href="https://gef.readthedocs.io/en/master/">GEF - GDB Enhanced Features</a>  </p>
+<li><p><a rel="noopener" target="_blank" href="https://gef.readthedocs.io/en/master/">GEF - GDB Enhanced Features</a>  </p>
 
 <p>Tools ini merupakan sebuah addon untuk GDB yang digunakan sebagai debugger yang tentunya fungsinya untuk men-debug sebuah program, yang salah satunya berguna untuk mengetahui alur eksekusi sebuah program.</p></li>
-<li><p><a target="_blank" href="https://ghidra-sre.org/">Ghidra</a> / <a target="_blank" href="https://www.hex-rays.com/products/ida/support/download_freeware/">IDA</a> / <a target="_blank" href="https://cutter.re/">Cutter</a>  </p>
+<li><p><a rel="noopener" target="_blank" href="https://ghidra-sre.org/">Ghidra</a> / <a rel="noopener" target="_blank" href="https://www.hex-rays.com/products/ida/support/download_freeware/">IDA</a> / <a rel="noopener" target="_blank" href="https://cutter.re/">Cutter</a>  </p>
 
 <p>Tools ini berguna untuk reverse engineer (disassembler, decompiler, dll).</p>
 
 <p>Saya menggunakan Cutter pada artikel yang saya buat ini.</p></li>
-<li><p><a target="_blank" href="https://github.com/Gallopsled/pwntools">Pwntools</a></p>
+<li><p><a rel="noopener" target="_blank" href="https://github.com/Gallopsled/pwntools">Pwntools</a></p>
 
 <p>Tools ini berguna untuk memudahkan hal-hal yang ingin dilakukan untuk exploitasi atau yang biasa disebut dengan pwning (itulah kenapa namanya pwntools :v), dan juga sebenarnya ini merupakan library untuk python.</p></li>
-<li><p><a target="_blank" href="https://www.python.org/downloads/">Python</a></p>
+<li><p><a rel="noopener" target="_blank" href="https://www.python.org/downloads/">Python</a></p>
 
 <p>Karena saya akan menggunakan Python jadi saya masukkan python kedalam list tools yang digunakan, akan tetapi pada dasarnya bahasa apapun bisa digunakan untuk exploit development (termasuk PHP, walaupun memang aneh tapi nyata :v).</p></li>
 </ul>
@@ -267,7 +267,7 @@ sumber: <a target="_blank" href="https://en.wikipedia.org/wiki/Stack_(abstract_d
 
 <p>Dan karena seperti yang sudah saya bilang saya akan mengikuti challenges yang ada pada nightmare course, karena itu resource utama saya belajar tentang hal ini.</p>
 
-<p>Tidak semua challenges nya akan saya tulis disini solusi nya karena sangat memakan waktu dan tenaga XD, jadi saya ambil beberapa challenges yang sudah bisa merekap seluruh bagian untuk <code>stack buffer overflow</code> pada nightmare course, walaupun demikian seluruh solution dan binary nya ada di <a target="_blank" href="https://github.com/fakhrip/LearningJourney_v1/tree/master/Security/Binary%20Exploitation/stack-buffer-overflows">Repository LearningJourney_V1 saya</a> (solusi nya mirip seperti nightmare course dan ada juga yang sama) bilapun beda biasanya hanya terletak pada syntax nya karena saya sekalian meng-explore fitur-fitur yang ada pada pwntools.</p>
+<p>Tidak semua challenges nya akan saya tulis disini solusi nya karena sangat memakan waktu dan tenaga XD, jadi saya ambil beberapa challenges yang sudah bisa merekap seluruh bagian untuk <code>stack buffer overflow</code> pada nightmare course, walaupun demikian seluruh solution dan binary nya ada di <a rel="noopener" target="_blank" href="https://github.com/fakhrip/LearningJourney_v1/tree/master/Security/Binary%20Exploitation/stack-buffer-overflows">Repository LearningJourney_V1 saya</a> (solusi nya mirip seperti nightmare course dan ada juga yang sama) bilapun beda biasanya hanya terletak pada syntax nya karena saya sekalian meng-explore fitur-fitur yang ada pada pwntools.</p>
 
 <h3>Csaw 2018 Quals Boi</h3>
 
