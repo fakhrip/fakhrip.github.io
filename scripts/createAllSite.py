@@ -66,7 +66,7 @@ def main():
                     ],
                 )
 
-        datetime = (
+        datetime_res = (
             os.popen(f"echo $(git log -1 --format=%cd ./sites/{site})")
             .read()
             .strip()
@@ -75,8 +75,8 @@ def main():
 
         renderedResult = Template(ARTICLE_TEMPLATE).render(
             contents=convertedSite,
-            updatedDate=f"{datetime[1]} {datetime[2]}, {datetime[4]}",
-            updatedTime=f"{datetime[3]}",
+            updatedDate=f"{datetime_res[1]} {datetime_res[2]}, {datetime_res[4]}",
+            updatedTime=f"{datetime_res[3]}",
             tags=tags,
             times=times,
             tldr=tldr,
