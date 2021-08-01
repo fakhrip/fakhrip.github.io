@@ -70,12 +70,14 @@ def main():
                 )
 
         commits = repo.get_commits(path=f"./sites/{site}")
-        datetime_res = commits[0].commit.committer.date
+
+        if commits.totalCount > 1:
+            datetime_res = commits[0].commit.committer.date
 
         renderedResult = Template(ARTICLE_TEMPLATE).render(
             contents=convertedSite,
-            updatedDate=datetime_res.strftime("%B %d, %Y"),
-            updatedTime=datetime_res.strftime("%H:%M:%S"),
+            updatedDate=datetime_res.strftime("%B %d, %Y") if datetime_res else "",
+            updatedTime=datetime_res.strftime("%H:%M:%S") if datetime_res else "",
             tags=tags,
             times=times,
             tldr=tldr,
