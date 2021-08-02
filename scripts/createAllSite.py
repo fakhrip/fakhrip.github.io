@@ -24,7 +24,9 @@ def main():
     print("[+] ===")
     print("[+] Converting /sites to /blogs")
 
-    repo = Github().get_repo("fakhrip/fakhrip.github.io")
+    repo = Github(open("token_file", "r").read().strip()).get_repo(
+        "fakhrip/fakhrip.github.io"
+    )
     for site in allSites:
         print("[|] Working on '{}'".format(site))
 
@@ -70,12 +72,14 @@ def main():
                 )
 
         commits = repo.get_commits(path=f"./sites/{site}")
-        datetime_res = commits[0].commit.committer.date
+
+        if commits.totalCount > 1:
+            datetime_res = commits[0].commit.committer.date
 
         renderedResult = Template(ARTICLE_TEMPLATE).render(
             contents=convertedSite,
-            updatedDate=datetime_res.strftime("%B %d, %Y"),
-            updatedTime=datetime_res.strftime("%H:%M:%S"),
+            updatedDate=datetime_res.strftime("%B %d, %Y") if datetime_res else "",
+            updatedTime=datetime_res.strftime("%H:%M:%S") if datetime_res else "",
             tags=tags,
             times=times,
             tldr=tldr,
@@ -84,15 +88,37 @@ def main():
             title=site.replace("-", " ").replace(".md", ""),
         )
 
-        open("./blogs/" + site.replace(".md", "") + ".html", "w+").write(renderedResult)
+        open("./blogs/" + site.replace(".md", ".html"), "w+").write(renderedResult)
 
     print("[+] ===")
     print("[+] Injecting all sites to blogs.html")
     allBlogs = [f for f in os.listdir("./blogs") if isfile(join("./blogs", f))]
     allBlogs = sorted(allBlogs)
 
+    blogs = []
+    for blog in allBlogs:
+        commits = repo.get_commits(path=f"./sites/{blog.replace('.html', '.md')}")
+
+        if commits.totalCount > 1:
+            datetime_res = commits[0].commit.committer.date
+
+        blogs.append(
+            {
+                "title": blog,
+                "time": datetime_res.strftime("%B -- %Y") if datetime_res else "",
+                "timestamp": int(datetime_res.timestamp() * 1000)
+                if datetime_res
+                else 0,
+            }
+        )
+
+    blogs = sorted(blogs, key=lambda d: d["timestamp"])
+    allBlogs = [[blog for blog in blogs if blog["time"] == x] for x in list(dict.fromkeys([a["time"] for a in blogs]))]
+    allBlogs = [sorted(blog, key=lambda d: d["title"]) for blog in allBlogs]
+    blogs = [item for sublist in allBlogs for item in sublist]
+
     blogsHTMLTemplate = open("./templates/blogsTemplate.html", "r").read()
-    open("./blogs.html", "w+").write(Template(blogsHTMLTemplate).render(sites=allBlogs))
+    open("./blogs.html", "w+").write(Template(blogsHTMLTemplate).render(sites=blogs))
 
     print("[+] Updating date and time in index.html")
     cur_date = datetime.now(timezone("Asia/Jakarta")).strftime("%B %d, %Y")

@@ -125,7 +125,7 @@
             </h3>
 
             <h5 class="text">    
-                [fai@f4r4w4y ~]$ <span style="font-weight: normal">cd blogs</span>
+                [fai@f4r4w4y ~]$ <span style="font-weight: normal">cd contents/blogs</span>
             </h5>
 
             <h5 class="text">    
@@ -137,11 +137,19 @@
                     <li>
                         =>  <a href="/index.html">..</a>
                     </li>
-                    {% for site in sites %}
-                    <li>
-                        =>  <a href="/blogs/{{ site }}">{{ site|replace('.html','')|replace('-', ' ')|title }}</a>
-                    </li>
-                    {% endfor %}
+                    {% for site in sites -%}
+                        <li>
+                            {% if loop.changed(site.time) -%}
+                                <br>
+                                <div>
+                                    <span style="font-weight: normal">{{ site.time }}</span>
+                                </div>
+                            {%- endif %}
+                            <div>
+                                =>  <a href="/blogs/{{ site.title }}">{{ site.title|replace('.html','')|replace('-', ' ')|title }}</a>
+                            </div>
+                        </li>
+                    {%- endfor %}
                 </ul> 
             </h5>
         </div>
