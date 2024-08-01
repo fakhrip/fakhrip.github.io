@@ -1,6 +1,0 @@
-Jinja2==2.11.3
-markdown2==2.4.0
-MarkupSafe==1.1.1
-Pygments==2.7.4
-pytz==2019.3
-PyGithub==1.55
