@@ -1,84 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Honk:MORF,SHLN@23,70.5&family=Recursive:wght,CASL,MONO@300..1000,0.3,1&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Honk:MORF,SHLN@23,70.5&display=swap"
+      rel="stylesheet" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="favicon/android-chrome-512x512.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
 
     <title>f4r4w4y</title>
-</head>
+  </head>
 
-<style>
+  <style>
+    @font-face {
+      font-family: "Julia Mono", monospace;
+      font-style: normal;
+      font-weight: 400;
+      src: url("./fonts/webfonts/JuliaMono-Regular.woff2") format("woff2"),
+        url("./fonts/JuliaMono-Regular.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Julia Mono", monospace;
+      font-style: italic;
+      font-weight: 400;
+      src: url("./fonts/webfonts/JuliaMono-RegularItalic.woff2") format("woff2"),
+        url("./fonts/JuliaMono-RegularItalic.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Julia Mono", monospace;
+      font-style: normal;
+      font-weight: 700;
+      src: url("./fonts/webfonts/JuliaMono-Bold.woff2") format("woff2"),
+        url("./fonts/JuliaMono-Bold.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Julia Mono", monospace;
+      font-style: italic;
+      font-weight: 700;
+      src: url("./fonts/webfonts/JuliaMono-BoldItalic.woff2") format("woff2"),
+        url("./fonts/JuliaMono-BoldItalic.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Julia Mono", monospace;
+      font-style: normal;
+      font-weight: 200;
+      src: url("./fonts/webfonts/JuliaMono-Light.woff2") format("woff2"),
+        url("./fonts/JuliaMono-Light.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Julia Mono", monospace;
+      font-style: italic;
+      font-weight: 200;
+      src: url("./fonts/webfonts/JuliaMono-LightItalic.woff2") format("woff2"),
+        url("./fonts/JuliaMono-LightItalic.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Julia Mono", monospace;
+      font-style: normal;
+      font-weight: 900;
+      src: url("./fonts/webfonts/JuliaMono-Black.woff2") format("woff2"),
+        url("./fonts/JuliaMono-Black.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Julia Mono", monospace;
+      font-style: italic;
+      font-weight: 900;
+      src: url("./fonts/webfonts/JuliaMono-BlackItalic.woff2") format("woff2"),
+        url("./fonts/JuliaMono-BlackItalic.ttf") format("truetype");
+    }
+
     html {
-        padding: 0;
-        height: 100%;
+      padding: 0;
+      height: 100%;
     }
 
     body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background-color: black;
-        color: white;
-        display: flex;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+      color: white;
+      display: flex;
     }
 
-    .font-recursive {
-        font-family: "Recursive", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 300;
-        font-style: normal;
-        font-variation-settings:
-            "slnt" 0,
-            "CASL" 0.3,
-            "CRSV" 0.5,
-            "MONO" 1;
+    .main-container pre,
+    .font-julia {
+      font-family: "Julia Mono", monospace;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
     }
 
     .font-honk {
-        font-family: "Honk", system-ui;
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-        font-variation-settings:
-            "MORF" 23,
-            "SHLN" 70.5;
-    }
-
-    .bold {
-        font-weight: 800;
+      font-family: "Honk", system-ui;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-variation-settings: "MORF" 23, "SHLN" 70.5;
     }
 
     .main-container {
-        position: relative;
-        margin: auto;
-        display: inline-block;
-        text-align: left;
+      position: relative;
+      margin: auto;
+      display: inline-block;
+      text-align: left;
     }
-</style>
 
-<body>
+    .main-container pre {
+      margin: 0;
+    }
+  </style>
+
+  <body>
+    <!-- prettier-ignore -->
     <div class="main-container">
-        <pre class="font-recursive">
-<b>Muhammad Fakhri (f4r4w4y) Putra Supriyadi</b>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        </pre>
+      <pre><b>Muhammad Fakhri (f4r4w4y) Putra Supriyadi</b></pre>
+         <pre>─────────────────────────────────────────</pre>
     </div>
-</body>
-
+  </body>
 </html>
