@@ -77,3 +77,8 @@ body:has(:is(a.youtube-link:hover, a.youtube-link:active)) no-youtubelink,
 body:has(:is(a.about-link:hover, a.about-link:active)) no-aboutlink {
   color: yellow;
 }
+
+body:has(:is(a.backhome-link:hover, a.backhome-link:active)) .backhome-link {
+  color: black;
+  background-color: white;
+}
