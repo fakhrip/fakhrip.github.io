@@ -1,0 +1,63 @@
+@font-face {
+  font-family: Julia;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/webfonts/JuliaMono-Regular.woff2") format("woff2"),
+    url("../fonts/JuliaMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Julia;
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/webfonts/JuliaMono-RegularItalic.woff2") format("woff2"),
+    url("../fonts/JuliaMono-RegularItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Julia;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/webfonts/JuliaMono-Bold.woff2") format("woff2"),
+    url("../fonts/JuliaMono-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Julia;
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/webfonts/JuliaMono-BoldItalic.woff2") format("woff2"),
+    url("../fonts/JuliaMono-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Julia;
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/webfonts/JuliaMono-Light.woff2") format("woff2"),
+    url("../fonts/JuliaMono-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Julia;
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/webfonts/JuliaMono-LightItalic.woff2") format("woff2"),
+    url("../fonts/JuliaMono-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Julia;
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/webfonts/JuliaMono-Black.woff2") format("woff2"),
+    url("../fonts/JuliaMono-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Julia;
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/webfonts/JuliaMono-BlackItalic.woff2") format("woff2"),
+    url("../fonts/JuliaMono-BlackItalic.ttf") format("truetype");
+}
