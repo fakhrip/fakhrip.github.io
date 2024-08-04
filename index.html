@@ -183,6 +183,28 @@
     r3 {
       color: #ffc0bc;
     }
+
+    a:link,
+    a:visited {
+      color: yellow;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    body:has(:is(a.contact-link:hover, a.contact-link:active)) .contact-link,
+    body:has(:is(a.blog-link:hover, a.blog-link:active)) .blog-link,
+    body:has(:is(a.youtube-link:hover, a.youtube-link:active)) .youtube-link,
+    body:has(:is(a.about-link:hover, a.about-link:active)) .about-link {
+      color: black;
+      background-color: white;
+    }
+
+    body:has(:is(a.contact-link:hover, a.contact-link:active)) no-contactlink,
+    body:has(:is(a.blog-link:hover, a.blog-link:active)) no-bloglink,
+    body:has(:is(a.youtube-link:hover, a.youtube-link:active)) no-youtubelink,
+    body:has(:is(a.about-link:hover, a.about-link:active)) no-aboutlink {
+      color: yellow;
+    }
   </style>
 
   <body>
@@ -199,17 +221,17 @@
 │               └──────────────────┤                                 ├──────────────────┘                │
 │                                  ╘═                               ═╛                                   │
 │                                                                                                        │
-│   ┏━━┓                                                                                                 │
-│   ┃ ▄▄▄▖  <b>Who</b>                                                                                          │
-│   ┃  ██▌  are                                                                                          │
-│   ┃ ▀▀▀▀  you?                                                                                         │
-│   ┗━━┛                                         =-*@@@@@@                                               │
+│   <no-aboutlink>┏━━┓</no-aboutlink>                                                                                                 │
+│   <no-aboutlink>┃ ▄▄▄▖</no-aboutlink>  <a class="about-link" href="about.html"><b>Who </b></a>                                                                                         │
+│   <no-aboutlink>┃  ██▌</no-aboutlink>  <a class="about-link" href="about.html">are </a>                                                                                         │
+│   <no-aboutlink>┃ ▀▀▀▀</no-aboutlink>  <a class="about-link" href="about.html">you?</a>                                                                                         │
+│   <no-aboutlink>┗━━┛</no-aboutlink>                                         =-*@@@@@@                                               │
 │                                             :+=+%*@@@@@@:                                              │
-│   ┏━━┓                                 :=+*#%-#%@@@@@@@@@%#*+=:                                        │
-│   ┃ ▄▄▄▖  I heard                   =+#*+++#+=#@@@@@@@@@%@*+++*#*#-                                    │
-│   ┃ ▄▄▀▘  you have               =+#*++++++%.+*@@@@@@@@@@%@*+++++*#*:                                  │
-│   ┃ ▀▀▀▘  <b>youtube videos</b>       =#*+==+++++%+=*#@@@@#*@@@@##%++++++++*#=                                │
-│   ┗━━┛                       :##+++++++++%=+%@@@@@*%@@@@@@%#%+++++++++**:                              │
+│   <no-youtubelink>┏━━┓</no-youtubelink>                                 :=+*#%-#%@@@@@@@@@%#*+=:                                        │
+│   <no-youtubelink>┃ ▄▄▄▖</no-youtubelink>  <a class="youtube-link" href="youtube.html">I heard       </a>            =+#*+++#+=#@@@@@@@@@%@*+++*#*#-                                    │
+│   <no-youtubelink>┃ ▄▄▀▘</no-youtubelink>  <a class="youtube-link" href="youtube.html">you have      </a>         =+#*++++++%.+*@@@@@@@@@@%@*+++++*#*:                                  │
+│   <no-youtubelink>┃ ▀▀▀▘</no-youtubelink>  <a class="youtube-link" href="youtube.html"><b>youtube videos</b></a>       =#*+==+++++%+=*#@@@@#*@@@@##%++++++++*#=                                │
+│   <no-youtubelink>┗━━┛</no-youtubelink>                       :##+++++++++%=+%@@@@@*%@@@@@@%#%+++++++++**:                              │
 │                             +#*++++++=+*%##@@@#%@#*%#@#%@@@@%%*++++++++*#+                             │
 │                           .##++++++++++%-*#%@:=+=+++==+=+@@@%#%++++++++++##                            │
 │                          .#*++++++++++*#*#@@==#@#++++#@*=*@@%#%*++++++++++##                           │
@@ -228,17 +250,17 @@
 │                             ##***@+##-+#%@@@@#+*@@@@@@%*%@@@@@%*+%#=@***%=                             │
 │                              =%#**+%#@#*##@@@@@#+###%#%@@@@@@%*#@#%+#*##:                              │
 │                               .+%%*%@#%@#*##%@@@@@@@@@@@@@@%##@%#@%*%%=                                │
-│   ┏━━┓                          .=#@@@@%@@#%%%%@@@@@@@@@@@%%@@%@@@%#:                                  │
-│   ┃ ▄▄▄▖  I want                   :+%@@@@@@@%@%%%@@@%@@@@@@@@@@#                                      │
-│   ┃ ━━█▌  to read                     .-*#@@@@@@@@@@@@@@@@@@#                                          │
-│   ┃ ▀▀▀▘  your <b>writings</b>                    ..-===*##*+==-..                                            │
-│   ┗━━┛                                                                                                 │
+│   <no-bloglink>┏━━┓</no-bloglink>                          .=#@@@@%@@#%%%%@@@@@@@@@@@%%@@%@@@%#:                                  │
+│   <no-bloglink>┃ ▄▄▄▖</no-bloglink>  <a class="blog-link" href="blog.html">I want       </a>            :+%@@@@@@@%@%%%@@@%@@@@@@@@@@#                                      │
+│   <no-bloglink>┃ ━━█▌</no-bloglink>  <a class="blog-link" href="blog.html">to read      </a>               .-*#@@@@@@@@@@@@@@@@@@#                                          │
+│   <no-bloglink>┃ ▀▀▀▘</no-bloglink>  <a class="blog-link" href="blog.html">your <b>writings</b></a>                    ..-===*##*+==-..                                            │
+│   <no-bloglink>┗━━┛</no-bloglink>                                                                                                 │
 │                                                                                                        │
-│   ┏━━┓                                                                                                 │
-│   ┃ ▄ ▄▖  How should                                                                                   │
-│   ┃ █▄█▌  i <b>contact</b>                                                                                    │
-│   ┃   ▀▘  you?                                                                                         │
-│   ┗━━┛                                                                                                 │
+│   <no-contactlink>┏━━┓</no-contactlink>                                                                                                 │
+│   <no-contactlink>┃ ▄ ▄▖</no-contactlink>  <a class="contact-link" href="contact.html">How should</a>                                                                                   │
+│   <no-contactlink>┃ █▄█▌</no-contactlink>  <a class="contact-link" href="contact.html">i <b>contact </b></a>                                                                                   │
+│   <no-contactlink>┃   ▀▘</no-contactlink>  <a class="contact-link" href="contact.html">you?      </a>                                                                                   │
+│   <no-contactlink>┗━━┛</no-contactlink>                                                                                                 │
 │                                                                                               ⠼⠁⠼⠉⠼⠉⠼⠛ │</pre></div>
       <!-- prettier-ignore -->
       <div class="footer"><pre>
