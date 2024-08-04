@@ -129,7 +129,7 @@ window.onload = () => {
       asciiBox.remove();
 
       // Remove the box from boxes list
-      const boxId = array.indexOf(newId);
+      const boxId = asciiBoxes.indexOf(newId);
       if (boxId > -1) {
         asciiBoxes.splice(boxId, 1);
       }
