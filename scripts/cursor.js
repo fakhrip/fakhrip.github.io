@@ -123,7 +123,8 @@ window.addEventListener("load", () => {
     document.body.appendChild(asciiBox);
 
     // Fadeout the box
-    fadeOutElement(asciiBox);
+    const duration = getRandomNumber(100, 3000);
+    fadeOutElement(asciiBox, duration);
     setTimeout(() => {
       document.body.removeChild(asciiBox);
       asciiBox.remove();
@@ -133,6 +134,6 @@ window.addEventListener("load", () => {
       if (boxId > -1) {
         asciiBoxes.splice(boxId, 1);
       }
-    }, 500);
+    }, duration);
   };
 });
