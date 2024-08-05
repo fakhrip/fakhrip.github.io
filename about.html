@@ -60,7 +60,18 @@
 │  <a class="backhome-link" href="index.html"><= Go back</a>                       ╘═                               ═╛                                   │
 │                                                                                                         │
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍ <span style="display: inline-block; scale: 2; transform: rotateY(180deg); padding-bottom: 5px;">✂</span></pre></div>
-      <div class="content"></div>
+      <div class="content-container" style="position: relative">
+        <div
+          class="content"
+          style="
+            position: absolute;
+            max-width: calc(100% - 55px);
+            padding-left: 21.5px;
+            padding-right: 21.5px;
+          ">
+          <pre style="white-space: pre-wrap"></pre>
+        </div>
+      </div>
       <!-- prettier-ignore -->
       <div class="footer"><pre>
 │                                                                                                ⠼⠁⠼⠉⠼⠉⠼⠛ │
@@ -71,14 +82,8 @@
   </body>
 
   <script defer>
-    // prettier-ignore
-    const short =
-`
-Hello there, my name is Muhammad Fakhri Putra Supriyadi
-`;
-
     window.addEventListener("load", () => {
-      window.renderContent(short);
+      window.renderContent("contents/about-short.html");
     });
   </script>
 </html>
