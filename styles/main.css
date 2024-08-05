@@ -56,6 +56,13 @@ small {
   font-size: 8px;
 }
 
+code {
+  background-color: #444444;
+  color: #4efc4e;
+  border-radius: 0.5em;
+  padding: 4px 4px 4px;
+}
+
 a:link,
 a:visited {
   color: yellow;

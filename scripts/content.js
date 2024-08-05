@@ -1,5 +1,5 @@
 window.renderContent = async (content) => {
-  const short = await (await fetch(content)).text();
+  const short = await (await fetch(`../contents/${content}.html`)).text();
   const contentPreTag =
     document.getElementsByClassName("content")[0].children[0];
   contentPreTag.innerHTML = "\n" + short;

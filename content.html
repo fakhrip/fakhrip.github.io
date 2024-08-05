@@ -83,7 +83,11 @@
 
   <script defer>
     window.addEventListener("load", () => {
-      window.renderContent("contents/about-short.html");
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+
+      window.renderContent(params.c);
     });
   </script>
 </html>
