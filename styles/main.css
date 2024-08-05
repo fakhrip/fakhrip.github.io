@@ -1,16 +1,8 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-}
-
 body {
   background-color: #131212;
   color: #eeeeee;
-  position: relative;
+  margin-top: 30px;
+  overflow-x: hidden;
 }
 
 .container pre,
@@ -37,14 +29,11 @@ b {
 }
 
 .container {
+  display: inline-block;
   background-color: #131212;
-  position: absolute;
+  position: relative;
   text-align: left;
   font-size: 12px;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   z-index: 2;
 }
 
