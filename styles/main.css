@@ -86,6 +86,7 @@ a.single:visited {
   text-decoration: underline;
 }
 
+body:has(:is(a.cv-link:hover, a.cv-link:active)) .cv-link,
 body:has(:is(a.backhome-link:hover, a.backhome-link:active)) .backhome-link,
 body:has(:is(a.contact-link:hover, a.contact-link:active)) .contact-link,
 body:has(:is(a.blog-link:hover, a.blog-link:active)) .blog-link,
