@@ -1,10 +1,15 @@
 window.renderContent = async (content) => {
   const short = await (async () => {
-    const whitelist = ["about", "youtube", ""]
+    const whitelist = ["about", "youtube", "contact", "blog"]
     if (whitelist.includes(content)) {
       return await (await fetch(`../contents/${content}.html`)).text();
     } else {
-      return "<span style=\"width: 100%;\"><center>Hacker, please dont attack me :(</center></span>"
+      if (["..", "{", "}", "]", "[", ")", "("].includes(content)) {
+        return "<span style=\"width: 100%;\"><center>Hacker, please dont attack me :(</center></span>"
+      } else {
+        const { origin } = new URL(document.location.href);
+        window.location = `${origin}/404.html`;
+      }
     }
   })()
 
