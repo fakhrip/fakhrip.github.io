@@ -32,7 +32,7 @@ const getRandomNumber = (min = 0, max = 10) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-window.onload = () => {
+window.addEventListener("load", () => {
   let lastCursorX = -1,
     lastCursorY = -1;
 
@@ -135,4 +135,4 @@ window.onload = () => {
       }
     }, 500);
   };
-};
+});
