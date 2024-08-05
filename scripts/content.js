@@ -1,6 +1,9 @@
 window.renderContent = async (content) => {
   const short = await (async () => {
-    const whitelist = ["about", "youtube", "contact", "blog"]
+    const whitelist = [
+      "about", "youtube", "contact", "blog", "cv",
+      "flag{congrats_you_found_a_meaningless_flag_from_a_meaningless_repository_in_github}"
+    ]
     if (whitelist.includes(content)) {
       return await (await fetch(`../contents/${content}.html`)).text();
     } else {
