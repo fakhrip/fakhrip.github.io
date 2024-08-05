@@ -57,10 +57,21 @@ small {
 }
 
 code {
-  background-color: #444444;
-  color: #4efc4e;
+  color: cyan;
   border-radius: 0.5em;
-  padding: 4px 4px 4px;
+  padding: 0;
+}
+
+code::before {
+  color: #5e5e5e;
+  padding-right: 2px;
+  content: "⟦"
+}
+
+code::after {
+  color: #5e5e5e;
+  padding-left: 2px;
+  content: "⟧"
 }
 
 a:link,
@@ -70,11 +81,17 @@ a:visited {
   display: inline-block;
 }
 
+a.single:link,
+a.single:visited {
+  text-decoration: underline;
+}
+
 body:has(:is(a.backhome-link:hover, a.backhome-link:active)) .backhome-link,
 body:has(:is(a.contact-link:hover, a.contact-link:active)) .contact-link,
 body:has(:is(a.blog-link:hover, a.blog-link:active)) .blog-link,
 body:has(:is(a.youtube-link:hover, a.youtube-link:active)) .youtube-link,
-body:has(:is(a.about-link:hover, a.about-link:active)) .about-link {
+body:has(:is(a.about-link:hover, a.about-link:active)) .about-link,
+a.single:hover, a.single:active {
   color: black;
   background-color: white;
 }

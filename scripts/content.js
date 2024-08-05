@@ -1,5 +1,13 @@
 window.renderContent = async (content) => {
-  const short = await (await fetch(`../contents/${content}.html`)).text();
+  const short = await (async () => {
+    const whitelist = ["about", "youtube", ""]
+    if (whitelist.includes(content)) {
+      return await (await fetch(`../contents/${content}.html`)).text();
+    } else {
+      return "<span style=\"width: 100%;\"><center>Hacker, please dont attack me :(</center></span>"
+    }
+  })()
+
   const contentPreTag =
     document.getElementsByClassName("content")[0].children[0];
   contentPreTag.innerHTML = "\n" + short;
