@@ -7,7 +7,7 @@ window.renderContent = async (content) => {
     if (whitelist.includes(content)) {
       return await (await fetch(`../contents/${content}.html`)).text();
     } else {
-      if (["..", "{", "}", "]", "[", ")", "("].includes(content)) {
+      if ([".", "/", "{", "}", "]", "[", ")", "("].filter(str => content.includes(str)).length > 0) {
         return "<span style=\"width: 100%;\"><center>Hacker, please dont attack me :(</center></span>"
       } else {
         const { origin } = new URL(document.location.href);
