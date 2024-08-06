@@ -20,9 +20,9 @@ window.renderContent = async (content) => {
     document.getElementsByClassName("content")[0].children[0];
   contentPreTag.innerHTML = "\n" + short;
 
-  let wrapper = "|                                                                                                         |\n";
+  let wrapper = "";
   for (const element of [...Array(parseInt(contentPreTag.clientHeight / 14)).keys()]) {
-    wrapper += "|                                                                                                         |\n";
+    wrapper += " |                                                                                                         |\n";
   }
 
   const containerDivTag =
