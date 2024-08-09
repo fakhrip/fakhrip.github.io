@@ -1,0 +1,53 @@
+.all {
+  width: 100%;
+  white-space: pre;
+  font-family: Julia, monospace;
+}
+
+.pdf-header {
+  display: none;
+}
+
+@media print {
+  a:link,
+  a:visited {
+    color: rgb(27, 109, 103);
+    display: inline-block;
+  }
+
+  .pdf-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-weight: 900;
+  }
+
+  .name {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 23px;
+  }
+
+  .description-container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+    margin-top: 5px;
+    gap: 5px;
+  }
+
+  .description-container div {
+    display: flex;
+  }
+
+  .description-container div span {
+    font-size: 13px;
+    margin-top: 3px;
+  }
+
+  .description-container svg {
+    margin-right: 5px;
+    width: 15px;
+  }
+}
