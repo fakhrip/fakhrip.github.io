@@ -18,16 +18,36 @@ window.renderContent = async (content) => {
 
   const contentPreTag =
     document.getElementsByClassName("content")[0].children[0];
-  contentPreTag.innerHTML = "\n" + short;
 
-  let wrapper = "";
-  for (const element of [...Array(parseInt(contentPreTag.clientHeight / 14)).keys()]) {
-    wrapper += " |                                                                                                         |\n";
+  const renderWrapper = () => {
+    // Setup the wrapper
+    let wrapper = "";
+    for (const element of [...Array(parseInt(contentPreTag.clientHeight / 14)).keys()]) {
+      wrapper += " |                                                                                                         |\n";
+    }
+
+    // Render the wrapper
+    const containerDivTag =
+      document.getElementsByClassName("content-container")[0];
+    const containerPreTag = document.createElement("pre");
+    containerPreTag.textContent = wrapper;
+    containerDivTag.appendChild(containerPreTag);
   }
 
-  const containerDivTag =
-    document.getElementsByClassName("content-container")[0];
-  const containerPreTag = document.createElement("pre");
-  containerPreTag.textContent = wrapper;
-  containerDivTag.appendChild(containerPreTag);
+  // Wait for until the content is rendered along with the css by
+  // observing the mutations (which in this case is the height changes)
+  const observer = new MutationObserver((mutationsList, _) => {
+    for (const style of document.getElementsByClassName("additional-style")) {
+      style.addEventListener("load", renderWrapper);
+    }
+  });
+
+  observer.observe(contentPreTag, {
+    attributes: true,
+    childList: true,
+    characterData: true
+  });
+
+  // Render the content
+  contentPreTag.innerHTML = "\n" + short;
 }

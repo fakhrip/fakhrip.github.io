@@ -93,6 +93,11 @@
         get: (searchParams, prop) => searchParams.get(prop),
       });
 
+      if (!params.c) {
+        const { origin } = new URL(document.location.href);
+        window.location = origin;
+      }
+
       window.renderContent(params.c);
     });
   </script>
