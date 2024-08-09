@@ -18,7 +18,7 @@
   .pdf-header {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     font-weight: 900;
   }
 
