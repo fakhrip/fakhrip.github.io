@@ -37,8 +37,13 @@ window.renderContent = async (content) => {
   // Wait for until the content is rendered along with the css by
   // observing the mutations (which in this case is the height changes)
   const observer = new MutationObserver((mutationsList, _) => {
-    for (const style of document.getElementsByClassName("additional-style")) {
-      style.addEventListener("load", renderWrapper);
+    const additionalStyles = document.getElementsByClassName("additional-style");
+    if (additionalStyles.length > 0) {
+      for (const style of additionalStyles) {
+        style.addEventListener("load", renderWrapper);
+      }
+    } else {
+      renderWrapper();
     }
   });
 
