@@ -65,6 +65,12 @@ window.addEventListener("load", () => {
     const cursorX = event.pageX;
     const cursorY = event.pageY;
 
+    // Skip all box operations if the cursorY position is too close
+    // with the bottom of the screen potentially creating scrollbars
+    if (Math.abs(cursorY - window.innerHeight) <= 150) {
+      return
+    }
+
     // Skip all box operations if the cursor didnt
     // move far enough from the last positions
     if (
