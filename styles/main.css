@@ -55,13 +55,13 @@ code {
 code::before {
   color: #5e5e5e;
   padding-right: 2px;
-  content: "⟦"
+  content: "⟦";
 }
 
 code::after {
   color: #5e5e5e;
   padding-left: 2px;
-  content: "⟧"
+  content: "⟧";
 }
 
 a:link,
@@ -77,12 +77,14 @@ a.single:visited {
 }
 
 body:has(:is(a.cv-link:hover, a.cv-link:active)) .cv-link,
+body:has(:is(a.challenge-link:hover, a.challenge-link:active)) .challenge-link,
 body:has(:is(a.backhome-link:hover, a.backhome-link:active)) .backhome-link,
 body:has(:is(a.contact-link:hover, a.contact-link:active)) .contact-link,
 body:has(:is(a.blog-link:hover, a.blog-link:active)) .blog-link,
 body:has(:is(a.youtube-link:hover, a.youtube-link:active)) .youtube-link,
 body:has(:is(a.about-link:hover, a.about-link:active)) .about-link,
-a.single:hover, a.single:active {
+a.single:hover,
+a.single:active {
   color: black;
   background-color: white;
 }
@@ -92,4 +94,41 @@ body:has(:is(a.blog-link:hover, a.blog-link:active)) no-bloglink,
 body:has(:is(a.youtube-link:hover, a.youtube-link:active)) no-youtubelink,
 body:has(:is(a.about-link:hover, a.about-link:active)) no-aboutlink {
   color: yellow;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  z-index: 999;
+  margin-top: 5px;
+
+  animation: fadeOut 3s forwards;
+
+  font-weight: bold;
+  font-family: Julia, monospace;
+}
+
+.toast.info {
+  background-color: greenyellow;
+  color: black;
+}
+
+.toast.warning {
+  background-color: red;
+  color: white;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

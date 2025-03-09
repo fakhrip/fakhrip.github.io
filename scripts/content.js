@@ -1,13 +1,13 @@
 window.renderContent = async (content) => {
   const short = await (async () => {
     const whitelist = [
-      "about", "youtube", "contact", "blog", "cv",
+      "about", "youtube", "contact", "blog", "cv", "challenges",
       "flag{congrats_you_found_a_meaningless_flag_from_a_meaningless_repository_in_github}"
     ]
     if (whitelist.includes(content)) {
       return await (await fetch(`../contents/${content}.html`)).text();
     } else {
-      if ([".", "/", "{", "}", "]", "[", ")", "("].filter(str => content.includes(str)).length > 0) {
+      if ([".", "/", "{", "}", "]", "[", ")", "("].filter(str => content?.includes(str)).length > 0) {
         return "<span style=\"width: 100%;\"><center>Hacker, please dont attack me :(</center></span>"
       } else {
         const { origin } = new URL(document.location.href);
@@ -53,6 +53,37 @@ window.renderContent = async (content) => {
     characterData: true
   });
 
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(short, 'text/html');
+  const scripts = doc.querySelectorAll("script");
+
+  const newShort = doc;
+  newShort.querySelectorAll("script").forEach((script) => script.remove());
+
   // Render the content
-  contentPreTag.innerHTML = "\n" + short;
+  contentPreTag.innerHTML = `\n${newShort.body.innerHTML.trim()}`;
+
+  // Execute script tags inside the content
+  scripts.forEach((script) => {
+    const newScript = document.createElement("script");
+
+    // Copy all attributes
+    for (const attr of script.attributes) {
+      newScript.setAttribute(attr.name, attr.value);
+    }
+
+    if (script.src) {
+      // For external scripts
+      newScript.src = script.src;
+    } else {
+      // For inline scripts
+      newScript.text = script.textContent;
+    }
+
+    // Append to trigger execution
+    document.body.appendChild(newScript);
+
+    // Clean up
+    newScript.remove();
+  });
 }

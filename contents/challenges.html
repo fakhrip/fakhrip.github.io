@@ -1,0 +1,48 @@
+<b><~~~~ Challenges ===================></b>
+
+
+Here are challenges i wrote for fun, and mostly act as an "educational tool" to ease me in explaining stuff to my audience.
+
+To input any flag you found for each challenge, you can type in the flag in the input box of that corresponding challenge and hit the "Check Flag" button.
+
+In case you need any help for solving any of these challenges, i will be very happy to help you so feel free to contact me in discord @<a class="single" href="https://discord.com/channels/@me/414072790745088010" target="_blank" rel="noopener noreferrer">f4r4w4y</a> (but please keep in mind that i also have life to do so dont expect very quick response lol).
+
+Challenge list:
+
+[ <b>1</b> ] <a class="single" href="assets/challenges/ffiishy.zip" target="_blank" rel="noopener noreferrer">FFIshy.apk</a> : Foreign Function Interface is FFIishy (or ffiilthy?)
+      <code>reverse engineering</code><code>math</code><code>ffi</code><code>jni</code><code>android</code><code>c</code><code>recursion</code>
+
+      Note: wrap the flag with "FLAG{}" (e.g. if the flag you found is test, 
+            then input as FLAG{test})
+      <input type="text" name="flag-1" id="flag-1"><button type="button" id="button-1">Check Flag</button>
+
+<script type="module" src="scripts/toast.js" defer></script>
+<script type="module" src="scripts/decrypt_flag.js" defer></script>
+<script>
+window.sodium = {
+  onload: function (sodium) {
+    const encryptedData = [
+      "uJTSL19fpzZgMcDnFftI2FVaa4b5Zk+7SYmsPIrXGMsNKjpIlu6xsLbHz/w/hMwOZQ==" // ffiishy challenge
+    ]
+
+    for (let [i, enc] of encryptedData.entries()) {
+      i += 1; // index starts from 1
+
+      document.body.querySelector(`#button-${i}`).addEventListener('click', async () => {
+        const secret = document.body.querySelector(`#flag-${i}`).value;
+        if (await window.checkFlag(enc, secret)) {
+          window.showToast('Correct!', 'info');
+        } else {
+          window.showToast('Wrong!', 'warning');
+        }
+      });
+    }
+  },
+};
+</script>
+<script
+  src="https://cdn.jsdelivr.net/npm/libsodium@0.7.15/dist/modules/libsodium.min.js"
+  async defer></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/libsodium-wrappers@0.7.15/dist/modules/libsodium-wrappers.min.js"
+  async defer></script>
