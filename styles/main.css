@@ -100,6 +100,42 @@ body:has(:is(a.about-link:hover, a.about-link:active)) no-aboutlink {
   width: calc(100% - 300px);
 }
 
+.custom-input {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 0.5px solid #ccc;
+  border-radius: 12px;
+  background-color: white;
+
+  color: black;
+  outline: none;
+
+  /* Prevents breaking the line */
+  white-space: nowrap;
+  caret-color: black;
+}
+
+.custom-button {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 0.5px solid #ccc;
+  border-radius: 12px;
+
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  user-select: none; /* Prevents accidental text selection */
+  text-align: center;
+}
+
+.custom-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
 .challenge.solved {
   color: green !important;
 }
