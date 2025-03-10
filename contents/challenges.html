@@ -25,12 +25,16 @@ Challenge list:
 
 
 [ <b>3</b> ] <a class="single" href="assets/challenges/brokengit.zip" target="_blank" rel="noopener noreferrer">brokengit</a> : I want to give you the flag but my git is broken :(
-      <code>forensic</code><code>scripting</code><code>time</code><code>git</code>
+      <code>forensic</code><code>scripting</code><code>git internals</code>
 
       <input class="input-flag" type="text" name="flag-3" id="flag-3"><button type="button" id="button-3">Check Flag</button>
 
-<script type="module" src="scripts/toast.js" defer></script>
-<script type="module" src="scripts/decrypt_flag.js" defer></script>
+
+[ <b>4</b> ] <a class="single" href="assets/challenges/guessgod.zip" target="_blank" rel="noopener noreferrer">guessgod</a> : If you believe you are a guess god, then solve this challenge
+      <code>forensic</code><code>scripting</code><code>time</code><code>bash</code>
+
+      <input class="input-flag" type="text" name="flag-4" id="flag-4"><button type="button" id="button-4">Check Flag</button>
+
 <script type="module" defer>
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -42,18 +46,17 @@ function loadScript(src) {
   });
 }
 
-async function loadLibsodium() {
-  await loadScript('https://cdn.jsdelivr.net/npm/libsodium@0.7.15/dist/modules/libsodium.min.js');
-  await loadScript('https://cdn.jsdelivr.net/npm/libsodium-wrappers@0.7.15/dist/modules/libsodium-wrappers.min.js');
-  await sodium.ready; 
-}
+await loadScript('scripts/toast.js');
+await loadScript('scripts/decrypt_flag.js');
+await loadScript('scripts/sodium.js');
 
-await loadLibsodium().catch((err) => window.showToast(err, 'warning'));
+await window.loadLibsodium().catch((err) => window.showToast(err, 'warning'));
 
 const encryptedData = [
   "uJTSL19fpzZgMcDnFftI2FVaa4b5Zk+7SYmsPIrXGMsNKjpIlu6xsLbHz/w/hMwOZQ==", // ffiishy challenge
   "3ju4NSW5VVJGgKz7fGdjMBixMqvJ3nhr2aX0apa8e4F+eWjcpFHU8SY1x4H5kSc2YA==", // flashduino challenge
   "iq4CnuXkVrydublyvsHfffYKbbJwu00wjxEObbob1g06Ajv8NLkyJ4t0Al8x2NABQA==", // brokengit challenge
+  "UfIUZNO3CyOR/iL16pn037q3UTntahvEjNtSCq26HtOhX3cVAkkLjj+DcMHOShK7uQ==", // guesssgod challenge
 ]
 
 for (let [i, enc] of encryptedData.entries()) {
