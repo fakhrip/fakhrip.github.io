@@ -9,7 +9,7 @@ In case you need any help for solving any of these challenges, i will be very ha
 
 Challenge list:
 
-[ <b>1</b> ] <a class="single" href="assets/challenges/ffiishy.zip" target="_blank" rel="noopener noreferrer">FFIshy</a> : Foreign Function Interface is FFIishy (or ffiilthy?)
+<span class="challenge" id="chall-1">[ <b>1</b> ] <a class="single" href="assets/challenges/ffiishy.zip" target="_blank" rel="noopener noreferrer">FFIshy</a></span> : Foreign Function Interface is FFIishy (or ffiilthy?)
       <code>reverse engineering</code><code>math</code><code>ffi</code><code>jni</code><code>android</code><code>c</code><code>recursion</code>
 
       Note: wrap the flag with "FLAG{}" (e.g. if the flag you found is test, 
@@ -17,20 +17,20 @@ Challenge list:
       <input class="input-flag" type="text" name="flag-1" id="flag-1"><button type="button" id="button-1">Check Flag</button>
 
 
-[ <b>2</b> ] <a class="single" href="assets/challenges/flashduino.zip" target="_blank" rel="noopener noreferrer">flashduino</a> : Heyyo wassup, you know why im called flashduino ?
+<span class="challenge" id="chall-2">[ <b>2</b> ] <a class="single" href="assets/challenges/flashduino.zip" target="_blank" rel="noopener noreferrer">flashduino</a></span> : Heyyo wassup, you know why im called flashduino ?
                    cause im fast like flash and ain't no way sram can beat me !!!
       <code>reverse engineering</code><code>scripting</code><code>arduino</code><code>flash</code>
 
       <input class="input-flag" type="text" name="flag-2" id="flag-2"><button type="button" id="button-2">Check Flag</button>
 
 
-[ <b>3</b> ] <a class="single" href="assets/challenges/brokengit.zip" target="_blank" rel="noopener noreferrer">brokengit</a> : I want to give you the flag but my git is broken :(
+<span class="challenge" id="chall-3">[ <b>3</b> ] <a class="single" href="assets/challenges/brokengit.zip" target="_blank" rel="noopener noreferrer">brokengit</a></span> : I want to give you the flag but my git is broken :(
       <code>forensic</code><code>scripting</code><code>git internals</code>
 
       <input class="input-flag" type="text" name="flag-3" id="flag-3"><button type="button" id="button-3">Check Flag</button>
 
 
-[ <b>4</b> ] <a class="single" href="assets/challenges/guessgod.zip" target="_blank" rel="noopener noreferrer">guessgod</a> : If you believe you are a guess god, then solve this challenge
+<span class="challenge" id="chall-4">[ <b>4</b> ] <a class="single" href="assets/challenges/guessgod.zip" target="_blank" rel="noopener noreferrer">guessgod</a></span> : If you believe you are a guess god, then solve this challenge
       <code>forensic</code><code>scripting</code><code>time</code><code>bash</code>
 
       <input class="input-flag" type="text" name="flag-4" id="flag-4"><button type="button" id="button-4">Check Flag</button>
@@ -59,12 +59,31 @@ const encryptedData = [
   "UfIUZNO3CyOR/iL16pn037q3UTntahvEjNtSCq26HtOhX3cVAkkLjj+DcMHOShK7uQ==", // guesssgod challenge
 ]
 
+// Check for already solved challenges
 for (let [i, enc] of encryptedData.entries()) {
   i += 1; // index starts from 1
 
-  document.body.querySelector(`#button-${i}`).addEventListener('click', async () => {
-    const secret = document.body.querySelector(`#flag-${i}`).value;
+  const secret = localStorage.getItem(`chall-${i}`);
+  if (secret == null || secret == "") {
+    continue;
+  }
+
+  if (await window.checkFlag(enc, secret)) {
+    document.body.querySelector(`#chall-${i}`)?.classList.add("solved");
+  } else {
+    localStorage.removeItem(`chall-${i}`);
+  }
+}
+
+for (let [i, enc] of encryptedData.entries()) {
+  i += 1; // index starts from 1
+
+  document.body.querySelector(`#button-${i}`)?.addEventListener('click', async () => {
+    const secret = document.body.querySelector(`#flag-${i}`)?.value;
     if (await window.checkFlag(enc, secret)) {
+      document.body.querySelector(`#chall-${i}`)?.classList.add("solved");
+      localStorage.setItem(`chall-${i}`, secret);
+
       window.showToast('Correct!', 'info');
     } else {
       window.showToast('Wrong!', 'warning');

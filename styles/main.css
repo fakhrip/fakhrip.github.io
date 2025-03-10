@@ -100,6 +100,14 @@ body:has(:is(a.about-link:hover, a.about-link:active)) no-aboutlink {
   width: calc(100% - 300px);
 }
 
+.challenge.solved {
+  color: green !important;
+}
+
+.challenge.solved > a {
+  color: green !important;
+}
+
 .toast {
   position: fixed;
   bottom: 30px;
