@@ -96,6 +96,10 @@ body:has(:is(a.about-link:hover, a.about-link:active)) no-aboutlink {
   color: yellow;
 }
 
+.input-flag {
+  width: calc(100% - 300px);
+}
+
 .toast {
   position: fixed;
   bottom: 30px;
